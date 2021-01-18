@@ -1,4 +1,5 @@
 import './Register.css';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 function Register() {
   return(
@@ -9,7 +10,7 @@ function Register() {
 				<h1>Spot-i-hunt</h1>
 			</span>
 			<span>
-				<p style={{margin-bottom: 1.5rem}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
+				<p style={{marginBottom: 1.5rem}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 				<p>You can register your team here. If you've already registered, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>
 			<span>
@@ -25,7 +26,7 @@ function Register() {
 					<div className="form__split">
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
-							<span className="info">Info: Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
+							<span className="info"><InfoOutlinedIcon/> Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
 							<input id="teamname" />
 						</div>
 						<div className="input__field">
@@ -35,7 +36,7 @@ function Register() {
 						<div className="input__field">
 							<label for="email1">Your Email Address</label>
 							<input id="email1" type="email"/>
-							<span className="info bottom">Note: Your team members will be able login to the contest only using this email or the team name itself.</span>
+							<span className="info bottom"><InfoOutlinedIcon/> Your team members will be able login to the contest only using this email or the team name itself.</span>
 						</div>
 						<div className="input__field">
 							<label for="password">Pick a Password</label>
