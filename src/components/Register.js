@@ -48,7 +48,7 @@ function Register() {
 						</div>
 					</div>
 					<div className="form__split">
-						<div className="input__field" style="margin-bottom: 1rem;">
+						<div className="input__field" style={{marginBottom: "1rem"}}>
 							<label for="teamname"><h3>Add Members to Your Team</h3></label>
 							<span className="info">Your team can consist of utmost three participants (including you). </span>
 						</div>
