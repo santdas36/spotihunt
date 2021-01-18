@@ -18,6 +18,10 @@ function Register() {
 	const [password, setPassword] = useState('');
 	const [contact, setContact] = useState('');
 	
+	const handleSubmit = () => {
+		alert('Done')
+	}
+	
   return(
   <div className="register">
     <ReactPlayer
@@ -47,7 +51,7 @@ function Register() {
 			</span>
 		</div>
 		<div className="register__right">
-			<form>
+			<form onSubmit={handleSubmit}>
 				<h2>Register Your Team</h2>
 				<div className="form__inner">
 					<div className="form__split">
