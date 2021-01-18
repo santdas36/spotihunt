@@ -22,7 +22,8 @@ function Register() {
 	<div className="register__inner">
 		<div className="register__left">
 			<span style={{marginBottom: "5rem"}}>
-				<span className="ck_logo"><img src={CKLogo} /> presents,</span>
+				<img src={CKLogo} className="ck_logo" />
+				Christ.Keng presents,
 				<h1>Spot-i-hunt</h1>
 			</span>
 			<span style={{marginBottom: "5rem"}}>

@@ -25,12 +25,9 @@ display: flex;
 align-items: center;
 }
 .ck_logo {
-display: flex;
-align-items: flex-end;
-}
-.ck_logo img {
 height: 2rem;
 width: auto;
+margin-bottom: 0.5rem;
 }
 .register .register__right {
 margin: 3rem 3rem 3rem 0;
