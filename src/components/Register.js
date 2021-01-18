@@ -1,10 +1,11 @@
 import './Register.css';
-import ReactPlayer from 'react-player'
+import ReactPlayer from 'react-player';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 function Register() {
   return(
-	<div className="register">
+  <div className="register">
+	<div className="register__inner">
 		<div className="register__left">
 			<span>
 				christ keng. presents,
@@ -81,7 +82,8 @@ function Register() {
 			</form>
 		</div>
 	</div>
-  );
+	</div>
+	);
 }
 
 export default Register;
