@@ -3,6 +3,7 @@ import {useState} from 'react';
 import ReactPlayer from 'react-player';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 import CKLogo from '../assets/ck_logo.png';
+import {db, auth} from '../firebase';
 function Register() {
 	
 	const [mem1,setMem1] = useState(false);
@@ -19,7 +20,23 @@ function Register() {
 	const [contact, setContact] = useState('');
 	
 	const handleSubmit = () => {
-		alert('Done')
+		auth.createUserWithEmailAndPassword(email1, password).then(() => {
+      		auth.currentUser.updateProfile({
+              		displayName: teamname,
+              		photoURL: `https://avatars.dicebear.com/4.5/api/gridy/${teamname}.svg`,
+            	}).then(() => {
+            		db.collection('users').doc(auth.currentUser.uid).set({
+            			teamname: teamname,
+            			name1: name1,
+            			email1: email1,
+            			name2: name2,
+            			email2: email2,
+            			name3: name3,
+            			email3: email3,
+            			contact: contact
+            		})
+            	})
+          }).catch((error) => console.log(error))
 	}
 	
   return(
@@ -36,8 +53,11 @@ function Register() {
 	<div className="register__inner">
 		<div className="register__left">
 			<span style={{marginBottom: "5rem"}}>
-				<img src={CKLogo} className="ck_logo" />
-				Christ.Keng presents,
+				<span className="ck_logo">
+					<img src={CKLogo} />
+					<span>Christ.Keng<br>
+					presents,</span>
+				</span>
 				<h1>Spot-i-hunt</h1>
 			</span>
 			<span style={{marginBottom: "5rem"}}>
