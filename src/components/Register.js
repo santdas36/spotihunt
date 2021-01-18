@@ -68,7 +68,7 @@ function Register() {
 							<label for="teamname"><h3>Add Members to Your Team</h3></label>
 							<span className="info">Your team can consist of utmost three participants (including you). </span>
 						</div>
-						<div onClick={()=>setMem1(true)} className={`member ${mem1 ? 'active' ? ''}`} data-text="Add a 2nd participant">
+						<div onClick={()=>setMem1(true)} className={`member ${mem1 ? 'active' : ''}`} data-text="Add a 2nd participant">
 							<h3>Participant #2</h3>
 								<div className="input__field">
 									<label for="name2">Name</label>
@@ -79,7 +79,7 @@ function Register() {
 									<input id="email2" type="email" placeholder="janedoe@gmail.com"/>
 								</div>
 							</div>
-							<div onClick={()=>setMem2(true)} className={`member ${mem2 ? 'active' ? ''}`} data-text="Add a 3rd participant">
+							<div onClick={()=>setMem2(true)} className={`member ${mem2 ? 'active' : ''}`} data-text="Add a 3rd participant">
 								<h3>Participant #3</h3>
 								<div className="input__field">
 									<label for="name3">Name</label>
