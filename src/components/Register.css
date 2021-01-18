@@ -2,15 +2,20 @@
 width: 100%;
 height: 100%;
 overflow: scroll;
-position: relative;
+z-index: 2;
 }
 .register__background {
 width: 100vw;
 height: 100vh;
-position: absolute;
+position: fixed;
 top: 0;
 left: 0;
-z-index: 1;
+z-index: -1;
+}
+.register__background video {
+object-fit: cover;
+width: 100%;
+height: 100%;
 }
 .register__inner {
 max-width: 1280px;

@@ -8,12 +8,9 @@ function Register() {
     <ReactPlayer
       className='register__background'
       url='https://github.com/santdas36/spot-i-hunt/raw/main/registration_background.mp4'
-      width='100%'
-      height='100%'
-      playing={true}
-      muted={true}
-      volume={0}
-      loop={true}
+      playing
+      muted
+      loop
       />
 	<div className="register__inner">
 		<div className="register__left">
