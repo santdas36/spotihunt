@@ -1,0 +1,102 @@
+.register {
+max-width: 1280px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+}
+.register .register__right {
+margin: 3rem 3rem 3rem 0;
+padding: 3rem;
+box-shadow: 0 1rem 1rem var(--black-15);
+backdrop-filter: blur(10px);
+bottom: var(--footer);
+border-radius: 0.5rem;
+background: var(--white-15);
+flex: 0 0 60%;
+}
+.register .register__left {
+flex: 40%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-self: stretch;
+padding: 3rem;
+}
+.input__field {
+display: flex;
+flex-direction: column;
+margin-bottom: 2rem;
+}
+.input__field label {
+margin-bottom: 0.5rem;
+font-weight: 600;
+}
+.input__field .info {
+display: block;
+font-size: 1rem;
+opacity: 0.75;
+margin-bottom: 0.75rem;
+}
+.input__field .info.bottom {
+margin-top: 0.75rem;
+margin-bottom: 0;
+}
+.register form h2 {
+margin-bottom: 2rem;
+color: var(--green);
+}
+
+.register .form__inner {
+display: flex;
+gap: 3rem;
+}
+.register button {
+padding: 0.75rem 2rem;
+margin-top: 3rem;
+margin-left: 25%;
+width: 50%;
+}
+
+
+.member {
+padding: 1.5rem 1.5rem 0 1.5rem;
+border-radius: 0.5rem;
+border: 2px dashed var(--white-15);
+margin-bottom: 1.5rem;
+position: relative;
+overflow: hidden;
+max-height: 6rem;
+height: auto;
+transition: all 0.2s;
+}
+.member.active {
+max-height: 20rem;
+}
+.member * {
+opacity: 0;
+transition: all 0.2s;
+pointer-events: none;
+}
+.member::before {
+position: absolute;
+width: 100%;
+height: 100%;
+content: attr(data-text);
+background: var(--black-15);
+left: 0;
+top: 0;
+display: grid;
+place-items: center;
+transition: all 0.2s;
+}
+.member.active * {
+opacity: 1;
+pointer-events: auto;
+}
+.member.active::before {
+opacity: 0;
+pointer-events: none;
+}
+.member h3 {
+margin-bottom: 1.5rem;
+}
