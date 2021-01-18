@@ -5,6 +5,14 @@ import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 function Register() {
   return(
   <div className="register">
+    <ReactPlayer
+      className='register__background'
+      url='https://github.com/santdas36/spot-i-hunt/blob/main/registration_background.mp4'
+      width='100%'
+      height='100%'
+      playing
+      loop
+      />
 	<div className="register__inner">
 		<div className="register__left">
 			<span>
