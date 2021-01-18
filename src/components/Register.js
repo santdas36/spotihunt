@@ -19,7 +19,8 @@ function Register() {
 	const [password, setPassword] = useState('');
 	const [contact, setContact] = useState('');
 	
-	const handleSubmit = () => {
+	const handleSubmit = (e) => {
+		e.preventDefault();
 		auth.createUserWithEmailAndPassword(email1, password).then(() => {
       		auth.currentUser.updateProfile({
               		displayName: teamname,
@@ -35,7 +36,7 @@ function Register() {
             			email3: email3,
             			contact: contact
             		})
-            	})
+            	}).then(() => alert('Done'));
           }).catch((error) => console.log(error))
 	}
 	
@@ -71,7 +72,7 @@ function Register() {
 			</span>
 		</div>
 		<div className="register__right">
-			<form onSubmit={handleSubmit}>
+			<form onSubmit={(e) => handleSubmit(e)}>
 				<h2>Register Your Team</h2>
 				<div className="form__inner">
 					<div className="form__split">
