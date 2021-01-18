@@ -24,6 +24,14 @@ margin: 0 auto;
 display: flex;
 align-items: center;
 }
+.ck_logo {
+display: flex;
+align-items: flex-end;
+}
+.ck_logo img {
+height: 2rem;
+width: auto;
+}
 .register .register__right {
 margin: 3rem 3rem 3rem 0;
 padding: 3rem;

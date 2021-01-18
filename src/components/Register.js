@@ -2,7 +2,7 @@ import './Register.css';
 import {useState} from 'react';
 import ReactPlayer from 'react-player';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-
+import CKLogo from './assets/ck_logo.png';
 function Register() {
 	
 	const [mem1,setMem1] = useState(false);
@@ -22,7 +22,7 @@ function Register() {
 	<div className="register__inner">
 		<div className="register__left">
 			<span style={{marginBottom: "5rem"}}>
-				christ keng. presents,
+				<span className="ck_logo"><img src={CKLogo} /> presents,</span>
 				<h1>Spot-i-hunt</h1>
 			</span>
 			<span style={{marginBottom: "5rem"}}>
