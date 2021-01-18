@@ -1,5 +1,6 @@
 .register {
 max-width: 1280px;
+width: 100%;
 margin: 0 auto;
 display: flex;
 align-items: center;
@@ -12,6 +13,7 @@ backdrop-filter: blur(10px);
 bottom: var(--footer);
 border-radius: 0.5rem;
 background: var(--white-15);
+overflow: scroll;
 flex: 0 0 60%;
 }
 .register .register__left {
@@ -68,6 +70,7 @@ overflow: hidden;
 max-height: 6rem;
 height: auto;
 transition: all 0.2s;
+max-width: 23rem;
 }
 .member.active {
 max-height: 20rem;
