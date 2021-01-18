@@ -2,7 +2,7 @@ import './Register.css';
 import {useState} from 'react';
 import ReactPlayer from 'react-player';
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
-import CKLogo from './assets/ck_logo.png';
+import CKLogo from '../assets/ck_logo.png';
 function Register() {
 	
 	const [mem1,setMem1] = useState(false);
