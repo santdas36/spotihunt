@@ -38,24 +38,24 @@ function Register() {
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
 							<span className="info"><InfoOutlinedIcon style={{fontSize: 16}}/> Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
-							<input id="teamname" />
+							<input id="teamname" placeholder="eg: spotihunters" />
 						</div>
 						<div className="input__field">
 							<label for="name1">Your Name</label>
-							<input id="name1" />
+							<input id="name1" placeholder="John Doe" />
 						</div>
 						<div className="input__field">
 							<label for="email1">Your Email Address</label>
-							<input id="email1" type="email"/>
+							<input id="email1" type="email" placeholder="johndoe@gmail.com"/>
 							<span className="info bottom"><InfoOutlinedIcon style={{fontSize: 16}}/> Your team members will be able login to the contest only using this email or the team name itself.</span>
 						</div>
 						<div className="input__field">
 							<label for="password">Pick a Password</label>
-							<input id="password" type="password"/>
+							<input id="password" type="password" placeholder="••••••••"/>
 						</div>
 						<div className="input__field">
 							<label for="contact">Contact Number</label>
-							<input id="contact" type="tel"/>
+							<input id="contact" type="tel" placeholder="+91 99999 99999"/>
 						</div>
 					</div>
 					<div className="form__split">
@@ -67,22 +67,22 @@ function Register() {
 							<h3>Participant #2</h3>
 								<div className="input__field">
 									<label for="name2">Name</label>
-									<input id="name2" type="text"/>
+									<input id="name2" type="text" placeholder="Jane Doe"/>
 								</div>
 								<div className="input__field">
 									<label for="email2">Email Address</label>
-									<input id="email2" type="email"/>
+									<input id="email2" type="email" placeholder="janedoe@gmail.com"/>
 								</div>
 							</div>
 							<div className="member" data-text="Add a 3rd participant">
 								<h3>Participant #3</h3>
 								<div className="input__field">
 									<label for="name3">Name</label>
-									<input id="name3" type="text"/>
+									<input id="name3" type="text" placeholder="Julien Doe"/>
 								</div>
 							<div className="input__field">
 									<label for="email3">Email Address</label>
-									<input id="email3" type="email"/>
+									<input id="email3" type="email" placeholder="juliendoe@gmail.com"/>
 							</div>
 						</div>
 					</div>
