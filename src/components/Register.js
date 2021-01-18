@@ -43,24 +43,24 @@ function Register() {
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
 							<span className="info"><InfoOutlinedIcon style={{fontSize: 16}}/> Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
-							<input id="teamname" placeholder="eg: spotihunters" />
+							<input id="teamname" placeholder="eg: spotihunters" required minlength="3"/>
 						</div>
 						<div className="input__field">
 							<label for="name1">Your Name</label>
-							<input id="name1" placeholder="John Doe" />
+							<input id="name1" placeholder="John Doe" required />
 						</div>
 						<div className="input__field">
 							<label for="email1">Your Email Address</label>
-							<input id="email1" type="email" placeholder="johndoe@gmail.com"/>
+							<input id="email1" type="email" placeholder="johndoe@gmail.com" required/>
 							<span className="info bottom"><InfoOutlinedIcon style={{fontSize: 16}}/> Your team members will be able login to the contest only using this email or the team name itself.</span>
 						</div>
 						<div className="input__field">
 							<label for="password">Pick a Password</label>
-							<input id="password" type="password" placeholder="••••••••"/>
+							<input id="password" type="password" placeholder="••••••••" required minlength="8"/>
 						</div>
 						<div className="input__field">
 							<label for="contact">Contact Number</label>
-							<input id="contact" type="tel" placeholder="+91 99999 99999"/>
+							<input id="contact" type="tel" placeholder="+91 99999 99999" minlength="10" reauired/>
 						</div>
 					</div>
 					<div className="form__split">
@@ -72,22 +72,22 @@ function Register() {
 							<h3>Participant #2</h3>
 								<div className="input__field">
 									<label for="name2">Name</label>
-									<input id="name2" type="text" placeholder="Jane Doe"/>
+									<input id="name2" type="text" placeholder="Jane Doe" required={mem1}/>
 								</div>
 								<div className="input__field">
 									<label for="email2">Email Address</label>
-									<input id="email2" type="email" placeholder="janedoe@gmail.com"/>
+									<input id="email2" type="email" placeholder="janedoe@gmail.com" required={mem1}/>
 								</div>
 							</div>
 							<div onClick={()=>setMem2(true)} className={`member ${mem2 ? 'active' : ''}`} data-text="Add a 3rd participant">
 								<h3>Participant #3</h3>
 								<div className="input__field">
 									<label for="name3">Name</label>
-									<input id="name3" type="text" placeholder="Julien Doe"/>
+									<input id="name3" type="text" placeholder="Julien Doe" required={mem2}/>
 								</div>
 							<div className="input__field">
 									<label for="email3">Email Address</label>
-									<input id="email3" type="email" placeholder="juliendoe@gmail.com"/>
+									<input id="email3" type="email" placeholder="juliendoe@gmail.com" required={mem2}/>
 							</div>
 						</div>
 					</div>
