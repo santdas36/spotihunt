@@ -10,8 +10,10 @@ function Register() {
       url='https://github.com/santdas36/spot-i-hunt/blob/main/registration_background.mp4'
       width='100%'
       height='100%'
-      playing
-      loop
+      playing={true}
+      muted={true}
+      volume={0}
+      loop={true}
       />
 	<div className="register__inner">
 		<div className="register__left">
