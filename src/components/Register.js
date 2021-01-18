@@ -27,7 +27,7 @@ function Register() {
 					<div className="form__split">
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
-							<span className="info"><InfoOutlinedIcon fontSize={16}/> Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
+							<span className="info"><InfoOutlinedIcon style={{fontSize: 16}}/> Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
 							<input id="teamname" />
 						</div>
 						<div className="input__field">
@@ -37,7 +37,7 @@ function Register() {
 						<div className="input__field">
 							<label for="email1">Your Email Address</label>
 							<input id="email1" type="email"/>
-							<span className="info bottom"><InfoOutlinedIcon fontSize={16}/> Your team members will be able login to the contest only using this email or the team name itself.</span>
+							<span className="info bottom"><InfoOutlinedIcon style={{fontSize: 16}}/> Your team members will be able login to the contest only using this email or the team name itself.</span>
 						</div>
 						<div className="input__field">
 							<label for="password">Pick a Password</label>
