@@ -16,11 +16,11 @@ function Register() {
       />
 	<div className="register__inner">
 		<div className="register__left">
-			<span>
+			<span style={{marginBottom: "5rem"}}>
 				christ keng. presents,
 				<h1>Spot-i-hunt</h1>
 			</span>
-			<span>
+			<span style={{marginBottom: "5rem"}}>
 				<p style={{marginBottom: "1.5rem"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 				<p>You can register your team here. If you've already registered, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>

@@ -39,7 +39,7 @@ flex: 40%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-align-self: stretch;
+align-self: flex-start;
 padding: 3rem;
 }
 .input__field {
