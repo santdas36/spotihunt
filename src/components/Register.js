@@ -7,7 +7,7 @@ function Register() {
   <div className="register">
     <ReactPlayer
       className='register__background'
-      url='https://github.com/santdas36/spot-i-hunt/blob/main/registration_background.mp4'
+      url='https://github.com/santdas36/spot-i-hunt/raw/main/registration_background.mp4'
       width='100%'
       height='100%'
       playing={true}
