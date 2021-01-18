@@ -55,7 +55,7 @@ function Register() {
 			<span style={{marginBottom: "5rem"}}>
 				<span className="ck_logo">
 					<img src={CKLogo} />
-					<span>Christ.Keng<br>
+					<span>Christ.Keng<br/>
 					presents,</span>
 				</span>
 				<h1>Spot-i-hunt</h1>
