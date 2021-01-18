@@ -19,7 +19,6 @@ backdrop-filter: blur(10px);
 bottom: var(--footer);
 border-radius: 0.5rem;
 background: var(--white-15);
-overflow: scroll;
 flex: 0 0 60%;
 }
 .register .register__left {
