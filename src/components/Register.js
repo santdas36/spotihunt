@@ -114,7 +114,7 @@ function Register() {
 					<span>Christ.Keng<br/>
 					presents,</span>
 				</span>
-				<h1>Spot-i-hunt</h1>
+				<h1 style={{fontWeight: '900'}}>spot-i-hunt</h1>
 			</span>
 			<span style={{marginBottom: "5rem"}}>
 				<p style={{marginBottom: "1.5rem"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lbore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
@@ -135,7 +135,7 @@ function Register() {
 			{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
 			{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
 			</div>
-			<p>You can login using the email <strong>{user?.participantOne.email}</strong> or your team name <strong>{user?.teamname}</strong>, at the time of contest, which will be announced later.</p> 
+			<p>You can login using the email <u><strong>{user?.participantOne.email}</strong></u> or your team name </u><strong>{user?.teamname}</strong></u>, at the time of contest, which will be announced later.</p> 
 			</div>) : (
 			<div className="register__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
