@@ -43,8 +43,12 @@ transition: all 0.2s;
 }
 button:hover {
 box-shadow: 0 0.5rem 1.25rem -0.25rem var(--black-50);
-filter: brightness(95%);
+filter: brightness(90%);
 }
 button:focus {
 outline: none;
+}
+button:disabled {
+opacity: 0.75;
+filter: brightness(75%);
 }

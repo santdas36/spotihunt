@@ -11,7 +11,8 @@ function Register() {
 	const nameInput = useRef(null);
 	const [mem1,setMem1] = useState(false);
 	const [mem2, setMem2] = useState(false);
-     const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(false);
+	const [error, setError] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
 	const [teamname, setTeamname] = useState('');
@@ -43,6 +44,7 @@ function Register() {
 			alert('Team name already taken. Please choose another one.');
 			nameInput.current.focus();
 		} else {
+			setLoading(true);
 		auth.createUserWithEmailAndPassword(email1, password).then(() => {
       		auth.currentUser.updateProfile({
               		displayName: teamname,
@@ -67,8 +69,13 @@ function Register() {
             			},
             			contact: contact
             		})
-            	}).then(() => alert('Done'));
-          }).catch((error) => setError(error.message))
+            	}).then(() => {
+            		setLoading(false);
+            	});
+          }).catch((error) => {
+          	setLoading(false);
+          	setError(error.message);
+          	})
 		}
 	}
 	
@@ -166,7 +173,7 @@ function Register() {
 						</div>
 					</div>
 				</div>
-				<button type="submit">Create Team</button>
+				<button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Create Team'}</button>
 			</form>
 		</div>
 	</div>
