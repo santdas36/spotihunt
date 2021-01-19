@@ -4,7 +4,7 @@ import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
 import CKLogo from '../assets/ck_logo.png';
-import {db, auth} from '../firebase';
+import {db, auth, timestamp} from '../firebase';
 
 function Register() {
 	
@@ -57,6 +57,7 @@ function Register() {
             			});
             		db.collection('users').doc(auth.currentUser.uid).set({
             			teamname: teamname,
+            			time: timestamp,
             			participantOne: {
             				name: name1,
             				email: email1,
