@@ -86,7 +86,7 @@ function Register() {
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
 							<span className="info"><InfoOutlined style={{fontSize: 16}}/> Team name can contain only alphanumeric characterers, and no spaces are allowed. Be unique. Be creative.</span>
-							<input id="teamname" placeholder="eg: spotihunters" required minlength="3" value={teamname} onChange={(e) => setTeamname(e.target.value)} pattern="/^[a-z0-9]*$/g" />
+							<input id="teamname" placeholder="eg: spotihunters" required minlength="3" value={teamname} onChange={(e) => setTeamname(e.target.value)} pattern="^\S+$" />
 						</div>
 						<div className="input__field">
 							<label for="name1">Your Name</label>
