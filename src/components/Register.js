@@ -102,8 +102,8 @@ function Register() {
 							<input id="password" type={passwordVisible ? 'text' : 'password'} placeholder={passwordVisible ? 'password' : '••••••••'} required minlength="8" value={password} onChange={(e) => setPassword(e.target.value)}/>
 							{
 							passwordVisible ?
-							(<VisibilityOffOutlined className="input__icon" style={{fontSize: 18}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)} />) :
-							(<VisibilityOutlined className="input__icon" style={{fontSize: 18}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)}/>)
+							(<VisibilityOffOutlined className="input__icon" style={{fontSize: 20}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)} />) :
+							(<VisibilityOutlined className="input__icon" style={{fontSize: 20}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)}/>)
 							}
 						</div>
 						<div className="input__field">
