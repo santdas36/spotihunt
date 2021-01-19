@@ -1,13 +1,17 @@
 import './Register.css';
-import {useState} from 'react';
+import Modal from './Modal';
+import {useState, useRef} from 'react';
 import ReactPlayer from 'react-player';
 import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
 import CKLogo from '../assets/ck_logo.png';
 import {db, auth} from '../firebase';
+
 function Register() {
 	
+	const nameInput = useRef(null);
 	const [mem1,setMem1] = useState(false);
 	const [mem2, setMem2] = useState(false);
+     const [error, setError] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
 	const [teamname, setTeamname] = useState('');
@@ -26,6 +30,7 @@ function Register() {
 			if (data.exists) {
 				setValidTeamname(false);
 				alert('Team name already taken. Please choose another one.');
+				nameInput.current.focus();
 			} else {
 				setValidTeamname(true);
 			}
@@ -36,6 +41,7 @@ function Register() {
 		e.preventDefault();
 		if (!validTeamname) {
 			alert('Team name already taken. Please choose another one.');
+			nameInput.current.focus();
 		} else {
 		auth.createUserWithEmailAndPassword(email1, password).then(() => {
       		auth.currentUser.updateProfile({
@@ -62,12 +68,13 @@ function Register() {
             			contact: contact
             		})
             	}).then(() => alert('Done'));
-          }).catch((error) => console.log(error))
+          }).catch((error) => setError(error.message))
 		}
 	}
 	
   return(
   <div className="register">
+    {error && <Modal message={error} title="Error Occurred..." close={()=>setError(null)}/>}
     <ReactPlayer
       className='register__background'
       url='https://github.com/santdas36/spot-i-hunt/raw/main/registration_background.mp4'
@@ -105,7 +112,7 @@ function Register() {
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
 							<span className="info"><InfoOutlined style={{fontSize: 16}}/> Team name can contain only alphanumeric characterers, and no spaces are allowed. Be unique. Be creative.</span>
-							<input id="teamname" placeholder="eg: spotihunters" required minlength="6" value={teamname} onBlur={validateTeamname} onChange={(e) => setTeamname(e.target.value)} pattern="^\S+$" />
+							<input ref={nameInput} id="teamname" placeholder="eg: spotihunters" required minlength="6" value={teamname} onBlur={validateTeamname} onChange={(e) => setTeamname(e.target.value)} pattern="^\S+$" />
 						</div>
 						<div className="input__field">
 							<label for="name1">Your Name</label>
