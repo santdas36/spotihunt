@@ -12,6 +12,7 @@ function Register() {
 	const [mem1,setMem1] = useState(false);
 	const [mem2, setMem2] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [fadeIn, setFadeIn] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
 	const [error, setError] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
@@ -83,6 +84,7 @@ function Register() {
 	}
 	
 	useEffect(() => {
+		setFadeIn(true);
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				setLoggedIn(true);
@@ -95,7 +97,7 @@ function Register() {
 	}, []);
 	
   return(
-  <div className="register">
+  <div className={`register ${fadeIn ? 'fadeIn' : ''}`}>
     {error && <Modal message={error} title="Error Occurred..." close={()=>setError(null)}/>}
     <ReactPlayer
       className='register__background'

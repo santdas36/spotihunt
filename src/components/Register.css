@@ -3,6 +3,11 @@ width: 100%;
 height: 100%;
 overflow: scroll;
 z-index: 2;
+opacity: 0;
+}
+.register.fadeIn {
+opacity: 1;
+transition: opacity 1s;
 }
 .register__background {
 width: 100vw;
