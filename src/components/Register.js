@@ -29,7 +29,7 @@ function Register() {
 	const [user, setUser] = useState(null);
 	
 	const validateTeamname = () => {
-		db.collection('usernames').doc(teamname).get().then((data) => {
+		db.collection('users').doc(teamname).get().then((data) => {
 			if (data.exists) {
 				setValidTeamname(false);
 				alert('Team name already taken. Please choose another one.');
@@ -52,10 +52,7 @@ function Register() {
               		displayName: teamname,
               		photoURL: `https://avatars.dicebear.com/4.5/api/gridy/${teamname}.svg`,
             	}).then(() => {
-            		db.collection('usernames').doc(teamname).set({
-            			email: email1
-            			});
-            		db.collection('users').doc(auth.currentUser.uid).set({
+            		db.collection('users').doc(teamname).set({
             			teamname: teamname,
             			time: timestamp,
             			participantOne: {
