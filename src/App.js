@@ -7,7 +7,6 @@ import {useEffect, useState} from 'react';
 function App() {
 	const [loaded, setLoaded] = useState(false);
 	const [fadeOut, setFadeOut] = useState(false);
-	const [muted, setMuted] = useState(true);
 	
   return (
     <div className="app">
@@ -19,8 +18,7 @@ function App() {
       	width="100%"
       	height="100%"
       	playing
-      	muted={muted}
-      	onStart={()=>setMuted(false)}
+      	muted
       	onEnded={() => {
       		setFadeOut(true);
       		setTimeout(()=> setLoaded(true), 1000)}
