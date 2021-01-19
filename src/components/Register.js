@@ -1,6 +1,6 @@
 import './Register.css';
 import Modal from './Modal';
-import {useState, useRef} from 'react';
+import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
 import CKLogo from '../assets/ck_logo.png';
@@ -12,6 +12,7 @@ function Register() {
 	const [mem1,setMem1] = useState(false);
 	const [mem2, setMem2] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [loggedIn, setLoggedIn] = useState(false);
 	const [error, setError] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
@@ -79,6 +80,17 @@ function Register() {
 		}
 	}
 	
+	useEffect(() => {
+		auth.onAuthStateChanged((user) => {
+			if (user) {
+				setLoggedIn(true);
+				db.collection('users').doc(user.uid).get().then((data) => {
+					setTeamname(data.data().teamname);
+				})
+			}
+			});
+	}, []);
+	
   return(
   <div className="register">
     {error && <Modal message={error} title="Error Occurred..." close={()=>setError(null)}/>}
@@ -111,6 +123,10 @@ function Register() {
 				<p>+91 98765 432 01</p>
 			</span>
 		</div>
+		{loggedIn ? (
+		<div className="register__right">
+			<p>You are registered as {teamname.toUpperCase()}.</p>
+			</div>) : (
 		<div className="register__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
 				<h2>Register Your Team</h2>
@@ -175,7 +191,7 @@ function Register() {
 				</div>
 				<button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Create Team'}</button>
 			</form>
-		</div>
+		</div>)}
 	</div>
 	</div>
 	);
