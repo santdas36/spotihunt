@@ -135,7 +135,7 @@ function Register() {
 			{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
 			{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
 			</div>
-			<p>You can login using the email <u><strong>{user?.participantOne.email}</strong></u> or your team name </u><strong>{user?.teamname}</strong></u>, at the time of contest, which will be announced later.</p> 
+			<p>You can login using the email <u><strong>{user?.participantOne.email}</strong></u> or your team name <u><strong>{user?.teamname}</strong></u>, at the time of contest, which will be announced later.</p> 
 			</div>) : (
 			<div className="register__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
