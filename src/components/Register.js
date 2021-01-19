@@ -85,8 +85,8 @@ function Register() {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				setLoggedIn(true);
-				db.collection('users').doc(user.uid).get().then((data) => {
-					setUser(data.data());
+				db.collection('users').doc(user.uid).onSnapshot((snapshot) => {
+					setUser(snapshot.data());
 				})
 			}
 			});
@@ -129,8 +129,8 @@ function Register() {
 			<h3 style={{marginBottom: '3rem'}}>Your team {user?.teamname.toUpperCase()} is successfully registered.</h3>
 			<p style={{marginBottom: '1rem'}}>Participants</p>
 			<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
-			{user?.participantTwo && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
-			{user?.participantThree && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
+			{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
+			{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
 			</div>) : (
 			<div className="register__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
