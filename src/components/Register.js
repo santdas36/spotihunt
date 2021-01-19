@@ -11,6 +11,7 @@ function Register() {
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
 	const [teamname, setTeamname] = useState('');
+	const [validTeamname, setValidTeamname] = useState(false);
 	const [name1, setName1] = useState('');
 	const [email1, setEmail1] = useState('');
 	const [name2, setName2] = useState('');
@@ -20,13 +21,30 @@ function Register() {
 	const [password, setPassword] = useState('');
 	const [contact, setContact] = useState('');
 	
+	const validateTeamname = () => {
+		db.collection('usernames').doc(teamname).get().then((data) => {
+			if (data.exists) {
+				setValidTeamname(false);
+				alert('Team name already taken. Please choose another one.');
+			} else {
+				setValidTeamname(true);
+			}
+		});
+	}
+	
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		if (!validTeamname) {
+			alert('Team name already taken. Please choose another one.');
+		} else {
 		auth.createUserWithEmailAndPassword(email1, password).then(() => {
       		auth.currentUser.updateProfile({
               		displayName: teamname,
               		photoURL: `https://avatars.dicebear.com/4.5/api/gridy/${teamname}.svg`,
             	}).then(() => {
+            		db.collection('usernames').doc(teamname).set({
+            			email: email1
+            			});
             		db.collection('users').doc(auth.currentUser.uid).set({
             			teamname: teamname,
             			participantOne: {
@@ -45,6 +63,7 @@ function Register() {
             		})
             	}).then(() => alert('Done'));
           }).catch((error) => console.log(error))
+		}
 	}
 	
   return(
@@ -86,7 +105,7 @@ function Register() {
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
 							<span className="info"><InfoOutlined style={{fontSize: 16}}/> Team name can contain only alphanumeric characterers, and no spaces are allowed. Be unique. Be creative.</span>
-							<input id="teamname" placeholder="eg: spotihunters" required minlength="3" value={teamname} onChange={(e) => setTeamname(e.target.value)} pattern="^\S+$" />
+							<input id="teamname" placeholder="eg: spotihunters" required minlength="6" value={teamname} onBlur={validateTeamname} onChange={(e) => setTeamname(e.target.value)} pattern="^\S+$" />
 						</div>
 						<div className="input__field">
 							<label for="name1">Your Name</label>
