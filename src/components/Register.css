@@ -27,6 +27,7 @@ align-items: center;
 .ck_logo {
 display: flex;
 align-items: center;
+margin-bottom: 0.5rem;
 }
 .ck_logo span {
 line-height: 1.2;
@@ -35,7 +36,7 @@ margin: 0;
 padding: 0;
 }
 .ck_logo img {
-height: 2rem;
+height: 2.25rem;
 width: auto;
 margin-right: 0.5rem;
 }
