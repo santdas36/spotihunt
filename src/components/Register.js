@@ -26,6 +26,7 @@ function Register() {
 	const [email3, setEmail3] = useState('');
 	const [password, setPassword] = useState('');
 	const [contact, setContact] = useState('');
+	const [user, setUser] = useState(null);
 	
 	const validateTeamname = () => {
 		db.collection('usernames').doc(teamname).get().then((data) => {
@@ -85,7 +86,7 @@ function Register() {
 			if (user) {
 				setLoggedIn(true);
 				db.collection('users').doc(user.uid).get().then((data) => {
-					setTeamname(data.data().teamname);
+					setUser(data.data());
 				})
 			}
 			});
@@ -125,7 +126,11 @@ function Register() {
 		</div>
 		{loggedIn ? (
 		<div className="register__right">
-			<p>You are registered as {teamname.toUpperCase()}.</p>
+			<h3 style={{marginBottom: '3rem'}}>Your team {user.teamname.toUpperCase()} is successfully registered.</h3>
+			<p style={{marginBottom: '1rem'}}>Participants</p>
+			<p>1) {user.participantOne.name} - {user.participantOne.email}</p>
+			<p>2) {user.participantTow.name} - {user.participantTwo.email}</p>
+			<p>3) {user.participantThree.name} - {user.participantThree.email}</p>
 			</div>) : (
 		<div className="register__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
