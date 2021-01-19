@@ -1,13 +1,14 @@
 import './Register.css';
 import {useState} from 'react';
 import ReactPlayer from 'react-player';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
 import CKLogo from '../assets/ck_logo.png';
 import {db, auth} from '../firebase';
 function Register() {
 	
 	const [mem1,setMem1] = useState(false);
 	const [mem2, setMem2] = useState(false);
+	const [passwordVisible, setPasswordVisible] = useState(false);
 	
 	const [teamname, setTeamname] = useState('');
 	const [name1, setName1] = useState('');
@@ -28,12 +29,18 @@ function Register() {
             	}).then(() => {
             		db.collection('users').doc(auth.currentUser.uid).set({
             			teamname: teamname,
-            			name1: name1,
-            			email1: email1,
-            			name2: name2,
-            			email2: email2,
-            			name3: name3,
-            			email3: email3,
+            			participantOne: {
+            				name: name1,
+            				email: email1,
+            			},
+            			participantTwo: {
+            				name: name2,
+            				email: email2,
+            			},
+            			participantThree: {
+            				name: name3,
+            				email: email3,
+            			},
             			contact: contact
             		})
             	}).then(() => alert('Done'));
@@ -78,8 +85,8 @@ function Register() {
 					<div className="form__split">
 						<div className="input__field">
 							<label for="teamname"><h3>Create a name for your team</h3></label>
-							<span className="info"><InfoOutlinedIcon style={{fontSize: 16}}/> Team name should only contain alphabets, with no spaces and numbers. Be unique. Be creative.</span>
-							<input id="teamname" placeholder="eg: spotihunters" required minlength="3" value={teamname} onChange={(e) => setTeamname(e.target.value)} />
+							<span className="info"><InfoOutlined style={{fontSize: 16}}/> Team name can contain only alphanumeric characterers, and no spaces are allowed. Be unique. Be creative.</span>
+							<input id="teamname" placeholder="eg: spotihunters" required minlength="3" value={teamname} onChange={(e) => setTeamname(e.target.value)} pattern="/^[a-z0-9]*$/g" />
 						</div>
 						<div className="input__field">
 							<label for="name1">Your Name</label>
@@ -88,11 +95,16 @@ function Register() {
 						<div className="input__field">
 							<label for="email1">Your Email Address</label>
 							<input id="email1" type="email" placeholder="johndoe@gmail.com" required value={email1} onChange={(e) => setEmail1(e.target.value)} />
-							<span className="info bottom"><InfoOutlinedIcon style={{fontSize: 16}}/> Your team members will be able login to the contest only using this email or the team name itself.</span>
+							<span className="info bottom"><InfoOutlined style={{fontSize: 16}}/> Your team members will be able login to the contest only using this email or the team name itself.</span>
 						</div>
-						<div className="input__field">
+						<div className="input__field password">
 							<label for="password">Pick a Password</label>
-							<input id="password" type="password" placeholder="••••••••" required minlength="8" value={password} onChange={(e) => setPassword(e.target.value)}/>
+							<input id="password" type={passwordVisible ? 'text' : 'password'} placeholder={passwordVisible ? 'password' : '••••••••'} required minlength="8" value={password} onChange={(e) => setPassword(e.target.value)}/>
+							{
+							passwordVisible ?
+							(<VisibilityOffOutlined className="input__icon" style={{fontSize: 16}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)} />) :
+							(<VisibilityOutlined className="input__icon" style={{fontSize: 16}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)}/>)
+							}
 						</div>
 						<div className="input__field">
 							<label for="contact">Contact Number</label>

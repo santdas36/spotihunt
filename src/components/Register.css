@@ -63,6 +63,14 @@ display: flex;
 flex-direction: column;
 margin-bottom: 2rem;
 }
+.input__field.password {
+position: relative;
+}
+.input__field .input__icon {
+position: absolute;
+bottom: 0.75rem;
+right: 0.25rem;
+}
 .input__field label {
 margin-bottom: 0.5rem;
 font-weight: 600;
