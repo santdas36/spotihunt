@@ -128,10 +128,13 @@ function Register() {
 		{loggedIn ? (
 		<div className="register__right">
 			<h3 style={{marginBottom: '3rem'}}>Your team {user?.teamname.toUpperCase()} is successfully registered.</h3>
-			<p style={{marginBottom: '1rem'}}>Participants</p>
+			<span style={{marginBottom: '3rem'}}> 
+			<p style={{marginBottom: '0.5rem'}}>Participants</p>
 			<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
 			{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
 			{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
+			</span>
+			<p>You can login using the email <strong>{user?.participantOne.email}</strong> or your team name <strong>{user?.teamname}</strong>, at the time of contest, which will be announced later.</p> 
 			</div>) : (
 			<div className="register__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
