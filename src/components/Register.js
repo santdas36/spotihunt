@@ -85,9 +85,10 @@ function Register() {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				setLoggedIn(true);
-				db.collection('users').doc(user.uid).onSnapshot((snapshot) => {
+				const unsubscribe = db.collection('users').doc(user.uid).onSnapshot((snapshot) => {
 					setUser(snapshot.data());
-				})
+				});
+				setTimeout(unsubscribe, 10000);
 			}
 			});
 	}, []);
