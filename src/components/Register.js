@@ -3,7 +3,8 @@ import Modal from './Modal';
 import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
-import CKLogo from '../assets/ck_logo.png';
+import CKLogo from '../assets/logo_ck.png';
+import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
 
 function Register() {
@@ -111,12 +112,8 @@ function Register() {
 	<div className="register__inner">
 		<div className="register__left">
 			<span style={{marginBottom: "5rem"}}>
-				<span className="ck_logo">
-					<img src={CKLogo} />
-					<span>Christ.Keng<br/>
-					presents,</span>
-				</span>
-				<h1 style={{fontWeight: '900'}}>spot-i-hunt</h1>
+				<img src={CKLogo} className="logo__ck" />
+				<img src={SHLogo} className="logo__sh" />
 			</span>
 			<span style={{marginBottom: "5rem"}}>
 				<p style={{marginBottom: "1.5rem"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lbore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>

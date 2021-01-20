@@ -29,21 +29,14 @@ margin: 0 auto;
 display: flex;
 align-items: center;
 }
-.ck_logo {
-display: flex;
-align-items: center;
-margin-bottom: 0.5rem;
-}
-.ck_logo span {
-line-height: 1.2;
-display: block;
-margin: 0;
-padding: 0;
-}
-.ck_logo img {
+.logo__ck {
 height: 2.25rem;
 width: auto;
-margin-right: 0.5rem;
+margin-bottom: 0.5rem;
+}
+.logo__sh {
+height: 3rem;
+width: auto;
 }
 .register .register__right {
 margin: 3rem 3rem 3rem 0;
