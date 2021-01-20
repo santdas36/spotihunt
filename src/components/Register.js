@@ -121,8 +121,8 @@ function Register() {
 			</span>
 			<span>
 				<h3>Contact</h3>
-				<p>someone@gmail.com</p>
-				<p>+91 98765 432 01</p>
+				<p><a href="mailto:christ.kengeri1@gmail.com">christ.kengeri1@gmail.com</a></p>
+				<p><a href="https://instagram.com/christ.keng">@christ.keng</a></p>
 			</span>
 		</div>
 		{loggedIn ? (

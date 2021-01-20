@@ -6,7 +6,16 @@ background: #000;
 color: var(--white);
 }
 
- input,  button {
+a {
+color: var(--white);
+text-decoration: none;
+transition: all 0.2s;
+}
+a:hover, a:focus {
+color: var(--green);
+text-decoration: underline;
+}
+input,  button {
 background: none;
 border: none;
 color: var(--white);

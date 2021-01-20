@@ -32,10 +32,12 @@ align-items: center;
 .logo__ck {
 height: 2.25rem;
 width: auto;
+margin-left: -0.15rem;
 }
 .logo__sh {
 height: 3rem;
 width: auto;
+margin-left: -0.25rem;
 }
 .register .register__right {
 margin: 3rem 3rem 3rem 0;
