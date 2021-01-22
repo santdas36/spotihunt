@@ -17,7 +17,7 @@ function Sidebar() {
     	</ul>
     	<p className="sidebar__info">New levels unlock on completion of current level.</p>
     	<div className="sidebar__hints">
-    		<h4>Feeling stuck!?</h4>
+    		<h3 style={{marginBottom: '1rem'}}>Feeling stuck!?</h3>
     		<p>You are given a total of only three hints for the entire contest. Use wisely.</p>
     		<div className="sidebar__hintsImg">
     			<img className="hintUsed" src={BulbOff} />

@@ -11,7 +11,7 @@ padding-bottom: var(--footer);
 }
 .sidebar__info {
 opacity: 0.25;
-padding: 2rem 0;
+padding: 1rem 0;
 position: relative;
 }
 .sidebar__info::before {
@@ -20,7 +20,7 @@ position: absolute;
 width: 100%;
 height: 1px;
 background: var(--white-50);
-top: -1rem;
+top: 0;
 left: 0;
 }
 .sidebar__levels {
@@ -78,9 +78,10 @@ padding-bottom: 2rem;
 .sidebar__hints p {
 opacity: 0.5;
 }
-sidebar__hintsImg {
+.sidebar__hintsImg {
 display: flex;
 align-items: center;
+margin-top: 1.5rem;
 }
 .sidebar__hintsImg img {
 flex: 1;
