@@ -1,3 +1,4 @@
+import './EventPage.css';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 import {useEffect, useState} from 'react';

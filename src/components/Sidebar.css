@@ -59,7 +59,8 @@ opacity: 1;
 transform: translateX(0);
 }
 .sidebar__logo {
-height: 3rem;
+height: 2.25rem;
+margin-left: -2px;
 width: auto;
 align-self: flex-start;
 }
