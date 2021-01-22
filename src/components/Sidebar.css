@@ -79,12 +79,10 @@ padding-bottom: 2rem;
 opacity: 0.5;
 }
 .sidebar__hintsImg {
-display: flex;
-align-items: center;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-column-gap: 0.5rem;
 margin-top: 1.5rem;
-}
-.sidebar__hintsImg img {
-flex: 1;
 }
 .sidebar__hintsImg img.hintUsed {
 opacity: 0.5;
