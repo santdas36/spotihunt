@@ -19,6 +19,9 @@ box-sizing: border-box;
 --white-50: rgba(255,255,255,0.5);
 --white-05: rgba(255,255,255,0.05);
 --footer: clamp(80px, 10vh, 100px);
+--gold: #ffd700;
+--silver: #bec2cb;
+--bronze: #a97142;
 }
 
 html {

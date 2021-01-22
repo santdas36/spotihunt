@@ -120,7 +120,7 @@ function Register() {
 				<p>You can register your team here. If you've already registered, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>
 			<span>
-				<h3>Contact</h3>
+				<h3 style={{marginBottom: "1rem"}>Contact</h3>
 				<p><a href="mailto:christ.kengeri1@gmail.com">christ.kengeri1@gmail.com</a></p>
 				<p><a href="https://instagram.com/christ.keng">@christ.keng</a></p>
 			</span>
