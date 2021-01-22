@@ -1,0 +1,64 @@
+.footer {
+position: fixed;
+height: var(--footer);
+background: var(--gray);
+width: 100vw;
+bottom: 0;
+left: 0;
+z-index: 10;
+box-shadow: 0 0 3rem var(--black-50);
+border-radius: 1rem 1rem 0 0;
+display: flex;
+align-items: center;
+padding: 1.5rem;
+}
+.footer svg {
+font-size: 1.25rem !important;
+}
+.footer__refresh {
+display: flex;
+align-items: center;
+background: var(--black-15);
+padding: 0.325rem 0.75rem;
+border-radius: 0.5rem;
+margin-right: 1rem;
+}
+.footer__refresh svg {
+margin-right: 0.5rem;
+}
+.footer__buttons button{
+background: none;
+color: var(--white);
+border: none;
+width: 2rem;
+height: 2rem;
+border-radius: 99px;
+display: grid;
+place-items: center;
+margin-left: 1rem;
+background: var(--black-15);
+transition: all 0.2s;
+}
+.footer__buttons button:hover{
+background: var(--green);
+transform: scale(1.15);
+}
+.footer__buttons button:focus{
+outline: none;
+}
+
+.footer__timer {
+display: flex;
+align-items: center;
+margin-left: 1rem;
+}
+.footer__clock {
+margin-left: 1rem;
+margin-right: 1rem;
+font-size: 0.85rem;
+}
+.footer__clock small {
+font-size: 0.66rem;
+font-weight: 700;
+opacity: 0.5;
+}

@@ -1,17 +1,18 @@
 import './App.css';
 import Register from './components/Register';
+import EventPage from './EventPage';
 import ReactPlayer from 'react-player';
 import {useEffect, useState} from 'react';
 
 
 function App() {
-	const [loaded, setLoaded] = useState(false);
+	const [loaded, setLoaded] = useState(true);
 	const [fadeOut, setFadeOut] = useState(false);
 	
   return (
     <div className="app">
       {loaded ? 
-      <Register/> :
+      <EventPage /> :
       <ReactPlayer
       	className={`intro__video ${fadeOut ? 'fadeOut' : ''}`}
       	url="https://github.com/santdas36/spot-i-hunt/raw/main/intro.mp4"
