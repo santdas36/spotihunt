@@ -26,6 +26,11 @@ margin-right: 1rem;
 .footer__refresh svg {
 margin-right: 0.5rem;
 }
+.footer__buttons {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
 .footer__buttons button{
 background: none;
 color: var(--white);
@@ -53,12 +58,19 @@ outline: none;
 .footer__timer {
 display: flex;
 align-items: center;
-margin-left: 1rem;
+margin: 0 1rem;
+}
+.footer .MuiLinearProgress-root {
+flex: 80%;
+background-color: var(--black-50) !important;
+}
+.footer .MuiLinearProgress-bar {
+background-color: var(--green) !important;
 }
 .footer__clock {
-margin-left: 1rem;
 margin-right: 1rem;
 font-size: 0.85rem;
+flex: 20%;
 }
 .footer__clock small {
 font-size: 0.66rem;
