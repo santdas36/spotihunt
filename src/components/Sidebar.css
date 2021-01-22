@@ -79,12 +79,15 @@ padding-bottom: 2rem;
 opacity: 0.5;
 }
 .sidebar__hintsImg {
-display: grid;
+display: flex;
 width: 100%;
-grid-template-columns: repeat(3, 1fr);
-grid-column-gap: 0.5rem;
-margin-top: 1.5rem;
+margin-top: 2rem;
+justify-content: space-between;
+align-items: center;
+}
+.sidebar__hintsImg img {
+flex: 33%;
 }
 .sidebar__hintsImg img.hintUsed {
-opacity: 0.5;
+opacity: 0.25;
 }
