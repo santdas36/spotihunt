@@ -86,7 +86,8 @@ justify-content: space-between;
 align-items: center;
 }
 .sidebar__hintsImg img {
-flex: 33%;
+width: 33%;
+height: auto;
 }
 .sidebar__hintsImg img.hintUsed {
 opacity: 0.25;
