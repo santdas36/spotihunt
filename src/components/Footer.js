@@ -9,7 +9,7 @@ function Footer() {
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
-				<LinearProgress variant="determinate" value={progress} />
+				<LinearProgress variant="determinate" value={parseInt((17.36/30)*100)} />
 				<span class="footer__clock">17:36<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">
