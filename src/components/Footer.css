@@ -22,6 +22,10 @@ background: var(--black-15);
 padding: 0.325rem 0.75rem;
 border-radius: 0.5rem;
 margin-right: 1rem;
+transition: all 0.2s;
+}
+.footer__refresh:hover {
+box-shadow: 0 0.15rem 0.25rem var(--black-50);
 }
 .footer__refresh svg {
 margin-right: 0.5rem;
