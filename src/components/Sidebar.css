@@ -1,6 +1,6 @@
 .sidebar {
 width: 30%;
-max-width: 300px;
+width: clamp(200px, 30%, 300px);
 background: var(--black);
 padding: 2rem 1.5rem;
 box-shadow: 0 0 3rem var(--black-50);
