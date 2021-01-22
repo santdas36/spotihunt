@@ -34,6 +34,7 @@ margin-right: 0.5rem;
 display: flex;
 align-items: center;
 gap: 1rem;
+margin-left: 1rem;
 }
 .footer__buttons button{
 background: none;
@@ -44,7 +45,6 @@ height: 2rem;
 border-radius: 99px;
 display: grid;
 place-items: center;
-margin-left: 1rem;
 background: var(--black-15);
 transition: all 0.2s;
 padding: 0;
@@ -64,6 +64,7 @@ outline: none;
 display: flex;
 align-items: center;
 margin: 0 1rem;
+flex: auto;
 }
 .footer .MuiLinearProgress-root {
 flex: 80%;
