@@ -80,6 +80,7 @@ opacity: 0.5;
 }
 .sidebar__hintsImg {
 display: grid;
+width: 100%;
 grid-template-columns: repeat(3, 1fr);
 grid-column-gap: 0.5rem;
 margin-top: 1.5rem;
