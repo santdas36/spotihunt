@@ -88,8 +88,19 @@ align-items: center;
 .sidebar__hintsImg img {
 width: 2.5rem;
 margin: 0 1rem;
-height: auto;
+height: 2.5rem;
 display: block;
+position: relative;
+}
+.sidebar__hintsImg img::before {
+position: absolute;
+width: 4rem;
+height: 4rem;
+content: '';
+background: var(--black-50);
+left: 0.25rem;
+top: -0.75rem;
+border-radius: 99px;
 }
 .sidebar__hintsImg img.hintUsed {
 opacity: 0.25;
