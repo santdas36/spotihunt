@@ -40,8 +40,8 @@ margin-left: 1rem;
 background: none;
 color: var(--white);
 border: none;
-width: 2rem;
-height: 2rem;
+width: 2.25rem;
+height: 2.25rem;
 border-radius: 99px;
 display: grid;
 place-items: center;
@@ -50,7 +50,7 @@ transition: all 0.2s;
 padding: 0;
 }
 .footer button svg {
-font-size: 1.5rem !important;
+font-size: 1.75rem !important;
 }
 .footer__buttons button:hover{
 background: var(--green);
@@ -67,16 +67,17 @@ margin: 0 1rem;
 flex: auto;
 }
 .footer .MuiLinearProgress-root {
-flex: 80%;
+flex: auto;
+border-radius: 99px;
+height: 6px;
 background-color: var(--black-50) !important;
 }
 .footer .MuiLinearProgress-bar {
 background-color: var(--green) !important;
 }
 .footer__clock {
-margin-right: 1rem;
+margin: 1rem;
 font-size: 0.85rem;
-flex: 20%;
 }
 .footer__clock small {
 font-size: 0.66rem;
