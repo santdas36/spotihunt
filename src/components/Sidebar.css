@@ -82,11 +82,13 @@ opacity: 0.5;
 display: flex;
 width: 100%;
 margin-top: 2rem;
-justify-content: space-between;
+justify-content: center;
 align-items: center;
 }
 .sidebar__hintsImg img {
-width: 33%;
+width: 30%;
+max-width: 4.5rem;
+margin: 0 0.75rem;
 height: auto;
 }
 .sidebar__hintsImg img.hintUsed {
