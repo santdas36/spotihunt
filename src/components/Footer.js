@@ -10,7 +10,7 @@ function Footer() {
 	const location = useLocation();
 	const [currentPath, setCurrentPath] = useState(location.pathname.split('/'));
 	const [nextAvailable, setNextAvailable] = useState(currentPath[4] < 5);
-	const [prevAvailable, setPrevAvailable] = useState(currentPath[4] > 5);
+	const [prevAvailable, setPrevAvailable] = useState(currentPath[4] > 1);
 	
 	useEffect(() => {
 		setCurrentPath(location.pathname.split('/'));
