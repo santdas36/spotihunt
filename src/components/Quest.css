@@ -31,4 +31,5 @@ margin-top: 1.5rem;
 .quest__answer input {
 margin-bottom: 1rem;
 max-width: auto;
+max-width: none;
 }

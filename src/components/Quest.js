@@ -20,7 +20,7 @@ function Quest({levelId, questId}) {
 			transition={pageAnim}
 		>
 			<div className="quest__box">
-				<p className="quest__question">{levelId}/{questId} Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>
+				<p className="quest__question">{levelId}{ }{questId} Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." />
 					<button>Submit Answer</button>
