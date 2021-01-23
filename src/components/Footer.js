@@ -33,7 +33,7 @@ function Footer() {
 	
 	return (
 		<div className="footer">
-			<div className="footer__refresh">
+			<div className="footer__refresh" onClick={()=>history.push('/l/1/q/2')}>
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
