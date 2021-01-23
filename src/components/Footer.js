@@ -17,7 +17,7 @@ function Footer() {
 		setPrevAvailable(parseInt(currentPath[4]) > 1);
 		setNextAvailable(parseInt(currentPath[4]) < 5);
 		console.log(setPrevAvailable,setNextAvailable,currentPath);
-	}, [location.pathname]);
+	}, [location.pathname, currentPath]);
 	
 	const nextQuest = () => {
 		if (currentPath.length === 5 && nextAvailable) {
