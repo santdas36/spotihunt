@@ -4,20 +4,14 @@ import { motion } from "framer-motion";
 
 function Quest({levelId, questId}) {
 	console.log(levelId, questId);
-	const pageAnim = {
-		initial: {y: "100%"},
-		in: {y: 0},
-		out: {y: "-100%"},
-		};
 	
 	return (
 		<motion.div
 			className="quest"
-			initial="initial"
-			animate="in"
-			exit="out"
+			initial={{y: "100%"}}
+			animate={{y: 0}}
+			exit={{y: "-100%"}}
 			variants={{type: "tween",duration: 0.5}}
-			transition={pageAnim}
 		>
 			<div className="quest__box">
 				<p className="quest__question">{levelId}{ }{questId} Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>

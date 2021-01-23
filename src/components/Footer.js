@@ -9,25 +9,25 @@ function Footer() {
 	const history = useHistory();
 	const location = useLocation();
 	const [currentPath, setCurrentPath] = useState(location.pathname.split('/'));
-	const [nextAvailable, setNextAvailable] = useState(currentPath[4] < 5);
-	const [prevAvailable, setPrevAvailable] = useState(currentPath[4] > 1);
+	const [nextAvailable, setNextAvailable] = useState(currentPath[3] < 5);
+	const [prevAvailable, setPrevAvailable] = useState(currentPath[3] > 1);
 	
 	useEffect(() => {
 		setCurrentPath(location.pathname.split('/'));
-		setPrevAvailable(parseInt(currentPath[4]) > 1);
-		setNextAvailable(parseInt(currentPath[4]) < 5);
+		setPrevAvailable(parseInt(currentPath[3]) > 1);
+		setNextAvailable(parseInt(currentPath[3]) < 5);
 		console.log(prevAvailable,nextAvailable,currentPath);
 	}, [location]);
 	
 	const nextQuest = () => {
-		if (currentPath.length === 5 && nextAvailable) {
-			history.push(`/l/${currentPath[2]}/q/${parseInt(currentPath[4])+1}`);
+		if (currentPath.length === 4 && nextAvailable) {
+			history.push(`/l/${currentPath[2]}/q/${parseInt(currentPath[3])+1}`);
 		}
 	}
 	
 	const prevQuest = () => {
-		if (currentPath.length === 5 && prevAvailable) {
-			history.push(`/l/${currentPath[2]}/q/${parseInt(currentPath[4])-1}`);
+		if (currentPath.length === 4 && prevAvailable) {
+			history.push(`/l/${currentPath[2]}/q/${parseInt(currentPath[3])-1}`);
 		}
 	}
 	
@@ -41,8 +41,8 @@ function Footer() {
 				<span class="footer__clock">17:36<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">
-				<button onClick={prevQuest}><SkipPreviousRounded/></button>
-				<button onClick={nextQuest}><SkipNextRounded/></button>
+				<button onClick={prevQuest} disabled={!prevAvailable}><SkipPreviousRounded/></button>
+				<button onClick={nextQuest} disabled={!nextAvailable}><SkipNextRounded/></button>
 			</div>
 		</div>
 	);
