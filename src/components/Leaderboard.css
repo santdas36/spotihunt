@@ -79,7 +79,7 @@ li.active .leaderboard__rank {
 color: var(--green);
 background: var(--white-05);
 }
-.leaderboard__teamname, .header__name {
+.leaderboard__teamname, .header__name p {
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
