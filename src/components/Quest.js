@@ -26,7 +26,7 @@ function Quest({levelId, questId}) {
 					<button>Submit Answer</button>
 				</span>
 			</div>
-		</div>
+		</motion.div>
 	);
 }
 
