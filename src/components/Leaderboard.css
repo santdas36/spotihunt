@@ -33,7 +33,7 @@ padding-bottom: 0.33rem;
 opacity: 0.5;
 font-weight: 700;
 }
-.header__icon img {
+.header__icon {
 width: 3rem;
 height: 3rem;
 padding: 0.5rem;
@@ -80,7 +80,7 @@ li.active .leaderboard__rank {
 color: var(--green);
 background: var(--white-05);
 }
-.leaderboard__teamname {
+.leaderboard__teamname, .header__name {
 white-space: nowrap;
 overflow: hidden;
 text-overflow: ellipsis;
