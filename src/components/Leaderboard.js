@@ -10,7 +10,7 @@ function Leaderboard() {
     	<h3>Leaderboard</h3>
     	<ul className="leaderboard__teams">
     		{
-    			arr.map((el,index)=> {
+    			arr.map((el,index)=> (
     				<li className={index===3 ? 'active' : ''}>
     					{index < 3 ?
     						(<TrophyIcon />) :
@@ -18,7 +18,7 @@ function Leaderboard() {
     					}
     					Team {index+1}<span className="leaderboard__score">12<small>/15</small></span>
     				</li>
-    			})
+    			))
     		}
     	</ul>
     </div>
