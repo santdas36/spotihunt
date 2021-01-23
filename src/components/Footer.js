@@ -13,13 +13,8 @@ function Footer() {
 	const [prevAvailable, setPrevAvailable] = useState(parseInt(currentPath[3]) > 1);
 	
 	useEffect(() => {
-		history.listen((location) => {
-			setCurrentPath(location.pathname.split('/'));
-			setPrevAvailable(parseInt(currentPath[3]) > 1);
-			setNextAvailable(parseInt(currentPath[3]) < 5);
-			console.log(prevAvailable,nextAvailable,currentPath);
-		});
-	}, [history]);
+		console.log(location.pathname);
+	}, [location]);
 	
 	const nextQuest = () => {
 		if (currentPath.length === 4 && nextAvailable) {
