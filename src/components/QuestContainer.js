@@ -8,7 +8,7 @@ function QuestContainer() {
 	console.log(location.pathname.split('/'));
 	return (
 		<div className="questContainer">
-			<AnimatePresence exitBeforeEnter>
+			<AnimatePresence>
 				<Switch location={location} key={location.pathname}>
 					<Route path="/lvl/:levelId/:questId">
             			<Quest />
