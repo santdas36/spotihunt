@@ -10,7 +10,7 @@ function QuestContainer() {
 			<AnimatePresence exitBeforeEnter>
 				<Switch location={location} key={location.pathname}>
 					<Route path="/l/:levelId/q/:questId">
-            			<Quest levelId={levelId} questId={questId} />
+            			<Quest />
             		</Route>
             	</Switch>
             </AnimatePresence>
