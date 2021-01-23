@@ -6,9 +6,10 @@ overflow: scroll;
 background: linear-gradient(to bottom, var(--black-50), var(--black-50)), url(https://picsum.photos/640/360);
 background-size: cover;
 }
-.quest__inner {
+.quest__box {
 position: absolute;
 max-width: 640px;
+width: 75%;
 padding: 1.5rem;
 background: var(--white-15);
 box-shadow: 0 1rem 1rem var(--black-15);
