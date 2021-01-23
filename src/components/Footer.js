@@ -8,16 +8,16 @@ function Footer() {
 	
 	const history = useHistory();
 	const location = useLocation();
-	const [currentPath, setCurrentPath] = useState([]);
-	const [nextAvailable, setNextAvailable] = useState(false);
-	const [prevAvailable, setPrevAvailable] = useState(false);
+	const [currentPath, setCurrentPath] = useState(location.pathname.split('/'));
+	const [nextAvailable, setNextAvailable] = useState(currentPath[4] < 5);
+	const [prevAvailable, setPrevAvailable] = useState(currentPath[4] > 5);
 	
 	useEffect(() => {
 		setCurrentPath(location.pathname.split('/'));
-		setPrevAvailable(parseInt(currentPath[4]) >= 2);
-		setNextAvailable(parseInt(currentPath[4]) <= 4);
+		setPrevAvailable(parseInt(currentPath[4]) > 1);
+		setNextAvailable(parseInt(currentPath[4]) < 5);
 		console.log(prevAvailable,nextAvailable,currentPath);
-	}, [location.pathname, currentPath]);
+	}, [location.pathname]);
 	
 	const nextQuest = () => {
 		if (currentPath.length === 5 && nextAvailable) {
