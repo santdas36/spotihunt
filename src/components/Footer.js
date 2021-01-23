@@ -21,19 +21,19 @@ function Footer() {
 	
 	const nextQuest = () => {
 		if (currentPath.length === 4 && nextAvailable) {
-			history.push(`/l/${currentPath[2]}/q/${parseInt(currentPath[3])+1}`);
+			history.push(`/lvl/${currentPath[2]}/${parseInt(currentPath[3])+1}`);
 		}
 	}
 	
 	const prevQuest = () => {
 		if (currentPath.length === 4 && prevAvailable) {
-			history.push(`/l/${currentPath[2]}/q/${parseInt(currentPath[3])-1}`);
+			history.push(`/lvl/${currentPath[2]}/${parseInt(currentPath[3])-1}`);
 		}
 	}
 	
 	return (
 		<div className="footer">
-			<div className="footer__refresh" onClick={()=>history.push('/l/1/q/2')}>
+			<div className="footer__refresh">
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
