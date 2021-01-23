@@ -3,7 +3,8 @@ import {useEffect, useState} from 'react';
 import TrophyIcon from '../assets/trophy.svg';
 
 function Leaderboard() {
-	const arr = new Array(20);
+	const arr = Array.from(Array(20)).map((e,i)=>i+1);
+	console.log(arr);
 	
   return (
     <div className="leaderboard">
