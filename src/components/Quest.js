@@ -3,11 +3,11 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 
 function Quest({levelId, questId}) {
-	
+	console.log(levelId, questId);
 	const pageAnim = {
-		initial: {y: "-1rem"},
+		initial: {y: "100%"},
 		in: {y: 0},
-		out: {y: "1rem"},
+		out: {y: "-100%"},
 		};
 	
 	return (
