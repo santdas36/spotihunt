@@ -5,6 +5,7 @@ import Quest from './Quest';
 
 function QuestContainer() {
 	const location = useLocation();
+	console.log(location);
 	return (
 		<div className="questContainer">
 			<AnimatePresence exitBeforeEnter>
