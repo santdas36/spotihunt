@@ -1,6 +1,6 @@
 import './Leaderboard.css';
 import {useEffect, useState} from 'react';
-import TrophyIcon from '../assets/trophy.svg';
+import {ReactComponent as TrophyIcon} from '../assets/trophy.svg';
 
 function Leaderboard() {
 	const arr = Array.from(Array(20)).map((e,i)=>i+1);
