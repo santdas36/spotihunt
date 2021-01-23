@@ -7,9 +7,10 @@ import {SkipNextRounded, SkipPreviousRounded, RefreshRounded} from '@material-ui
 function Footer() {
 	
 	const history = useHistory();
-	const [currentPath, setCurrentPath] = useState([]);
-	const [nextAvailable, setNextAvailable] = useState(false);
-	const [prevAvailable, setPrevAvailable] = useState(false);
+	const initialLocation = useLocation();
+	const [currentPath, setCurrentPath] = useState(initialLocation.pathname.split('/'));
+	const [nextAvailable, setNextAvailable] = useState(parseInt(currentPath[3]) < 5);
+	const [prevAvailable, setPrevAvailable] = useState(parseInt(currentPath[3]) > 1);
 	
 	useEffect(() => {
 		return history.listen((location) => {
