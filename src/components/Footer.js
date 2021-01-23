@@ -7,24 +7,18 @@ import {SkipNextRounded, SkipPreviousRounded, RefreshRounded} from '@material-ui
 function Footer() {
 	
 	const history = useHistory();
-	const location = useLocation();
 	const [currentPath, setCurrentPath] = useState([]);
 	const [nextAvailable, setNextAvailable] = useState(false);
 	const [prevAvailable, setPrevAvailable] = useState(false);
 	
 	useEffect(() => {
-		setCurrentPath(location.pathname.split('/'));
-		setPrevAvailable(parseInt(currentPath[3]) > 1);
-		setNextAvailable(parseInt(currentPath[3]) < 5);
-		console.log(prevAvailable,nextAvailable,currentPath);
-	}, []);
-	
-	useEffect(() => {
-		setCurrentPath(location.pathname.split('/'));
-		setPrevAvailable(parseInt(currentPath[3]) > 1);
-		setNextAvailable(parseInt(currentPath[3]) < 5);
-		console.log(prevAvailable,nextAvailable,currentPath);
-	}, [location.pathname]);
+		return history.listen((location) => {
+			setCurrentPath(location.pathname.split('/'));
+			setPrevAvailable(parseInt(currentPath[3]) > 1);
+			setNextAvailable(parseInt(currentPath[3]) < 5);
+			console.log(prevAvailable,nextAvailable,currentPath);
+		});
+	}, [history]);
 	
 	const nextQuest = () => {
 		if (currentPath.length === 4 && nextAvailable) {
