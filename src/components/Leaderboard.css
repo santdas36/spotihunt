@@ -1,7 +1,7 @@
 .leaderboard {
-width: 30%;
 margin-left: auto;
-width: clamp(200px, 25%, 300px);
+width: 25%;
+max-width: 280px;
 background: var(--black);
 padding: 2rem 1.5rem;
 box-shadow: 0 0 3rem var(--black-50);
