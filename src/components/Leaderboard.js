@@ -17,7 +17,8 @@ function Leaderboard() {
     						(<TrophyIcon />) :
     						(<span className="leaderboard__rank">{index+1}</span>)
     					}
-    					Team {index+1}<span className="leaderboard__score">12<small>/15</small></span>
+    					<span className="leaderboard__teamname">Team {index+1}</span>
+    					<span className="leaderboard__score">12<small>/15</small></span>
     				</li>
     			))
     		}

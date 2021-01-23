@@ -44,6 +44,12 @@ li.active .leaderboard__rank {
 color: var(--green);
 background: var(--white-05);
 }
+.leaderboard__teamname {
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+padding-right: 1rem;
+}
 .leaderboard__rank {
 position: absolute;
 display: block;
