@@ -13,7 +13,7 @@ function Footer() {
 	const [prevAvailable, setPrevAvailable] = useState(parseInt(currentPath[3]) > 1);
 	
 	useEffect(() => {
-		return history.listen((location) => {
+		history.listen((location) => {
 			setCurrentPath(location.pathname.split('/'));
 			setPrevAvailable(parseInt(currentPath[3]) > 1);
 			setNextAvailable(parseInt(currentPath[3]) < 5);
