@@ -8,10 +8,10 @@ function Quest() {
 	return (
 		<motion.div
 			className="quest"
-			initial={{y: "100%"}}
-			animate={{y: 0}}
-			exit={{y: "-100%"}}
-			variants={{type: "tween",duration: 0.5}}
+			initial={{y: "100%", opacity: 0}}
+			animate={{y: 0, opacity: 1}}
+			exit={{y: "-100%", opacity: 0}}
+			variants={{type: "inertia", velocity: 50, duration: 1}}
 		>
 			<div className="quest__box">
 				<p className="quest__question">{levelId}/{questId} Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>
