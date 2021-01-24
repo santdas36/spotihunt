@@ -19,7 +19,7 @@ function EventPage() {
 						type: "SET_USER",
 						user: data.data(),
 					});
-				}
+				});
 			}
 		});	
 	}, []);
