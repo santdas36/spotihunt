@@ -9,6 +9,7 @@ import {db, auth, timestamp} from '../firebase';
 function Login() {
 	
 	const [error, setError] = useState(null);
+	const [loading, setLoading] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
 	const [teamname, setTeamname] = useState('');
