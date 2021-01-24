@@ -59,7 +59,7 @@ function Login({initUser}) {
 				<p style={{marginBottom: "1.5rem"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lbore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
 				<p>You can login your team here. If you've already logined, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>
-			<span>
+			<span style={{marginTop: 'auto'}}>
 				<h3 style={{marginBottom: "1rem"}}>Contact</h3>
 				<p><a className="link" href="mailto:christ.kengeri1@gmail.com">christ.kengeri1@gmail.com</a></p>
 				<p><a className="link" href="https://instagram.com/christ.keng">@christ.keng</a></p>
