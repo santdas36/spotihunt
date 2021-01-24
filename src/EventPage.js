@@ -23,9 +23,10 @@ function EventPage() {
 						type: "SET_USER",
 						user: data.data(),
 					});
-				});
+					setInitUser(true);
+				})
 			} else {setInitUser(true)};
-		}).then(()=>setInitUser(true));	
+		})
 	}, []);
 	
   return (
