@@ -31,17 +31,20 @@ function EventPage() {
   <AnimatePresence>
     <Route exact path="/">
     	{user ?
-	 	   <Redirect to="/lvl/1/1"/> :
-    		<Login/>
+	 	   (<Redirect to="/lvl/1/1"/>) :
+    		(<Login/>)
 	    }
     </Route>
     <Route path="/lvl">
-    	<motion.div className="event" initial={{opacity: 0}} animate={{opacity: 1}}>
+    	{user ?
+    	(<motion.div className="event" initial={{opacity: 0}} animate={{opacity: 1}}>
     		<Sidebar/>
     		<QuestContainer/>
     		<Leaderboard/>
 	    	<Footer/>
-    	</motion.div>
+    	</motion.div>) :
+    	(<Login />)
+    	}
     </Route>
   </AnimatePresence>);  
 }
