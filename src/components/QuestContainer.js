@@ -11,6 +11,9 @@ function QuestContainer() {
 					<Route path="/lvl/:levelId/:questId">
             			<Quest />
             		</Route>
+            		<Route path="/lvl/:levelId">
+            			<Redirect to={`${location.pathname}/1`} />
+            		</Route>
             	</Switch>
 		</div>
 	);

@@ -12,9 +12,9 @@ function Sidebar() {
     <div className="sidebar">
     	<img src={SHLogo} className="sidebar__logo" />
     	<div className="sidebar__levels">
-    		<NavLink activeClassName="active" to='/lvl/1/1'><AccessTimeRounded /> Level 1</NavLink>
-    		<NavLink activeClassName="active" to='/lvl/2/1' className="locked"><LockOutlined /> Level 2</NavLink>
-    		<NavLink activeClassName="active" to='/lvl/3/1' className="locked"><LockOutlined /> Level 3</NavLink>
+    		<NavLink activeClassName="active" to='/lvl/1'><AccessTimeRounded /> Level 1</NavLink>
+    		<NavLink activeClassName="active" to='/lvl/2' className="locked"><LockOutlined /> Level 2</NavLink>
+    		<NavLink activeClassName="active" to='/lvl/3' className="locked"><LockOutlined /> Level 3</NavLink>
     	</div>
     	<p className="sidebar__info">New levels unlock on completion of current level.</p>
     	<div className="sidebar__hints">
