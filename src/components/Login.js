@@ -21,7 +21,7 @@ function Login() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		if (!email && username) {
+		if (!email && teamname) {
 			db.collection('usernames').doc(teamname).get().then((data)=> {
 				if(data.exists) {
 					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> setLoading(false)).catch((error) => {setError(error.message); setLoading(false)});
