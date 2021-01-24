@@ -7,13 +7,11 @@ function QuestContainer() {
 	const location = useLocation();
 	return (
 		<div className="questContainer">
-		//	<AnimatePresence>
 				<Switch location={location} key={location.pathname}>
 					<Route path="/lvl/:levelId/:questId">
             			<Quest />
             		</Route>
             	</Switch>
-        //    </AnimatePresence>
 		</div>
 	);
 }
