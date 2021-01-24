@@ -1,5 +1,5 @@
 import './QuestContainer.css';
-import { Switch, Route, Redirect useLocation } from "react-router-dom";
+import { Switch, Route, Redirect, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import Quest from './Quest';
 
