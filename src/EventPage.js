@@ -24,7 +24,7 @@ function EventPage() {
 		});	
 	}, []);
 	
-  return (
+  return (<>
   {user ?
     (<div className="event">
     	<Sidebar/>
@@ -34,7 +34,7 @@ function EventPage() {
     </div>) :
     (<Login/>)
     }
-  );
+  </>);
 }
 
 export default EventPage;
