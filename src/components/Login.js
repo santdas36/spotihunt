@@ -1,3 +1,4 @@
+import './Register.css';
 import Modal from './Modal';
 import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
