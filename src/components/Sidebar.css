@@ -27,7 +27,7 @@ left: 0;
 padding: 2rem 0;
 flex: 0 0 auto;
 }
-.sidebar__levels li {
+.sidebar__levels a {
 display: flex;
 padding: 0.75rem 1.5rem;
 align-items: center;
@@ -39,7 +39,7 @@ transition: all 0.2s;
 opacity: 0.25;
 user-select: none;
 }
-.sidebar__levels li::before {
+.sidebar__levels a::before {
 position: absolute;
 content: '';
 width: 0.25rem;
@@ -50,19 +50,19 @@ right: 0;
 transform: translateX(100%);
 transition: all 0.2s;
 }
-.sidebar__levels li:hover {
+.sidebar__levels a:hover {
 background: var(--white-15);
 }
 .sidebar__levels svg {
 font-size: 1.25rem !important;
 margin-right: 1rem;
 }
-.sidebar__levels li.active {
+.sidebar__levels a.active {
 font-weight: 800;
 color: var(--green);
 opacity: 1;
 }
-.sidebar__levels li.active::before {
+.sidebar__levels a.active::before {
 transform: translateX(0);
 }
 .sidebar__logo {
