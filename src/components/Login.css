@@ -1,0 +1,96 @@
+.login {
+width: 100%;
+height: 100%;
+overflow: scroll;
+z-index: 2;
+}
+.login__background {
+width: 100vw;
+height: 100vh;
+position: fixed;
+top: 0;
+left: 0;
+z-index: -1;
+}
+.login__background video {
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+.login__inner {
+max-width: 1280px;
+width: 100%;
+margin: 0 auto;
+display: flex;
+align-items: center;
+}
+.logo__ck {
+height: 2.25rem;
+width: auto;
+margin-left: -0.15rem;
+}
+.logo__sh {
+height: 3rem;
+width: auto;
+margin-left: -0.25rem;
+}
+.login .login__right {
+margin: 3rem auto;
+padding: 3rem;
+box-shadow: 0 1rem 1rem var(--black-15);
+backdrop-filter: blur(10px);
+bottom: var(--footer);
+border-radius: 0.5rem;
+background: var(--white-15);
+flex: 0 0 60%;
+max-width: 26rem;
+}
+.login .login__left {
+flex: 0 0 40%;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-self: flex-start;
+padding: 3rem;
+padding-top: 6rem;
+}
+.input__field {
+display: flex;
+flex-direction: column;
+margin-bottom: 2rem;
+}
+.input__field.password {
+position: relative;
+}
+.input__field.password input {
+padding-right: 3rem;
+}
+.input__field .input__icon {
+position: absolute;
+bottom: 0.625rem;
+right: 1rem;
+}
+.input__field label {
+margin-bottom: 0.5rem;
+font-weight: 600;
+}
+.input__field .info {
+display: block;
+font-size: 1rem;
+opacity: 0.75;
+margin-bottom: 0.75rem;
+}
+.input__field .info.bottom {
+margin-top: 0.75rem;
+margin-bottom: 0;
+}
+.login form h2 {
+margin-bottom: 2rem;
+color: var(--green);
+}
+
+.login button {
+padding: 0.75rem 2rem;
+margin-top: 1rem;
+width: 100%;
+}

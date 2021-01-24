@@ -1,4 +1,4 @@
-import './Register.css';
+import './Login.css';
 import Modal from './Modal';
 import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
@@ -24,10 +24,10 @@ function Login() {
 	
 	
   return(
-  <div className='register'>
+  <div className='login'>
     {error && <Modal message={error} title="Error Occurred..." close={()=>setError(null)}/>}
     <ReactPlayer
-      className='register__background'
+      className='login__background'
       url='https://github.com/santdas36/spot-i-hunt/raw/main/registration_background.mp4'
       width='100%'
       height='100%'
@@ -36,15 +36,15 @@ function Login() {
       loop
       />
 	
-	<div className="register__inner">
-		<div className="register__left">
+	<div className="login__inner">
+		<div className="login__left">
 			<span style={{marginBottom: "5rem"}}>
 				<img src={CKLogo} className="logo__ck" />
 				<img src={SHLogo} className="logo__sh" />
 			</span>
 			<span style={{marginBottom: "5rem"}}>
 				<p style={{marginBottom: "1.5rem"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lbore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-				<p>You can register your team here. If you've already registered, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
+				<p>You can login your team here. If you've already logined, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>
 			<span>
 				<h3 style={{marginBottom: "1rem"}}>Contact</h3>
@@ -52,11 +52,10 @@ function Login() {
 				<p><a className="link" href="https://instagram.com/christ.keng">@christ.keng</a></p>
 			</span>
 		</div>
-		<div className="register__right">
+		<div className="login__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
 				<h2>Login</h2>
 				<div className="form__inner">
-					<div className="form__split">
 						<div className="input__field">
 							<label for="teamname">Team Name</label>
 							<input id="teamname" placeholder="spotihunters" required value={teamname} onChange={(e) => setTeamname(e.target.value)} />
@@ -75,7 +74,6 @@ function Login() {
 							(<VisibilityOutlined className="input__icon" style={{fontSize: 20}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)}/>)
 							}
 						</div>
-					</div>
 				</div>
 				<button type="submit" disabled={loading}>{loading ? 'Logging In...' : 'Login'}</button>
 			</form>
