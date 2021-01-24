@@ -27,6 +27,7 @@ function Login() {
 					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> setLoading(false)).catch((error) => {setError(error.message); setLoading(false)});
 				} else {
 					setError('Teamname not found. Please try again.');
+					setLoading(false);
 				}	
 			});	
 		} else {
