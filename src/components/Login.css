@@ -28,14 +28,16 @@ align-items: center;
 height: 2.25rem;
 width: auto;
 margin-left: -0.15rem;
+display: block;
 }
 .logo__sh {
 height: 3rem;
 width: auto;
 margin-left: -0.25rem;
+display: block;
 }
 .login .login__right {
-margin: 3rem auto;
+margin: auto;
 padding: 3rem;
 box-shadow: 0 1rem 1rem var(--black-15);
 backdrop-filter: blur(10px);

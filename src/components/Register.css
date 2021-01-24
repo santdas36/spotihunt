@@ -33,11 +33,13 @@ align-items: center;
 height: 2.25rem;
 width: auto;
 margin-left: -0.15rem;
+display: block;
 }
 .logo__sh {
 height: 3rem;
 width: auto;
 margin-left: -0.25rem;
+display: block;
 }
 .register .register__right {
 margin: 3rem 3rem 3rem 0;
