@@ -121,8 +121,8 @@ function Register() {
 			</span>
 			<span>
 				<h3 style={{marginBottom: "1rem"}}>Contact</h3>
-				<p><a href="mailto:christ.kengeri1@gmail.com">christ.kengeri1@gmail.com</a></p>
-				<p><a href="https://instagram.com/christ.keng">@christ.keng</a></p>
+				<p><a className="link" href="mailto:christ.kengeri1@gmail.com">christ.kengeri1@gmail.com</a></p>
+				<p><a className="link" href="https://instagram.com/christ.keng">@christ.keng</a></p>
 			</span>
 		</div>
 		{loggedIn ? (
