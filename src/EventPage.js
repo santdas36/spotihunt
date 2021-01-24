@@ -12,6 +12,7 @@ import Login from './components/Login';
 
 function EventPage() {
 	const [{user}, dispatch] = useStateValue();
+	const [initUser, setInitUser] = useState(false);
 	const history = useHistory();
 	
 	useEffect(()=> {
@@ -23,8 +24,8 @@ function EventPage() {
 						user: data.data(),
 					});
 				});
-			}
-		});	
+			} else {setInitUser(true)};
+		}).then(()=>setInitUser(true));	
 	}, []);
 	
   return (
@@ -32,7 +33,7 @@ function EventPage() {
     <Route exact path="/">
     	{user ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
-    		(<Login/>)
+    		(<Login initUser={initUser} />)
 	    }
     </Route>
     <Route path="/lvl">
@@ -43,7 +44,7 @@ function EventPage() {
     		<Leaderboard/>
 	    	<Footer/>
     	</motion.div>) :
-    	(<Login />)
+    	(<Login initUser={initUser} />)
     	}
     </Route>
   </AnimatePresence>);  

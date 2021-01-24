@@ -7,7 +7,7 @@ import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
 
-function Login() {
+function Login({initUser}) {
 	
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(null);
@@ -87,7 +87,7 @@ function Login() {
 							}
 						</div>
 				</div>
-				<button type="submit" disabled={loading}>{loading ? 'Logging In...' : 'Login'}</button>
+				<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>
 			</form>
 		</div>
 	</div>
