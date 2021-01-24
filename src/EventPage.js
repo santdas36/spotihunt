@@ -4,9 +4,8 @@ import QuestContainer from './components/QuestContainer';
 import Leaderboard from './components/Leaderboard';
 import Footer from './components/Footer';
 import {useEffect, useState} from 'react';
-import { Switch, Route, Redirect, useHistory, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-
+import { Route, Redirect, useHistory } from "react-router-dom";
+import {AnimatePresence,motion} from 'framer-motion';
 import {auth, db} from './firebase';
 import {useStateValue} from './StateProvider';
 import Login from './components/Login';
@@ -29,11 +28,11 @@ function EventPage() {
 	}, []);
 	
   return (
-  <AnimatePresence exitBeforeEnter>
+  <AnimatePresence>
     <Route exact path="/">
     	{user ?
 	 	   <Redirect to="/lvl/1/1"/> :
-    		<motion.Login  initial={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}} />
+    		<Login/>
 	    }
     </Route>
     <Route path="/lvl">
