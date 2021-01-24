@@ -16,10 +16,22 @@ function Login() {
 	const [teamname, setTeamname] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const emailInp = useRef(null);
 	
-	
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
+		setLoading(true);
+		if (!email && username) {
+			db.collection('usernames').doc(teamname).get().then((data)=> {
+				if(data.exists) {
+					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> setLoading(false)).catch((error) => {setError(error.message); setLoading(false)});
+				} else {
+					setError('Teamname not found. Please try again.');
+				}	
+			});	
+		} else {
+			auth.signInWithEmailAndPassword(email, password).then(()=> setLoading(false)).catch((error) => {setError(error.message); setLoading(false)});
+		}
 	}
 	
 	
@@ -54,16 +66,15 @@ function Login() {
 		</div>
 		<div className="login__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
-				<h2>Login</h2>
 				<div className="form__inner">
 						<div className="input__field">
 							<label for="teamname">Team Name</label>
-							<input id="teamname" placeholder="spotihunters" required value={teamname} onChange={(e) => setTeamname(e.target.value)} />
+							<input disabled={email} id="teamname" placeholder="spotihunters" required={!email} value={teamname} onChange={(e) => setTeamname(e.target.value)} />
 						</div>
-						or
+						<p className="input__separator">-or-</p>
 						<div className="input__field">
 							<label for="email">Email Address</label>
-							<input id="email" type="email" placeholder="johndoe@gmail.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+							<input disabled={teamname} ref={emailInp} id="email" type="email" placeholder="johndoe@gmail.com" required={!teamname} value={email} onChange={(e) => setEmail(e.target.value)} />
 						</div>
 						<div className="input__field password">
 							<label for="password">Password</label>
