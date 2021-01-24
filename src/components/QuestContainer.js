@@ -9,9 +9,9 @@ function QuestContainer() {
 		<div className="questContainer">
 			<AnimatePresence>
 				<Switch location={location} key={location.pathname}>
-					<Route path="lvl/:levelId" render={(props) => (
-						<Redirect to={`/lvl/${props.match.params.levelId}/1`} />
-					)} />
+					<Route path="lvl/:levelId">
+						<Redirect to={`${location.pathname}/1`} />
+					</Route>
 					<Route path="/lvl/:levelId/:questId">
             			<Quest />
             		</Route>
