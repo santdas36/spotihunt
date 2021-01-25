@@ -25,6 +25,7 @@ box-shadow: 0 0.25rem 0.25rem var(--black-15);
 line-height: 1;
 margin-right: 0.85rem;
 color: var(--white);
+text-transform: capitalize;
 }
 .header__name small {
 display: block;
