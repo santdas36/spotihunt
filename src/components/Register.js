@@ -60,6 +60,7 @@ function Register() {
             		db.collection('users').doc(auth.currentUser.uid).set({
             			teamname: teamname,
             			time: timestamp,
+            			photoURL: `https://avatars.dicebear.com/4.5/api/gridy/${teamname}.svg`,
             			participantOne: {
             				name: name1,
             				email: email1,
@@ -128,6 +129,7 @@ function Register() {
 		{loggedIn ? (
 		<div className="register__right">
 			<h3 style={{marginBottom: '3rem'}}>Your team {user?.teamname.toUpperCase()} is successfully registered.</h3>
+			<img src={user?.photoURL} className={team__logo} />
 			<div style={{marginBottom: '3rem'}}> 
 			<p style={{marginBottom: '0.5rem'}}>Participants</p>
 			<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
