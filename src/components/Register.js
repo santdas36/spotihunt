@@ -129,7 +129,7 @@ function Register() {
 		{loggedIn ? (
 		<div className="register__right">
 			<h3 style={{marginBottom: '3rem'}}>Your team {user?.teamname.toUpperCase()} is successfully registered.</h3>
-			<img src={user?.photoURL} className={team__logo} />
+			<img src={user?.photoURL} className="team__logo" />
 			<div style={{marginBottom: '3rem'}}> 
 			<p style={{marginBottom: '0.5rem'}}>Participants</p>
 			<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
