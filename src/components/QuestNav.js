@@ -1,6 +1,6 @@
 import './QuestNav.css';
 import {NavLink, useLocation} from 'react-router-dom';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 
 function QuestNav() {
 	const location = useLocation();
