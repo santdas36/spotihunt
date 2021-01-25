@@ -129,13 +129,15 @@ function Register() {
 		{loggedIn ? (
 		<div className="register__right">
 			<h3 style={{marginBottom: '3rem'}}>Your team {user?.teamname.toUpperCase()} is successfully registered.</h3>
-			<img src={user?.photoURL} className="team__logo" />
-			<div style={{marginBottom: '3rem'}}> 
-			<p style={{marginBottom: '0.5rem'}}>Participants</p>
-			<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
-			{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
-			{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
-			</div>
+			<div className="register__participants">
+				<img src={user?.photoURL} className="team__logo" />
+				<div> 
+					<h4 style={{marginBottom: '0.5rem'}}>Participants</h4>
+					<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
+					{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
+					{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}
+				</div>
+			</div>	
 			<p>You can login using the email <u><strong>{user?.participantOne.email}</strong></u> or your team name <u><strong>{user?.teamname}</strong></u>, at the time of contest, which will be announced later.</p> 
 			</div>) : (
 			<div className="register__right">
