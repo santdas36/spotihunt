@@ -21,13 +21,14 @@ color: var(--white-50);
 text-decoration: none;
 font-weight: 700;
 font-size: 1.25rem;
-transform: scale(0.85);
+transform: scale(0.8);
 backdrop-filter: blur(3px);
+transition: all 0.2s;
 }
 .questnav a.active {
 border: 2px solid var(--white-05);
 box-shadow: 0 0.25rem 0.5rem var(--black-15);
 background: var(--green);
 color: var(--white);
-transform: scale(1);
+transform: scale(0.95);
 }

@@ -9,16 +9,18 @@ function QuestNav() {
 	useEffect(() => {
 		let splt = location.pathname.split('/');
 		splt.pop();
-		console.log(splt.join('/'));
+		if (splt.length === 3) {
+			setCurrLocation(splt.join('/'));
+		}	
 	}, [location]);
 	
   return (
     <div className="questnav">
-    	<NavLink activeClassName="active" to='/lvl/1/1'></NavLink>	
-    	<NavLink activeClassName="active" to='/lvl/1/2'></NavLink>
-    	<NavLink activeClassName="active" to='/lvl/1/3'></NavLink>
-    	<NavLink activeClassName="active" to='/lvl/1/4'></NavLink>
-    	<NavLink activeClassName="active" to='/lvl/1/5'></NavLink>
+    	<NavLink activeClassName="active" to={`${currLocation}/1`}>1</NavLink>	
+    	<NavLink activeClassName="active" to={`${currLocation}/2`}>2</NavLink>
+    	<NavLink activeClassName="active" to={`${currLocation}/3`}>3</NavLink>
+    	<NavLink activeClassName="active" to={`${currLocation}/4`}>4</NavLink>
+    	<NavLink activeClassName="active" to={`${currLocation}/5`}>5</NavLink>
     </div>
   );
 }
