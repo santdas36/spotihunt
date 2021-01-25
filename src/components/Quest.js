@@ -1,9 +1,12 @@
 import './Quest.css';
 import { Switch, Route, useLocation, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useStateValue } from "../StateProvider";
 
 function Quest() {
 	const {levelId, questId} = useParams();
+	const [{questions}] = useStateValue();
+	console.log(questions);
 	
 	return (
 		<motion.div
@@ -14,7 +17,7 @@ function Quest() {
 			variants={{type: "tween", duration: 1}}
 		>
 			<div className="quest__box">
-				<p className="quest__question">{levelId}/{questId} Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore?</p>
+				<p className="quest__question">{levelId}/{questId}{ }{questions?[`l${levelId}`][`q${questId}`]}</p>
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." />
 					<button>Submit Answer</button>

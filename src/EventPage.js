@@ -24,7 +24,13 @@ function EventPage() {
 						user: data.data(),
 					});
 					setInitUser(true);
-				})
+				});
+				db.collection('questions').doc('quest').get().then((data)=> {
+					dispatch({
+						type: "SET_QUESTIONS",
+						questions: data.data(),
+					});
+				});
 			} else {setInitUser(true)};
 		})
 	}, []);
