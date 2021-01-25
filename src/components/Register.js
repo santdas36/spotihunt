@@ -132,7 +132,7 @@ function Register() {
 			<div className="register__participants">
 				<img src={user?.photoURL} className="team__logo" />
 				<div> 
-					<h4 style={{marginBottom: '0.5rem'}}>Participants</h4>
+					<h4 style={{marginBottom: '0.5rem', marginTop: '1.5rem'}}>Participants</h4>
 					<p>1) {user?.participantOne.name} - {user?.participantOne.email}</p>
 					{user?.participantTwo.name && (<p>2) {user?.participantTwo.name} - {user?.participantTwo.email}</p>)}
 					{user?.participantThree.name && (<p>3) {user?.participantThree.name} - {user.participantThree?.email}</p>)}

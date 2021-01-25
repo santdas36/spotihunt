@@ -153,6 +153,7 @@ margin-bottom: 1.5rem;
 
 .register__participants {
 display: flex;
+margin-bottom: 3rem;
 }
 .team__logo {
 width: 5rem;
