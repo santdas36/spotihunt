@@ -11,8 +11,11 @@ function Quest() {
 	
 	const validate = async (e) => {
 		e.preventDefault();
-		const response = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId}&quest=${questId}`);
+		const response = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId}&quest=${questId}`).then((data) => data.text());
 		console.log(response);
+		if (response > 0.8) {
+			alert(response);
+		}
 	}
 	
 	return (
