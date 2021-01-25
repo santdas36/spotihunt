@@ -19,8 +19,16 @@ bottom: var(--footer);
 margin-bottom: 3rem;
 border-radius: 0.5rem;
 }
+.quest__hint {
+padding: 0.5rem;
+background: var(--white-15);
+border-radius: 0.5rem;
+box-shadow: 0 0.25rem 0.5rem var(--black-15);
+margin-top: 1rem;
+width: fit-content;
+}
 .quest__question {
-font-weight: 600;
+font-weight: 500;
 font-size: 1.15rem;
 }
 .quest__answer {

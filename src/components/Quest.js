@@ -28,6 +28,7 @@ function Quest() {
 		>
 			<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
+				<p className="quest__hint"><b>Hint: </b>Hint is here duh</p>
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." value={answer} onChange={(e) => setAnswer(e.target.value)} />
 					<button>Submit Answer</button>

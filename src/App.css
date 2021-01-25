@@ -19,7 +19,6 @@ input,  button {
 background: none;
 border: none;
 color: var(--white);
-font-weight: 700;
 font-family: "Nunito Sans", sans-serif;
 }
  input {
@@ -27,6 +26,7 @@ padding: 0.5rem 1rem;
 font-size: 1.15rem;
 background: var(--black-15);
 max-width: 20rem;
+font-weight: 600;
 border-radius: 0.5rem;
 box-shadow: 0 0.5rem 0.5rem var(--black-05), 0 0 0 2px var(--white-15);
 transition: all 0.2s;
@@ -49,6 +49,7 @@ padding: 0.625rem 1.25rem;
 border-radius: 0.5rem;
 text-transform: uppercase;
 transition: all 0.2s;
+font-weight: 700;
 }
 button:hover {
 box-shadow: 0 0.5rem 1.25rem -0.25rem var(--black-50);
