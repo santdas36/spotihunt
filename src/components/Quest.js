@@ -1,12 +1,19 @@
 import './Quest.css';
-import { Switch, Route, useLocation, useParams } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useStateValue } from "../StateProvider";
+import {useState} from 'react';
+import {Switch, Route, useLocation, useParams} from "react-router-dom";
+import {motion} from "framer-motion";
+import {useStateValue} from "../StateProvider";
 
 function Quest() {
 	const {levelId, questId} = useParams();
 	const [{questions}] = useStateValue();
-	console.log(questions);
+	const [answer, setAnswer] = useState('');
+	
+	const validate = async (e) => {
+		e.preventDefault();
+		const response = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId}&quest=${questId}`);
+		console.log(response);
+	}
 	
 	return (
 		<motion.div
@@ -16,13 +23,13 @@ function Quest() {
 			exit={{y: "-100%", opacity: 0}}
 			variants={{type: "tween", duration: 1}}
 		>
-			<div className="quest__box">
+			<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
 				<span className="quest__answer">
-					<input type="text" placeholder="Type your answer here..." />
+					<input type="text" placeholder="Type your answer here..." value={answer} onChange={(e) => setAnswer(e.target.value)} />
 					<button>Submit Answer</button>
 				</span>
-			</div>
+			</form>
 		</motion.div>
 	);
 }
