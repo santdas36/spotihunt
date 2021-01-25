@@ -17,7 +17,7 @@ function Quest() {
 			variants={{type: "tween", duration: 1}}
 		>
 			<div className="quest__box">
-				<p className="quest__question">{levelId}/{questId}{ }{questions[`l${levelId}`][`q${questId}`]}</p>
+				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." />
 					<button>Submit Answer</button>
