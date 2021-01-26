@@ -6,6 +6,7 @@ import BulbOn from '../assets/bulb_on.png';
 import BulbOff from '../assets/bulb_off.png';
 import {AccessTimeRounded, LockOutlined} from '@material-ui/icons';
 import {auth, db} from '../firebase';
+import firebase from 'firebase';
 import {useStateValue} from '../StateProvider';
 
 
@@ -28,7 +29,7 @@ function Sidebar() {
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((response) => {
 			if(response.status == '200') {
 				const userRef = db.collection('users').doc(user.uid);
-				userRef.set({usedHints: db.FieldValue.increment(1) || 0}, {merge: true}).then(()=> {
+				userRef.set({usedHints: firebase.firestore.FieldValue.increment(1)}, {merge: true}).then(()=> {
 					console.log(response.text());
 				});
 			} else {
