@@ -75,6 +75,8 @@ function Register() {
             			},
             			contact: contact,
             			usedHints: 0,
+            			hints: {},
+            			answers: {},
             		})
             	}).then(() => {
             		setLoading(false);
