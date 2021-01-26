@@ -11,7 +11,7 @@ function Login({initUser}) {
 	
 	const [loading, setLoading] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
-	const [passwordReset, setPasswordReset] = useStatd(false);
+	const [passwordReset, setPasswordReset] = useState(false);
 	const [teamname, setTeamname] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
