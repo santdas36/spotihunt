@@ -26,7 +26,6 @@ function EventPage() {
 						user: data.data(),
 					});
 					setInitUser(true);
-					toast.info('You are already logged in.');
 				});
 				db.collection('questions').doc('quest').get().then((data)=> {
 					dispatch({

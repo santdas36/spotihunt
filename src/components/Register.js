@@ -33,11 +33,11 @@ function Register() {
 		db.collection('usernames').doc(teamname).get().then((data) => {
 			if (data.exists) {
 				setValidTeamname(false);
-				toast.error('Team name already taken. Please choose another one.');
+				toast.error('Sorry! This team name is already taken. Please choose another one.');
 				nameInput.current.focus();
 			} else {
 				setValidTeamname(true);
-				toast.info('Team name is available');
+				toast.info('Yay! Team name is available.');
 			}
 		});
 	}
@@ -45,7 +45,7 @@ function Register() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!validTeamname) {
-			toast.error('Team name already taken. Please choose another one.');
+			toast.error('Oops.. Someone has already taken that team name. Please choose another one.');
 			nameInput.current.focus();
 		} else {
 			setLoading(true);
@@ -80,7 +80,7 @@ function Register() {
             		})
             	}).then(() => {
             		setLoading(false);
-            		toast.success('Registration is complete!')
+            		toast.success('Yippee ki-yay! It's done!')
             	});
           }).catch((error) => {
           	setLoading(false);

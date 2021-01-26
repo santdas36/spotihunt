@@ -23,14 +23,14 @@ function Login({initUser}) {
 		if (!email && teamname) {
 			db.collection('usernames').doc(teamname).get().then((data)=> {
 				if(data.exists) {
-					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> {setLoading(false); toast.success('Logged In successfully!')}).catch((error) => {toast.error(error.message); setLoading(false)});
+					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> {setLoading(false); toast.success('Yay! You are now logged in!')}).catch((error) => {toast.error(error.message); setLoading(false)});
 				} else {
-					toast.error('Teamname not found. Please try again.');
+					toast.error("Seems like the teamname you've entered that doesn't exist. Try again or use ypur email to login.");
 					setLoading(false);
 				}	
 			});	
 		} else {
-			auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success('Logged In successfully!')}).catch((error) => {toast.error(error.message); setLoading(false)});
+			auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success("Hoorah! You're successfully logged in!")}).catch((error) => {toast.error(error.message); setLoading(false)});
 		}
 	}
 	
