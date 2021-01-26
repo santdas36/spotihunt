@@ -4,6 +4,7 @@ import {Switch, Route, useLocation, useParams} from "react-router-dom";
 import {motion} from "framer-motion";
 import {useStateValue} from "../StateProvider";
 import HintIcon from '../assets/hint.svg';
+import {db, auth} from '../firebase';
 
 function Quest() {
 	const {levelId, questId} = useParams();
@@ -17,7 +18,11 @@ function Quest() {
 		const response = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => data.text());
 		console.log(response);
 		if (response > 0.8) {
-			alert(response);
+			db.collection('users').doc(auth.currentUser.uid).set({
+				answers: {
+					[`l${levelId}q{questId}`]: [answer, response]
+				}
+			}, {merge: true);
 		}
 	}
 	
