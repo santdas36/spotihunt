@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="app">
       {loaded ? 
-      <Register /> :
+      <EventPage /> :
       <ReactPlayer
       	className={`intro__video ${fadeOut ? 'fadeOut' : ''}`}
       	url="https://github.com/santdas36/spot-i-hunt/raw/main/intro.mp4"
