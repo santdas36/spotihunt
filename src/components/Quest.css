@@ -21,9 +21,9 @@ border-radius: 0.5rem;
 }
 .quest__box img.completed {
 position: absolute;
-right: -2rem;
+right: -1.5rem;
 bottom: 1rem;
-width: 6rem;
+width: 4rem;
 height: auto;
 filter: drop-shadow(0 0.5rem 1rem var(--black-15));
 }
@@ -39,6 +39,9 @@ align-items: center;
 }
 .quest__hint.accuracy {
 padding: 0.5rem 1rem;
+}
+.quest__hint.accuracy b {
+padding-right: 0.75rem;
 }
 .quest__hint img {
 height: 2rem;
