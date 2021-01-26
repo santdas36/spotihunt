@@ -6,16 +6,29 @@ import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material
 import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
+import {toast} from 'react-toastify';
 
 function Login({initUser}) {
 	
 	const [loading, setLoading] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
-	
+	const [passwordReset, setPasswordReset] = useStatd(false);
 	const [teamname, setTeamname] = useState('');
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const emailInp = useRef(null);
+	
+	const resetPassword = (e) => {
+		setLoading(true);
+		e.preventDefault();
+		auth.sendPasswordResetEmail(email).then((response) => {
+    		toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password.");
+    		setLoading(false);
+    	}).catch((error) => {
+        	toast.error(error.message);
+        	setLoading(false);
+        });
+	}
 	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -30,7 +43,7 @@ function Login({initUser}) {
 				}	
 			});	
 		} else {
-			auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success("Hoorah! You're successfully logged in!")}).catch((error) => {toast.error(error.message); setLoading(false)});
+			auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success("Welcome back, you're logged in!")}).catch((error) => {toast.error(error.message); setLoading(false)});
 		}
 	}
 	
@@ -64,7 +77,24 @@ function Login({initUser}) {
 			</span>
 		</div>
 		<div className="login__right">
-			<form onSubmit={(e) => handleSubmit(e)}>
+		{passwordReset ? 
+			(<form onSubmit={(e) => resetPassword(e)}>
+				<h2>Password Reset</h2>
+				<div className="form__inner">
+						<div className="input__field">
+							<label for="teamname">Team Name</label>
+							<input disabled={email} id="teamname" placeholder="spotihunters" required={!email} value={teamname} onChange={(e) => setTeamname(e.target.value)} />
+						</div>
+						<p className="input__separator">-or-</p>
+						<div className="input__field">
+							<label for="email">Email Address</label>
+							<input disabled={teamname} ref={emailInp} id="email" type="email" placeholder="johndoe@gmail.com" required={!teamname} value={email} onChange={(e) => setEmail(e.target.value)} />
+						</div>
+				</div>
+				<button type="submit" disabled={loading}>{(loading) ? 'Verifying...' : 'Reset Password'}</button>
+				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={setPasswordReset(false)}>Back to Login</p>
+			</form>) :
+			(<form onSubmit={(e) => handleSubmit(e)}>
 				<div className="form__inner">
 						<div className="input__field">
 							<label for="teamname">Team Name</label>
@@ -86,7 +116,9 @@ function Login({initUser}) {
 						</div>
 				</div>
 				<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>
-			</form>
+				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={setPasswordReset(true)}>Forgot Password?</p>
+			</form>)
+		}
 		</div>
 	</div>
 	</div>
