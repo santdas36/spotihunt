@@ -88,7 +88,7 @@ align-items: center;
 .sidebar__hintsImg button {
 width: 3.5rem;
 height: 3.5rem;
-padding: 0.66rem;
+padding: 0.5rem;
 border-radius: 99px;
 background: var(--gray);
 box-shadow: inset 0 -0.15rem 0.66rem var(--black-50);
@@ -98,7 +98,7 @@ align-items: center;
 transition: all 0.2s;
 }
 .sidebar__hintsImg button img {
-width: 100%;
+width: 2.5rem;
 height: auto;
 }
 .sidebar__hintsImg button:not(:disabled):hover {
