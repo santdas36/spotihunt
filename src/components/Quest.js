@@ -76,7 +76,7 @@ function Quest() {
 			exit={{y: "-100%", opacity: 0}}
 			variants={{type: "tween", duration: 1}}
 		>
-		{prevQuestCompleted ?
+		{questIsUnlocked ?
 			(<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
 				{(hint && !questCompleted) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
