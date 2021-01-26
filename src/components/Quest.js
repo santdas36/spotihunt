@@ -15,12 +15,12 @@ function Quest() {
 	
 	const validate = async (e) => {
 		e.preventDefault();
-		const response = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => data.text());
-		console.log(response);
-		if (response > 0.8) {
+		const accuracy = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => data.text());
+		console.log(accuracy);
+		if (accuracy > 0.8) {
 			db.collection('users').doc(auth.currentUser.uid).set({
 				answers: {
-					[`l${levelId}q{questId}`]: [answer, response]
+					[`l${levelId}q${questId}`]: [answer, accuracy]
 				}
 			}, {merge: true});
 		}
