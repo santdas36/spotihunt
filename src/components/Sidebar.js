@@ -26,7 +26,7 @@ function Sidebar() {
 		const currPath = location.pathname.split('/');
 		const levelId = currPath[2];
 		const questId = currPath[3];
-		if(!hints[`l${levelId}`][`q${questId}`]) {
+		if(!user.hints[`l${levelId}`][`q${questId}`]) {
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=${usedHints}`).then((data) => data.text()).then((response) => {
 			let hints = {};
 			hints[`l${levelId}`] = {};
