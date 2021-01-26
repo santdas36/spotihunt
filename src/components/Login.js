@@ -1,5 +1,4 @@
 import './Login.css';
-import Modal from './Modal';
 import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
@@ -9,7 +8,6 @@ import {db, auth, timestamp} from '../firebase';
 
 function Login({initUser}) {
 	
-	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
@@ -24,21 +22,20 @@ function Login({initUser}) {
 		if (!email && teamname) {
 			db.collection('usernames').doc(teamname).get().then((data)=> {
 				if(data.exists) {
-					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> setLoading(false)).catch((error) => {setError(error.message); setLoading(false)});
+					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> {setLoading(false); toast.success('Logged In successfully!')}).catch((error) => {toast.error(error.message); setLoading(false)});
 				} else {
-					setError('Teamname not found. Please try again.');
+					toast.error('Teamname not found. Please try again.');
 					setLoading(false);
 				}	
 			});	
 		} else {
-			auth.signInWithEmailAndPassword(email, password).then(()=> setLoading(false)).catch((error) => {setError(error.message); setLoading(false)});
+			auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success('Logged In successfully!')}).catch((error) => {toast.error(error.message); setLoading(false)});
 		}
 	}
 	
 	
   return(
   <div className='login'>
-    {error && <Modal message={error} title="Error Occurred..." close={()=>setError(null)}/>}
     <ReactPlayer
       className='login__background'
       url='https://github.com/santdas36/spot-i-hunt/raw/main/registration_background.mp4'

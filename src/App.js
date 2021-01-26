@@ -3,7 +3,7 @@ import Register from './components/Register';
 import EventPage from './EventPage';
 import ReactPlayer from 'react-player';
 import {useEffect, useState} from 'react';
-
+import {ToastContainer} from 'reacf-toastify';
 
 function App() {
 	const [loaded, setLoaded] = useState(true);
@@ -25,6 +25,7 @@ function App() {
       		setTimeout(()=> setLoaded(true), 1000)}
       		}/>
       }
+      <ToastContainer position="bottom-right"/>
     </div>
   );
 }

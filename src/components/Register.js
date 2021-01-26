@@ -1,5 +1,5 @@
 import './Register.css';
-import Modal from './Modal';
+import {toast} from 'react-toastify';
 import {useState, useRef, useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material-ui/icons';
@@ -15,7 +15,6 @@ function Register() {
 	const [loading, setLoading] = useState(false);
 	const [fadeIn, setFadeIn] = useState(false);
 	const [loggedIn, setLoggedIn] = useState(false);
-	const [error, setError] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	
 	const [teamname, setTeamname] = useState('');
@@ -34,7 +33,7 @@ function Register() {
 		db.collection('usernames').doc(teamname).get().then((data) => {
 			if (data.exists) {
 				setValidTeamname(false);
-				alert('Team name already taken. Please choose another one.');
+				toast.error('Team name already taken. Please choose another one.');
 				nameInput.current.focus();
 			} else {
 				setValidTeamname(true);
@@ -45,7 +44,7 @@ function Register() {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (!validTeamname) {
-			alert('Team name already taken. Please choose another one.');
+			toast.error('Team name already taken. Please choose another one.');
 			nameInput.current.focus();
 		} else {
 			setLoading(true);
@@ -83,7 +82,7 @@ function Register() {
             	});
           }).catch((error) => {
           	setLoading(false);
-          	setError(error.message);
+          	toast.error(error.message);
           	})
 		}
 	}
@@ -103,7 +102,7 @@ function Register() {
 	
   return(
   <div className={`register ${fadeIn ? 'fadeIn' : ''}`}>
-    {error && <Modal message={error} title="Error Occurred..." close={()=>setError(null)}/>}
+
     <ReactPlayer
       className='register__background'
       url='https://github.com/santdas36/spot-i-hunt/raw/main/registration_background.mp4'
