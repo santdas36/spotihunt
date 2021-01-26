@@ -73,7 +73,8 @@ function Register() {
             				name: name3,
             				email: email3,
             			},
-            			contact: contact
+            			contact: contact,
+            			usedHints: 0,
             		})
             	}).then(() => {
             		setLoading(false);

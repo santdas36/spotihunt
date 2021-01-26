@@ -26,15 +26,17 @@ function Sidebar() {
 		const currPath = location.pathname.split('/');
 		const levelId = currPath[2];
 		const questId = currPath[3];
-		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((response) => {
-			if(response.status == '200') {
+		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=${usedHints}`).then((response) => {
+			console.log(response);
+			//if(response.ok) {
 				const userRef = db.collection('users').doc(user.uid);
-				userRef.set({usedHints: firebase.firestore.FieldValue.increment(1)}, {merge: true}).then(()=> {
-					console.log(response.text());
+				userRef.set({
+					usedHints: firebase.firestore.FieldValue.increment(1),
+					hints[`l${levelId}`][`q${questId}`] : response.text(),
+				}, {merge: true}).then((data)=> {	
+					console.log(data);
 				});
-			} else {
-				console.log(response.text());
-			}
+			//}
 		});
 		
 	}
@@ -52,9 +54,9 @@ function Sidebar() {
     		<h4 style={{marginBottom: '0.5rem'}}>Feeling stuck!?</h4>
     		<p>You are given a total of only three hints for the entire contest. Use wisely.</p>
     		<div className="sidebar__hintsImg">
-    			<button onClick={getHint} disabled={usedHints>0}><img src={usedHints<1 ? BulbOn : BulbOff} /></button>
-    			<button onClick={getHint} disabled={usedHints>1}><img src={usedHints<2 ? BulbOn : BulbOff} /></button>
-    			<button onClick={getHint} disabled={usedHints>2}><img src={usedHints<3 ? BulbOn : BulbOff} /></button>
+    			<button onClick={getHint} disabled={usedHints>0}><img src={usedHints>0 ? BulbOff : BulbOn} /></button>
+    			<button onClick={getHint} disabled={usedHints>1}><img src={usedHints>1 ? BulbOff : BulbOn} /></button>
+    			<button onClick={getHint} disabled={usedHints>2}><img src={usedHints>2 ? BulbOff : BulbOn} /></button>
     		</div>
     	</div>
     </div>
