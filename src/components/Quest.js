@@ -69,7 +69,7 @@ function Quest() {
 				</span>
 				{questCompleted && <img src={CompletedIcon} className="completed" />}
 			</form>) :
-			(<motion.div animate={opacity: 1} exit={opacity: 0} className="quest__locked">
+			(<motion.div animate={{opacity: 1}} exit={{opacity: 0}} className="quest__locked">
 				<img src={QuestLockedIcon}</img>
 			</motion.div>)
 		}
