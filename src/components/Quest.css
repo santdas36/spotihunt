@@ -72,7 +72,6 @@ position: absolute;
 display: grid;
 place-items: center;
 content: '';
-padding: 10rem;
 z-index: 8;
 color: var(--white);
 width: 100%;
