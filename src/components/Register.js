@@ -80,7 +80,7 @@ function Register() {
             		})
             	}).then(() => {
             		setLoading(false);
-            		toast.success('Yippee ki-yay! It's done!')
+            		toast.success("Yippee ki-yay! It's done!")
             	});
           }).catch((error) => {
           	setLoading(false);
