@@ -1,12 +1,49 @@
 import './Sidebar.css';
 import {useEffect, useState} from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, location} from 'react-router-dom';
 import SHLogo from '../assets/logo_sh.png';
 import BulbOn from '../assets/bulb_on.png';
 import BulbOff from '../assets/bulb_off.png';
 import {AccessTimeRounded, LockOutlined} from '@material-ui/icons';
+import {auth, db} from '../firebase';
+import {useStateValue} from '../StateProvider';
+
 
 function Sidebar() {
+	const [{user}] = useStateValue();
+	const [usedHints, setUsedHints] = useState(0);
+	
+	useEffect(() => {
+		if(user) {
+			setUsedHints(user?.usedHints);
+		}
+	}, [user]);
+	
+	const getHint = async () => {
+		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((response) => {
+			if(response.status == '200') {
+				const userRef = db.collection('users').doc(user.uid);
+				try {
+					await db.runTransaction(async (t) => {
+						const doc = await t.get(userRef);
+						const hintsUsed = doc.data().usedHints;
+						if (hintsUsed < 3) {
+							t.update(userRef, {
+								usedHints: hintsUsed + 1,
+							});	
+						}
+						else {
+							setError('Sorry! You've used the maximum allowed hints.')
+						}
+					});
+					console.log('Transaction success!');
+				} catch (e) {
+					console.log('Transaction failure:', e);
+				}
+			}
+		});
+		
+	}
 	
   return (
     <div className="sidebar">
@@ -21,9 +58,9 @@ function Sidebar() {
     		<h4 style={{marginBottom: '0.5rem'}}>Feeling stuck!?</h4>
     		<p>You are given a total of only three hints for the entire contest. Use wisely.</p>
     		<div className="sidebar__hintsImg">
-    			<img className="hintUsed" src={BulbOff} />
-    			<img src={BulbOn} />
-    			<img src={BulbOn} />
+    			<button onClick={getHint} disabled={usedHints>0}><img src={usedHints<1 ? BulbOn : BulbOff} /></button>
+    			<button onClick={getHint} disabled={usedHints>1}><img src={usedHints<2 ? BulbOn : BulbOff} /></button>
+    			<button onClick={getHint} disabled={usedHints>2}><img src={usedHints<3 ? BulbOn : BulbOff} /></button>
     		</div>
     	</div>
     </div>

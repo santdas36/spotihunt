@@ -1,5 +1,5 @@
 import './Quest.css';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {Switch, Route, useLocation, useParams} from "react-router-dom";
 import {motion} from "framer-motion";
 import {useStateValue} from "../StateProvider";
@@ -7,9 +7,10 @@ import HintIcon from '../assets/hint.svg';
 
 function Quest() {
 	const {levelId, questId} = useParams();
-	const [{questions}] = useStateValue();
+	const [{user, questions}] = useStateValue();
 	const [answer, setAnswer] = useState('');
-	const [hint, setHint] = useState('');
+	const [hint, setHint] = useState(null);
+	console.log(questions);
 	
 	const validate = async (e) => {
 		e.preventDefault();
@@ -20,10 +21,12 @@ function Quest() {
 		}
 	}
 	
-	const getHint = async () => {
-		const response = await fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((data) => data.text());
-		setHint(response);
-	}
+	useEffect(() => {
+		const hintAvailable = user.hints[`l${levelId}`][`q${questId}`];
+		if (hintAvailable) {
+			setHint(hintAvailable);
+		}	
+	}, [user])
 	
 	return (
 		<motion.div
@@ -35,7 +38,7 @@ function Quest() {
 		>
 			<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
-				<p className="quest__hint" onClick={getHint}><img src={HintIcon} /><span>{hint}</span></p>
+				{hint && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." value={answer} onChange={(e) => setAnswer(e.target.value)} />
 					<button>Submit Answer</button>
