@@ -31,12 +31,11 @@ function Sidebar() {
 			let hints = {};
 			hints[`l${levelId}`] = {};
 			hints[`l${levelId}`][`q${questId}`] = response;
+			console.log(hints);
 			userRef.set({
-				usedHints: firebase.firestore.FieldValue.increment(1),
+				usedHints: usedHints + 1,
 				hints: hints,
-			}, {merge: true}).then((data)=> {
-				console.log(data);
-			});
+			}, {merge: true});
 		});
 		
 	}
