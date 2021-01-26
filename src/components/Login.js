@@ -35,7 +35,7 @@ function Login({initUser}) {
 			});	
 		} else {
 			if(passwordReset) {
-				auth.sendPasswordResetEmail(email).then((response) => { toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password. If your facing any trouble, please contact us.", {autoClose: 10000}); setLoading(false);}).catch((error) => {toast.error(error.message);setLoading(false);
+				auth.sendPasswordResetEmail(email).then((response) => { toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password. If your facing any trouble, please contact us.", {autoClose: 10000}); setLoading(false);}).catch((error) => {toast.error(error.message);setLoading(false);});
 			} else {
 				auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success("Welcome back, you're logged in!")}).catch((error) => {toast.error(error.message); setLoading(false)});
 			}
