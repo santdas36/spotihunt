@@ -19,6 +19,14 @@ bottom: var(--footer);
 margin-bottom: 3rem;
 border-radius: 0.5rem;
 }
+.question img.completed {
+position: absolute;
+right: -2rem;
+bottom: 1rem;
+width: 6rem;
+height: auto;
+filter: drop-shadow(0 0.5rem 1rem var(--black-15));
+}
 .quest__hint {
 padding: 0.5rem 1rem 0.5rem 0.75rem;
 background: var(--white-15);
@@ -28,6 +36,9 @@ margin-top: 1rem;
 width: fit-content;
 display: flex;
 align-items: center;
+}
+.quest__hint.accuracy {
+padding: 0.5rem 1rem;
 }
 .quest__hint img {
 height: 2rem;
@@ -48,4 +59,7 @@ margin-top: 1.5rem;
 margin-bottom: 1rem;
 max-width: auto;
 max-width: none;
+}
+.quest__answer button:disabled {
+opacity: 0;
 }

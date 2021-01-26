@@ -5,12 +5,16 @@ import {motion} from "framer-motion";
 import {useStateValue} from "../StateProvider";
 import HintIcon from '../assets/hint.svg';
 import {db, auth} from '../firebase';
+import CompletedIcon from '../assets/completed.png';
 
 function Quest() {
 	const {levelId, questId} = useParams();
 	const [{user, questions}] = useStateValue();
 	const [answer, setAnswer] = useState('');
-	const [hint, setHint] = useState(null);
+	const [hint, setHint] = useState(false);
+	const [questCompleted, setQuestCompleted] = useState(false);
+	const [userAnswers, setUserAnswers] = useState(null);
+	
 	console.log(questions);
 	
 	const validate = async (e) => {
@@ -31,7 +35,15 @@ function Quest() {
 		if (hintAvailable) {
 			setHint(hintAvailable);
 		}	
-	}, [user])
+	}, [user]);
+		
+	useEffect(() => {
+		const questCompleted = user.answers ? user.answers[`l${levelId}q${questId}`] : false;
+		if (questCompleted) {
+			setUserAnswers(questCompleted);
+			setQuestCompleted(true);
+		}
+	}, [user]);
 	
 	return (
 		<motion.div
@@ -43,11 +55,13 @@ function Quest() {
 		>
 			<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
-				{hint && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
+				{(hint && !questCompleted) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
+				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswer[1])*100).toFixed(2)}%</motion.p>)}
 				<span className="quest__answer">
-					<input type="text" placeholder="Type your answer here..." value={answer} onChange={(e) => setAnswer(e.target.value)} />
-					<button>Submit Answer</button>
+					<input type="text" placeholder="Type your answer here..." disabled={questCompleted} value={userAnswers ? userAnswers[0] : answer} onChange={(e) => setAnswer(e.target.value)} />
+					<button disabled={questCompleted}>Submit Answer</button>
 				</span>
+				{questCompleted && <img src={CompletedIcon} className="completed" />}
 			</form>
 		</motion.div>
 	);
