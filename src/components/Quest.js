@@ -18,7 +18,7 @@ function Quest() {
 	const [userAnswers, setUserAnswers] = useState(null);
 	
 	useEffect(() => {
-		const prevQuestCompleted = user.answers ? user.answers[`l${levelId - 1}q${questId - 1}`] : (parseInt(levelId) === 1 && parseInt(questId) === 1);
+		const prevQuestCompleted = user.answers ? user.answers[`l${levelId}q${questId - 1}`] : (parseInt(levelId) === 1 && parseInt(questId) === 1);
 		if (prevQuestCompleted) {
 			setQuestIsUnlocked(true);
 		}
@@ -70,7 +70,7 @@ function Quest() {
 				{questCompleted && <img src={CompletedIcon} className="completed" />}
 			</form>) :
 			(<motion.div animate={{opacity: 1}} exit={{opacity: 0}} className="quest__locked">
-				<img src={QuestLockedIcon}</img>
+				<img src={QuestLockedIcon} />
 			</motion.div>)
 		}
 		</motion.div>
