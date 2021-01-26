@@ -17,32 +17,28 @@ function Login({initUser}) {
 	const [password, setPassword] = useState('');
 	const emailInp = useRef(null);
 	
-	const resetPassword = (e) => {
-		setLoading(true);
-		e.preventDefault();
-		auth.sendPasswordResetEmail(email).then((response) => {
-    		toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password.", {autoClose: 10000});
-    		setLoading(false);
-    	}).catch((error) => {
-        	toast.error(error.message);
-        	setLoading(false);
-        });
-	}
-	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
 		if (!email && teamname) {
 			db.collection('usernames').doc(teamname).get().then((data)=> {
 				if(data.exists) {
+					if(passwordReset) {
+						auth.sendPasswordResetEmail(email).then((response) => { toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password. If your facing any trouble, please contact us.", {autoClose: 10000}); setLoading(false);}).catch((error) => {toast.error(error.message);setLoading(false);});
+					} else {
 					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> {setLoading(false); toast.success('Yay! You are now logged in!')}).catch((error) => {toast.error(error.message); setLoading(false)});
+					}
 				} else {
 					toast.error("Seems like the teamname you've entered that doesn't exist. Try again or use ypur email to login.");
 					setLoading(false);
 				}	
 			});	
 		} else {
-			auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success("Welcome back, you're logged in!")}).catch((error) => {toast.error(error.message); setLoading(false)});
+			if(passwordReset) {
+				auth.sendPasswordResetEmail(email).then((response) => { toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password. If your facing any trouble, please contact us.", {autoClose: 10000}); setLoading(false);}).catch((error) => {toast.error(error.message);setLoading(false);
+			} else {
+				auth.signInWithEmailAndPassword(email, password).then(()=> {setLoading(false); toast.success("Welcome back, you're logged in!")}).catch((error) => {toast.error(error.message); setLoading(false)});
+			}
 		}
 	}
 	
@@ -76,9 +72,7 @@ function Login({initUser}) {
 			</span>
 		</div>
 		<div className="login__right">
-		{passwordReset ? 
-			(<form onSubmit={(e) => resetPassword(e)}>
-				<h2>Password Reset</h2>
+			<form onSubmit={(e) => handleSubmit(e)}>
 				<div className="form__inner">
 						<div className="input__field">
 							<label for="teamname">Team Name</label>
@@ -89,22 +83,7 @@ function Login({initUser}) {
 							<label for="email">Email Address</label>
 							<input disabled={teamname} ref={emailInp} id="email" type="email" placeholder="johndoe@gmail.com" required={!teamname} value={email} onChange={(e) => setEmail(e.target.value)} />
 						</div>
-				</div>
-				<button type="submit" disabled={loading}>{(loading) ? 'Verifying...' : 'Reset Password'}</button>
-				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={()=>setPasswordReset(false)}>Back to Login</p>
-			</form>) :
-			(<form onSubmit={(e) => handleSubmit(e)}>
-				<div className="form__inner">
-						<div className="input__field">
-							<label for="teamname">Team Name</label>
-							<input disabled={email} id="teamname" placeholder="spotihunters" required={!email} value={teamname} onChange={(e) => setTeamname(e.target.value)} />
-						</div>
-						<p className="input__separator">-or-</p>
-						<div className="input__field">
-							<label for="email">Email Address</label>
-							<input disabled={teamname} ref={emailInp} id="email" type="email" placeholder="johndoe@gmail.com" required={!teamname} value={email} onChange={(e) => setEmail(e.target.value)} />
-						</div>
-						<div className="input__field password">
+						{!passwordReset && (<div className="input__field password">
 							<label for="password">Password</label>
 							<input id="password" type={passwordVisible ? 'text' : 'password'} placeholder={passwordVisible ? 'password' : '••••••••'} required minlength="8" value={password} onChange={(e) => setPassword(e.target.value)}/>
 							{
@@ -112,12 +91,13 @@ function Login({initUser}) {
 							(<VisibilityOffOutlined className="input__icon" style={{fontSize: 20}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)} />) :
 							(<VisibilityOutlined className="input__icon" style={{fontSize: 20}} onClick={() => setPasswordVisible((passwordVisible) => !passwordVisible)}/>)
 							}
-						</div>
+						</div>)}
 				</div>
-				<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>
-				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={()=>setPasswordReset(true)}>Forgot Password?</p>
-			</form>)
-		}
+				{passwordReset ?
+				(<button type="submit" disabled={loading}>{(loading) ? 'Verifying...' : 'Reset Password'}</button>) : 
+				(<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>)}
+				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
+			</form>
 		</div>
 	</div>
 	</div>
