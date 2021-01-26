@@ -28,7 +28,7 @@ function Sidebar() {
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((response) => {
 			if(response.status == '200') {
 				const userRef = db.collection('users').doc(user.uid);
-				userRef.set({usedHints: db.FieldValue.increment(1)}, {merge: true}).then(()=> {
+				userRef.set({usedHints: db.FieldValue.increment(1) || 0}, {merge: true}).then(()=> {
 					console.log(response.text());
 				});
 			} else {
