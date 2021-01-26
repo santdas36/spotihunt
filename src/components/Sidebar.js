@@ -29,11 +29,11 @@ function Sidebar() {
 		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
 		if(!hintAvailable) {
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=${usedHints}`).then((data) => data.text()).then((response) => {
-			let hints = {};
-			hints[`l${levelId}q${questId}`] = response;
 			db.collection('users').doc(auth.currentUser.uid).set({
 				usedHints: firebase.firestore.FieldValue.increment(1),
-				hints: hints,
+				hints: {
+					[`l${levelId}q${questId}`]: response,
+				},
 			}, {merge: true});
 		});
 		}
