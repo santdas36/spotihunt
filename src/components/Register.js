@@ -37,6 +37,7 @@ function Register() {
 				nameInput.current.focus();
 			} else {
 				setValidTeamname(true);
+				toast.info('Team name is available');
 			}
 		});
 	}
@@ -79,6 +80,7 @@ function Register() {
             		})
             	}).then(() => {
             		setLoading(false);
+            		toast.success('Registration is complete!')
             	});
           }).catch((error) => {
           	setLoading(false);
