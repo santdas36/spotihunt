@@ -82,12 +82,14 @@ opacity: 0;
 transition: opacity 1s;
 }
 
+.Toastify__toast-container {
+width: 400px
+}
 .Toastify__toast {
 border-radius: 0.5rem;
-padding: 0.5rem;
-opacity: 0.9;
-backdrop-filter: blur(5px);
+padding: 0.75rem;
 }
 .Toastify__progress-bar {
 opacity: 0.25;
+height: 2px;
 }
