@@ -10,6 +10,7 @@ import {AnimatePresence,motion} from 'framer-motion';
 import {auth, db} from './firebase';
 import {useStateValue} from './StateProvider';
 import Login from './components/Login';
+import {toast} from 'react-toastify';
 
 function EventPage() {
 	const [{user}, dispatch] = useStateValue();
@@ -25,6 +26,7 @@ function EventPage() {
 						user: data.data(),
 					});
 					setInitUser(true);
+					toast.info('You are already logged in.');
 				});
 				db.collection('questions').doc('quest').get().then((data)=> {
 					dispatch({
