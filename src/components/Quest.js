@@ -56,7 +56,7 @@ function Quest() {
 			<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
 				{(hint && !questCompleted) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
-				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswer[1])*100).toFixed(2)}%</motion.p>)}
+				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswers[1])*100).toFixed(2)}%</motion.p>)}
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." disabled={questCompleted} value={userAnswers ? userAnswers[0] : answer} onChange={(e) => setAnswer(e.target.value)} />
 					<button disabled={questCompleted}>Submit Answer</button>
