@@ -22,7 +22,7 @@ function Quest() {
 	}
 	
 	useEffect(() => {
-		const hintAvailable = user.hints[`l${levelId}q${questId}`];
+		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
 		if (hintAvailable) {
 			setHint(hintAvailable);
 		}	
