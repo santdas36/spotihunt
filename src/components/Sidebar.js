@@ -17,29 +17,16 @@ function Sidebar() {
 		if(user) {
 			setUsedHints(user?.usedHints);
 		}
+		console.log(user);
 	}, [user]);
 	
 	const getHint = async () => {
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((response) => {
 			if(response.status == '200') {
 				const userRef = db.collection('users').doc(user.uid);
-				db.runTransaction(async (t) => {
-					const doc = await t.get(userRef);
-					const hintsUsed = doc.data().usedHints;
-					if (hintsUsed < 3) {
-						t.update(userRef, {
-							usedHints: hintsUsed + 1,
-						});	
-					} else {
-						setError('Sorry! You've used the maximum allowed hints.')
-					}
-				}).then(() => {
-					console.log('Transaction success!');
-				}).catch((e) => {
-					console.log('Transaction failure:', e);
+				userRef.set({usedHints: db.FieldValue.increment(1)}, {merge: true}).then(()=> {
+					console.log(response.text());
 				});
-				
-				console.log(response.text());
 			}
 		});
 		
