@@ -75,6 +75,11 @@ function Register() {
             			},
             			contact: contact,
             			usedHints: 0,
+            			hints: {
+            				l1: {},
+            				l2: {},
+            				l3: {},
+            			},
             		})
             	}).then(() => {
             		setLoading(false);

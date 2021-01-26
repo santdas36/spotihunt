@@ -1,4 +1,5 @@
 import './EventPage.css';
+import Register from './components/Register';
 import Sidebar from './components/Sidebar';
 import QuestContainer from './components/QuestContainer';
 import Leaderboard from './components/Leaderboard';
@@ -53,6 +54,9 @@ function EventPage() {
     	</motion.div>) :
     	(<Login initUser={initUser} />)
     	}
+    </Route>
+    <Route path="/register">
+    	<Register />
     </Route>
   </AnimatePresence>);  
 }
