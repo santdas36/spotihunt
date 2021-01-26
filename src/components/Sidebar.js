@@ -31,6 +31,7 @@ function Sidebar() {
 			//if(response.ok) {
 				const userRef = db.collection('users').doc(user.uid);
 				let hints = {};
+				hints[`l${levelId}`] = {};
 				hints[`l${levelId}`][`q${questId}`] = response.text();
 				userRef.set({
 					usedHints: firebase.firestore.FieldValue.increment(1),
