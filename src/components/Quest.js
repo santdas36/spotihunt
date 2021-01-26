@@ -22,7 +22,7 @@ function Quest() {
 				answers: {
 					[`l${levelId}q{questId}`]: [answer, response]
 				}
-			}, {merge: true);
+			}, {merge: true});
 		}
 	}
 	
