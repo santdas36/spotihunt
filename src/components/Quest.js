@@ -18,8 +18,26 @@ function Quest() {
 	const [userAnswers, setUserAnswers] = useState(null);
 	
 	useEffect(() => {
-		const prevQuestCompleted = user.answers ? user.answers[`l${levelId}q${questId - 1}`] : (parseInt(levelId) === 1 && parseInt(questId) === 1);
-		if (prevQuestCompleted) {
+		
+		const prevQuestCompleted = () => {
+			const lvl = parseInt(levelId);
+			const qst = parseInt(questId);
+			if (lvl === 1 && qst === 1) {
+				return true;
+			} else if (lvl > 1 && qst > 1) {
+				if (user.answers[`l${levelId}q${questId - 1}`]) {
+					return true;
+				}
+			} else if (lvl > 1 && qst === 1) {
+				if (user.answers[`l${levelId - 1}q5`]) {
+					return true;
+				}
+			} else {
+				return false;
+			}
+		}
+		
+		if (prevQuestCompleted()) {
 			setQuestIsUnlocked(true);
 		}
 		
