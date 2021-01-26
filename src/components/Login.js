@@ -91,7 +91,7 @@ function Login({initUser}) {
 						</div>
 				</div>
 				<button type="submit" disabled={loading}>{(loading) ? 'Verifying...' : 'Reset Password'}</button>
-				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={setPasswordReset(false)}>Back to Login</p>
+				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={()=>setPasswordReset(false)}>Back to Login</p>
 			</form>) :
 			(<form onSubmit={(e) => handleSubmit(e)}>
 				<div className="form__inner">
@@ -115,7 +115,7 @@ function Login({initUser}) {
 						</div>
 				</div>
 				<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>
-				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={setPasswordReset(true)}>Forgot Password?</p>
+				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={()=>setPasswordReset(true)}>Forgot Password?</p>
 			</form>)
 		}
 		</div>
