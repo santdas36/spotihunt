@@ -1,6 +1,6 @@
 import './Sidebar.css';
 import {useEffect, useState} from 'react';
-import {NavLink, location} from 'react-router-dom';
+import {NavLink, useLocation} from 'react-router-dom';
 import SHLogo from '../assets/logo_sh.png';
 import BulbOn from '../assets/bulb_on.png';
 import BulbOff from '../assets/bulb_off.png';
@@ -11,6 +11,7 @@ import {useStateValue} from '../StateProvider';
 
 function Sidebar() {
 	const [{user}] = useStateValue();
+	const location = useLocation();
 	const [usedHints, setUsedHints] = useState(0);
 	
 	useEffect(() => {
@@ -21,12 +22,17 @@ function Sidebar() {
 	}, [user]);
 	
 	const getHint = async () => {
+		const currPath = location.pathname.split('/');
+		const levelId = currPath[2];
+		const questId = currPath[3];
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=1`).then((response) => {
 			if(response.status == '200') {
 				const userRef = db.collection('users').doc(user.uid);
 				userRef.set({usedHints: db.FieldValue.increment(1)}, {merge: true}).then(()=> {
 					console.log(response.text());
 				});
+			} else {
+				console.log(response.text());
 			}
 		});
 		
