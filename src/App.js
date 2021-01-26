@@ -1,3 +1,4 @@
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Register from './components/Register';
 import EventPage from './EventPage';
