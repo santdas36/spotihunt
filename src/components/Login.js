@@ -21,7 +21,7 @@ function Login({initUser}) {
 		setLoading(true);
 		e.preventDefault();
 		auth.sendPasswordResetEmail(email).then((response) => {
-    		toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password.");
+    		toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password.", {autoClose: 10000});
     		setLoading(false);
     	}).catch((error) => {
         	toast.error(error.message);
