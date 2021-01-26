@@ -21,8 +21,8 @@ border-radius: 0.5rem;
 }
 .quest__box img.completed {
 position: absolute;
-right: -1.5rem;
-bottom: 1rem;
+right: -1rem;
+top: -1rem;
 width: 4rem;
 height: auto;
 filter: drop-shadow(0 0.5rem 1rem var(--black-15));

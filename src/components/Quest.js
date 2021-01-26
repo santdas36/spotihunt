@@ -86,7 +86,7 @@ function Quest() {
 					<input type="text" placeholder="Type your answer here..." disabled={questCompleted} value={userAnswers ? userAnswers[0] : answer} onChange={(e) => setAnswer(e.target.value)} />
 					<button disabled={questCompleted}>Submit Answer</button>
 				</span>
-				{questCompleted && <img src={CompletedIcon} className="completed" />}
+				{questCompleted && <img src={CompletedIcon} initial={{scale: 2.5, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.5}} className="completed" />}
 			</form>) :
 			(<motion.div animate={{opacity: 1}} exit={{opacity: 0}} className="quest__locked">
 				<img src={QuestLockedIcon} />
