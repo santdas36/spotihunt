@@ -3,7 +3,7 @@ import Register from './components/Register';
 import EventPage from './EventPage';
 import ReactPlayer from 'react-player';
 import {useEffect, useState} from 'react';
-import {ToastContainer} from 'reacf-toastify';
+import {ToastContainer} from 'react-toastify';
 
 function App() {
 	const [loaded, setLoaded] = useState(true);
