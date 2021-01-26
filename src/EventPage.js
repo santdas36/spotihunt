@@ -18,7 +18,7 @@ function EventPage() {
 	useEffect(()=> {
 		auth.onAuthStateChanged((user) => {
 			if (user) {
-				db.collection('users').doc(user.uid).get().then((data)=> {
+				db.collection('users').doc(user.uid).onSnapshot((data) => {
 					dispatch({
 						type: "SET_USER",
 						user: data.data(),
