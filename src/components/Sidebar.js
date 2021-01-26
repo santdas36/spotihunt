@@ -30,9 +30,11 @@ function Sidebar() {
 			console.log(response);
 			//if(response.ok) {
 				const userRef = db.collection('users').doc(user.uid);
+				let hints = {};
+				hints[`l${levelId}`][`q${questId}`] = response.text();
 				userRef.set({
-					'usedHints': firebase.firestore.FieldValue.increment(1),
-					'hints': {`l${levelId}`: {`q${questId}`: response.text()}},
+					usedHints: firebase.firestore.FieldValue.increment(1),
+					hints: hints,
 				}, {merge: true}).then((data)=> {	
 					console.log(data);
 				});
