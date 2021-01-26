@@ -6,7 +6,6 @@ import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material
 import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
-import {toast} from 'react-toastify';
 
 function Login({initUser}) {
 	
