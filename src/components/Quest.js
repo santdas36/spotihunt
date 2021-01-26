@@ -6,6 +6,7 @@ import {useStateValue} from "../StateProvider";
 import HintIcon from '../assets/hint.svg';
 import {db, auth} from '../firebase';
 import CompletedIcon from '../assets/completed.png';
+import QuestLockedIcon from '../assets/locked.png';
 
 function Quest() {
 	const {levelId, questId} = useParams();
@@ -13,10 +14,28 @@ function Quest() {
 	const [answer, setAnswer] = useState('');
 	const [hint, setHint] = useState(false);
 	const [questCompleted, setQuestCompleted] = useState(false);
+	const [questIsUnlocked, setQuestIsUnlocked] = useState(false);
 	const [userAnswers, setUserAnswers] = useState(null);
 	
-	console.log(questions);
-	
+	useEffect(() => {
+		const prevQuestCompleted = user.answers ? user.answers[`l${levelId - 1}q${questId - 1}`] : (parseInt(levelId) === 1 && parseInt(questId) === 1);
+		if (prevQuestCompleted) {
+			setQuestIsUnlocked(true);
+		}
+		
+		const questCompleted = user.answers ? user.answers[`l${levelId}q${questId}`] : false;
+		if (questCompleted) {
+			setUserAnswers(questCompleted);
+			setQuestCompleted(true);
+		}
+		
+		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
+		if (hintAvailable) {
+			setHint(hintAvailable);
+		}	
+	}, [user]);
+		
+
 	const validate = async (e) => {
 		e.preventDefault();
 		const accuracy = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => data.text());
@@ -30,20 +49,6 @@ function Quest() {
 		}
 	}
 	
-	useEffect(() => {
-		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
-		if (hintAvailable) {
-			setHint(hintAvailable);
-		}	
-	}, [user]);
-		
-	useEffect(() => {
-		const questCompleted = user.answers ? user.answers[`l${levelId}q${questId}`] : false;
-		if (questCompleted) {
-			setUserAnswers(questCompleted);
-			setQuestCompleted(true);
-		}
-	}, [user]);
 	
 	return (
 		<motion.div
@@ -53,7 +58,8 @@ function Quest() {
 			exit={{y: "-100%", opacity: 0}}
 			variants={{type: "tween", duration: 1}}
 		>
-			<form className="quest__box" onSubmit={(e) => validate(e)}>
+		{prevQuestCompleted ?
+			(<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
 				{(hint && !questCompleted) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
 				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswers[1])*100).toFixed(2)}%</motion.p>)}
@@ -62,7 +68,11 @@ function Quest() {
 					<button disabled={questCompleted}>Submit Answer</button>
 				</span>
 				{questCompleted && <img src={CompletedIcon} className="completed" />}
-			</form>
+			</form>) :
+			(<motion.div animate={opacity: 1} exit={opacity: 0} className="quest__locked">
+				<img src={QuestLockedIcon}</img>
+			</motion.div>)
+		}
 		</motion.div>
 	);
 }

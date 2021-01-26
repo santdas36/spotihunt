@@ -66,3 +66,38 @@ max-width: none;
 .quest__answer button:disabled {
 opacity: 0;
 }
+
+.quest__locked {
+position: absolute;
+display: grid;
+place-items: center;
+content: '';
+padding: 10rem;
+z-index: 8;
+color: var(--white);
+width: 100%;
+height: 100%;
+left: 0;
+top: 0;
+background: var(--black-15);
+backdrop-filter: blur(0.5rem);
+box-shadow: inset 0 2rem 5rem var(--black);
+}
+.quest__locked img {
+width: 50%;
+height: auto;
+max-width: 400px;
+}
+.q-container.locked::after {
+position: absolute;
+content: '';
+background: url(locked.png);
+background-size: cover;
+z-index: 9;
+width: 360px;
+padding-bottom: 360px;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+opacity: 0.75;
+}
