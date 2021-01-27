@@ -8,9 +8,9 @@ function LevelCompleted({time, levelId}) {
   return (
     <motion.div
     	className="levelCompleted"
-    	initial={{y: 'calc(50% + 5rem)', x: '50%', opacity: 0}}
+    	initial={{y: 'calc(-50% + 5rem)', x: '-50%', opacity: 0}}
     	animate={{y: '50%', opacity: 1}}
-    	exit={{y: 'calc(50% + 5rem)', x: '50%', opacity: 0}}
+    	exit={{y: 'calc(-50% + 5rem)', x: '-50%', opacity: 0}}
     	transition={{type: "spring", duration: 0.5}}
     >
     	<h3>Level 1 Complete!</h3>
