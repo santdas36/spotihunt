@@ -20,6 +20,7 @@ align-items: center;
 justify-content: space-between;
 margin-bottom: 3rem;
 box-shadow: 0 0.25rem 0.25rem var(--black-15);
+position: relative;
 }
 .header__logout {
 position: absolute;
@@ -42,7 +43,6 @@ border-right: transparent 6px solid;
 top: -6px;
 right: 20px;
 }
-
 .leaderboard__header:hover .header__logout {
 transform: translateY(0);
 opacity: 1;
