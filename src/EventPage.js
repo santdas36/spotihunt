@@ -57,7 +57,10 @@ function EventPage() {
     	}
     </Route>
     <Route path="/login">
-    	<Login initUser={initUser} />
+    	{user ?
+	 	   (<Redirect to="/lvl/1"/>) :
+    		(<Login initUser={initUser} />)
+	    }
     </Route>
     <Route path="/register">
     	<Register />

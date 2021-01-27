@@ -6,11 +6,9 @@ import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material
 import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
-import {useHistory} from 'react-router-dom';
 
 function Login({initUser}) {
 	
-	const history = useHistory();
 	const [loading, setLoading] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
 	const [passwordReset, setPasswordReset] = useState(false);
@@ -30,7 +28,7 @@ function Login({initUser}) {
 							.then((response) => { toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password. If your facing any trouble, please contact us.", {autoClose: 10000}); setLoading(false);}).catch((error) => {toast.error(error.message);setLoading(false);});
 					} else {
 					auth.signInWithEmailAndPassword(data.data().email, password)
-						.then(()=> {setLoading(false); toast.success('Yay! You are now signed in!'); history.push('/');}).catch((error) => {toast.error(error.message); setLoading(false)});
+						.then(()=> {setLoading(false); toast.success('Yay! You are now signed in!');}).catch((error) => {toast.error(error.message); setLoading(false)});
 					}
 				} else {
 					toast.error("Seems like the teamname you've entered that doesn't exist. Try again or use your email to login.");
@@ -43,7 +41,7 @@ function Login({initUser}) {
 					.then((response) => { toast.info("Check your Inbox/Spam folder and follow the steps in the email that we have sent, to reset your password. If your facing any trouble, please contact us.", {autoClose: 10000}); setLoading(false);}).catch((error) => {toast.error(error.message);setLoading(false);});
 			} else {
 				auth.signInWithEmailAndPassword(email, password)
-					.then(()=> {setLoading(false); toast.success("Welcome back, you're logged in!"); history.push('/');}).catch((error) => {toast.error(error.message); setLoading(false)});
+					.then(()=> {setLoading(false); toast.success("Welcome back, you're logged in!");}).catch((error) => {toast.error(error.message); setLoading(false)});
 			}
 		}
 	}
