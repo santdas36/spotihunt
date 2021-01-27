@@ -6,7 +6,7 @@ flex-direction: column;
 gap: 1rem;
 top: 50%;
 transform: translateY(-50%);
-z-index: 2;
+z-index: 3;
 }
 .questnav a {
 display: block;

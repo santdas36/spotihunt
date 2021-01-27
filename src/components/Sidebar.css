@@ -37,8 +37,11 @@ width: calc(100% + 3rem);
 position: relative;
 overflow: hidden;
 transition: all 0.2s;
-opacity: 0.25;
+opacity: 1;
 user-select: none;
+}
+.sidebar__levels li {
+opacity: 0.25;
 }
 .sidebar__levels a::before {
 position: absolute;
