@@ -33,7 +33,13 @@ function EventPage() {
 						questions: data.data(),
 					});
 				});
-			} else {setInitUser(true)};
+			} else {
+				setInitUser(true);
+				dispatch({
+					type: "SET_USER",
+					user: null,
+				});	
+			};
 		})
 	}, []);
 	
