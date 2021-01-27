@@ -37,7 +37,6 @@ gap: 1rem;
 margin-left: 1rem;
 }
 .footer__buttons button{
-background: none;
 color: var(--white);
 border: none;
 width: 2.25rem;
@@ -45,16 +44,19 @@ height: 2.25rem;
 border-radius: 99px;
 display: grid;
 place-items: center;
-background: var(--black-15);
+background: var(--green);
 transition: all 0.2s;
 padding: 0;
+}
+.footer__buttons button:disabled {
+background: var(--black-15);
 }
 .footer button svg {
 font-size: 1.75rem !important;
 }
-.footer__buttons button:hover{
-background: var(--green);
+.footer__buttons button:not(:disabled):hover{
 transform: scale(1.15);
+box-shadow: 0 0.15rem 0.5rem var(--black-15);
 }
 .footer__buttons button:focus{
 outline: none;

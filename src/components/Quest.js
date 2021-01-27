@@ -7,6 +7,7 @@ import HintIcon from '../assets/hint.svg';
 import {db, auth} from '../firebase';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
+import {toast} from 'react-toastify';
 
 function Quest() {
 	const {levelId, questId} = useParams();
@@ -16,6 +17,8 @@ function Quest() {
 	const [questCompleted, setQuestCompleted] = useState(false);
 	const [questIsUnlocked, setQuestIsUnlocked] = useState(false);
 	const [userAnswers, setUserAnswers] = useState(null);
+	const [levelComplete, setLevelComplete] = useState(false);
+	const [loading, setLoading] = useState(false);
 	
 	useEffect(() => {
 		
@@ -57,6 +60,7 @@ function Quest() {
 
 	const validate = async (e) => {
 		e.preventDefault();
+		setLoading(true);
 		const accuracy = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => data.text());
 		console.log(accuracy);
 		if (accuracy > 0.8) {
@@ -64,7 +68,19 @@ function Quest() {
 				answers: {
 					[`l${levelId}q${questId}`]: [answer, accuracy]
 				}
-			}, {merge: true});
+			}, {merge: true}).then(()=> {
+				toast.success("That's right! Proceed to next quest...");
+				setLoading(false);
+				if(parseInt(levelId) < 3 && parseInt(questId) === 5) {
+					setLevelComplete(true);
+				}
+			}).catch((e) => {
+				toast.error(e.message);
+				setLoading(false);
+			});
+		} else {
+			toast.warning(`Sorry, that's not the answer we were looking for. But you were close (${(parseFloat(accuracy)*100).toFixed(2)}%). Try again!`);
+			setLoading(false);
 		}
 	}
 	
@@ -83,7 +99,7 @@ function Quest() {
 				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswers[1])*100).toFixed(2)}%</motion.p>)}
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." disabled={questCompleted} value={userAnswers ? userAnswers[0] : answer} onChange={(e) => setAnswer(e.target.value)} />
-					<button disabled={questCompleted}>Submit Answer</button>
+					{!questCompleted && <motion.button exit={{scale: 0.5, opacity: 0}} disabled={loading}>{loading ? 'Processing...' : 'Submit Answer'}</motion.button>}
 				</span>
 				{questCompleted && <motion.img src={CompletedIcon} initial={{scale: 2}} animate={{scale: 1}} variants={{type: "spring", duration: 1}} className="completed" />}
 			</form>) :
