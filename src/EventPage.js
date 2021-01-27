@@ -42,7 +42,7 @@ function EventPage() {
     <Route exact path="/">
     	{user ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
-    		(<Login initUser={initUser} />)
+    		(<Redirect to="/login"/>)
 	    }
     </Route>
     <Route path="/lvl">
@@ -53,8 +53,11 @@ function EventPage() {
     		<Leaderboard/>
 	    	<Footer/>
     	</motion.div>) :
-    	(<Login initUser={initUser} />)
+    	(<Redirect to="/login"/>)
     	}
+    </Route>
+    <Route path="/login">
+    	<Login initUser={initUser} />
     </Route>
     <Route path="/register">
     	<Register />
