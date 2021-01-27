@@ -72,10 +72,10 @@ function Quest() {
 	return (
 		<motion.div
 			className="quest"
-			initial={{y: "100%", opacity: 0}}
+			initial={{y: "-5rem", opacity: 0}}
 			animate={{y: 0, opacity: 1}}
-			exit={{y: "-100%", opacity: 0}}
-			variants={{type: "tween", duration: 1}}
+			exit={{y: "5rem", opacity: 0}}
+			transition={{type: "inertia", velocity: 50, duration: 1}}
 		>
 		{questIsUnlocked ?
 			(<form className="quest__box" onSubmit={(e) => validate(e)}>
@@ -86,7 +86,7 @@ function Quest() {
 					<input type="text" placeholder="Type your answer here..." disabled={questCompleted} value={userAnswers ? userAnswers[0] : answer} onChange={(e) => setAnswer(e.target.value)} />
 					<button disabled={questCompleted}>Submit Answer</button>
 				</span>
-				{questCompleted && <img src={CompletedIcon} initial={{scale: 2.5, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.5}} className="completed" />}
+				{questCompleted && <img src={CompletedIcon} initial={{scale: 2}} animate={{scale: 1}} variants={{type: "spring", duration: 1}} className="completed" />}
 			</form>) :
 			(<motion.div animate={{opacity: 1}} exit={{opacity: 0}} className="quest__locked">
 				<img src={QuestLockedIcon} />

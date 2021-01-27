@@ -29,7 +29,7 @@ function Login({initUser}) {
 					auth.signInWithEmailAndPassword(data.data().email, password).then(()=> {setLoading(false); toast.success('Yay! You are now logged in!')}).catch((error) => {toast.error(error.message); setLoading(false)});
 					}
 				} else {
-					toast.error("Seems like the teamname you've entered that doesn't exist. Try again or use ypur email to login.");
+					toast.error("Seems like the teamname you've entered that doesn't exist. Try again or use your email to login.");
 					setLoading(false);
 				}	
 			});	
