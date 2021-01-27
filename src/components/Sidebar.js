@@ -4,7 +4,7 @@ import {NavLink, useLocation, useHistory} from 'react-router-dom';
 import SHLogo from '../assets/logo_sh.png';
 import BulbOn from '../assets/bulb_on.png';
 import BulbOff from '../assets/bulb_off.png';
-import {AccessTimeRounded, LockOutlined, CheckCircleOutlineRounded} from '@material-ui/icons';
+import {AccessTimeRounded, LockOutlined, CheckCircleRounded} from '@material-ui/icons';
 import {auth, db} from '../firebase';
 import firebase from 'firebase';
 import {useStateValue} from '../StateProvider';
@@ -17,6 +17,7 @@ function Sidebar() {
 	const [usedHints, setUsedHints] = useState(0);
 	const [twoUnlocked, setTwoUnlocked] = useState(false);
 	const [threeUnlocked, setThreeUnlocked] = useState(false);
+	const [fourUnlocked, setFourUnlocked] = useState(false);
 	
 	useEffect(() => {
 		
@@ -24,6 +25,7 @@ function Sidebar() {
 			setUsedHints(user.usedHints);
 			setTwoUnlocked(user.answers[`l1q5`]);
 			setThreeUnlocked(user.answers[`l2q5`]);
+			setFourUnlocked(user.answers[`l3q5`]);
 		}
 		console.log(user);
 	}, [user]);
@@ -49,13 +51,13 @@ function Sidebar() {
     <div className="sidebar">
     	<img src={SHLogo} className="sidebar__logo" />
     	<div className="sidebar__levels">
-    		<NavLink activeClassName="active" to='/lvl/1'>{twoUnlocked ? <CheckCircleOutlineRounded/> : <AccessTimeRounded />} Level 1</NavLink>
+    		<NavLink activeClassName="active" to='/lvl/1'>{twoUnlocked ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 1</NavLink>
     		{twoUnlocked ?
-    		(<NavLink activeClassName="active" to='/lvl/2'>{threeUnlocked ? <CheckCircleOutlineRounded/> : <AccessTimeRounded />} Level 2</NavLink>) : 
+    		(<NavLink activeClassName="active" to='/lvl/2'>{threeUnlocked ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 2</NavLink>) : 
     		(<li className="locked"><LockOutlined /> Level 2</li>)
     		}
     		{threeUnlocked ?
-    		(<NavLink activeClassName="active" to='/lvl/3'><AccessTimeRounded /> Level 3</NavLink>) : 
+    		(<NavLink activeClassName="active" to='/lvl/3'>{fourUnlocked ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 3</NavLink>) : 
     		(<li className="locked"><LockOutlined /> Level 3</li>)
     		}
     	</div>
