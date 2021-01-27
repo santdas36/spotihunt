@@ -69,10 +69,11 @@ function Quest() {
 					[`l${levelId}q${questId}`]: [answer, accuracy]
 				}
 			}, {merge: true}).then(()=> {
-				toast.success("That's right! Proceed to next quest...");
 				setLoading(false);
 				if(parseInt(levelId) < 3 && parseInt(questId) === 5) {
 					setLevelComplete(true);
+				} else if (parseInt(levelId) !== 3 && parseInt(questId) !== 5) {
+					toast.success("That's right! Proceed to next quest...");
 				}
 			}).catch((e) => {
 				toast.error(e.message);
