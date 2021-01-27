@@ -9,11 +9,7 @@ import {ToastContainer} from 'react-toastify';
 function App() {
 	const [loaded, setLoaded] = useState(true);
 	const [fadeOut, setFadeOut] = useState(false);
-	const [hasMinWidth, setHasMinWidth] = useState(false);
-	
-	useEffect(()=>{
-		setHasMinWidth(window.matchMedia('(min-width: 1000px)').matches);
-	}, []);
+	const hasMinWidth = window.matchMedia('(min-width: 1000px)').matches;
 	
   return (
     <div className="app">
