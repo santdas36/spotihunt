@@ -63,9 +63,6 @@ margin-bottom: 1rem;
 max-width: auto;
 max-width: none;
 }
-.quest__answer button:disabled {
-opacity: 0;
-}
 
 .quest__locked {
 position: absolute;

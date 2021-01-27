@@ -96,7 +96,7 @@ function Login({initUser}) {
 				{passwordReset ?
 				(<button type="submit" disabled={loading}>{(loading) ? 'Verifying...' : 'Reset Password'}</button>) : 
 				(<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>)}
-				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '1.5rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
+				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '3rem', marginBottom: '-1rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
 			</form>
 		</div>
 	</div>
