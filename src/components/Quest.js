@@ -99,7 +99,7 @@ function Quest() {
 				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswers[1])*100).toFixed(2)}%</motion.p>)}
 				<span className="quest__answer">
 					<input type="text" placeholder="Type your answer here..." disabled={questCompleted} value={userAnswers ? userAnswers[0] : answer} onChange={(e) => setAnswer(e.target.value)} />
-					{!questCompleted && <motion.button exit={{scale: 0.5, opacity: 0}} disabled={loading}>{loading ? 'Processing...' : 'Submit Answer'}</motion.button>}
+					{!questCompleted && <motion.button animate={{scale: 1, opacity: 1}} exit={{scale: 0.5, opacity: 0}} disabled={loading}>{loading ? 'Processing...' : 'Submit Answer'}</motion.button>}
 				</span>
 				{questCompleted && <motion.img src={CompletedIcon} initial={{scale: 2}} animate={{scale: 1}} variants={{type: "spring", duration: 1}} className="completed" />}
 			</form>) :
