@@ -55,8 +55,10 @@ function Register() {
               		photoURL: `https://avatars.dicebear.com/4.5/api/gridy/${teamname}.svg`,
             	}).then(() => {
             		db.collection('usernames').doc(teamname).set({
-            			email: email1
-            			});
+            			email: email1,
+            			time: timestamp,
+            			score: 0,
+            		});
             		db.collection('users').doc(auth.currentUser.uid).set({
             			teamname: teamname,
             			time: timestamp,
