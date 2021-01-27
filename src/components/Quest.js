@@ -8,6 +8,7 @@ import {db, auth} from '../firebase';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';
+import LevelCompleted from './LevelCompleted';
 
 function Quest() {
 	const {levelId, questId} = useParams();
@@ -62,7 +63,6 @@ function Quest() {
 		e.preventDefault();
 		setLoading(true);
 		const accuracy = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => data.text());
-		console.log(accuracy);
 		if (accuracy > 0.8) {
 			db.collection('users').doc(auth.currentUser.uid).set({
 				answers: {
@@ -92,6 +92,7 @@ function Quest() {
 			animate={{y: 0, opacity: 1}}
 			exit={{y: "5rem", opacity: 0}}
 		>
+		{levelComplete && <LevelCompleted levelId={levelId} time='15mins'/>}
 		{questIsUnlocked ?
 			(<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
