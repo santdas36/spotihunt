@@ -35,7 +35,8 @@ function Sidebar() {
 		const levelId = currPath[2];
 		const questId = currPath[3];
 		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
-		if(!hintAvailable) {
+		const alreadyAnswered = user.answers ? user.answers[`l${levelId}q${questId}`] : false;
+		if(!hintAvailable && !alreadyAnswered) {
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=${usedHints}`).then((data) => data.text()).then((response) => {
 			db.collection('users').doc(auth.currentUser.uid).set({
 				usedHints: firebase.firestore.FieldValue.increment(1),
