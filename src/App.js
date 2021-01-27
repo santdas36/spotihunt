@@ -19,7 +19,7 @@ function App() {
     <div className="app">
     
       {hasMinWidth ?
-      	{loaded ? 
+      	(<>{loaded ? 
       	<EventPage /> :
       	<ReactPlayer
       		className={`intro__video ${fadeOut ? 'fadeOut' : ''}`}
@@ -33,7 +33,7 @@ function App() {
       			setTimeout(()=> setLoaded(true), 1000)
       		}}
       	/>
-      	} :
+      	}</>) :
       	(<h1>Small Screen</h1>)
       }
       
