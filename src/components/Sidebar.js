@@ -8,7 +8,7 @@ import {AccessTimeRounded, LockOutlined, CheckCircleRounded} from '@material-ui/
 import {auth, db} from '../firebase';
 import firebase from 'firebase';
 import {useStateValue} from '../StateProvider';
-
+import {toast} from 'react-toastify';
 
 function Sidebar() {
 	const [{user}] = useStateValue();
@@ -37,13 +37,16 @@ function Sidebar() {
 		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
 		const alreadyAnswered = user.answers ? user.answers[`l${levelId}q${questId}`] : false;
 		if(!hintAvailable && !alreadyAnswered) {
+		toast.info('Getting your hint...')	
 		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=${usedHints}`).then((data) => data.text()).then((response) => {
 			db.collection('users').doc(auth.currentUser.uid).set({
 				usedHints: firebase.firestore.FieldValue.increment(1),
 				hints: {
 					[`l${levelId}q${questId}`]: response,
 				},
-			}, {merge: true});
+			}, {merge: true}).then(()=> {
+				setTimeout(()=> toast.info(`Here you go! You have ${3 - user.usedHints} left.`), 500);
+			});
 		});
 		}
 	}
