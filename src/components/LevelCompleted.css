@@ -6,6 +6,8 @@ background-image: url(../assets/levelComplete.gif);
 background-size: cover;
 display: flex;
 flex-direction: column;
+justify-content: center;
+align-items: center;
 padding: 3rem 5rem;
 z-index: 8;
 top: 50%;
@@ -19,7 +21,6 @@ margin-bottom: 0.5rem;
 font-weight: 800;
 color: var(--green);
 text-align: center;
-width: fit-content;
 }
 .levelCompleted p {
 color: var(--black);

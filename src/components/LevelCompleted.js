@@ -15,7 +15,7 @@ function LevelCompleted({time, levelId, contestComplete}) {
     >
     	{contestComplete ? (<>
     		<h3>Congratulations!</h3>
-    		<p className="contestComplete">You've successfully completed all the quests. We'll let you know once we have the results. Meanwhile you can have a look at the other teams' progress in the leaderboard. Stay tuned. Good luck!</p>
+    		<p className="contestComplete">You've successfully completed all the quests.  Stay tuned for the results. Meanwhile check other teams' progress in the leaderboard. Good luck!</p>
     	</>) :
     	(<>
     		<h3>Level {levelId} Complete!</h3>
