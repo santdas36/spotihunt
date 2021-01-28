@@ -9,15 +9,17 @@ justify-content: center;
 padding: 3rem;
 }
 .unsupported img {
-width: 100%;
-max-width: 360px;
+width: 80%;
+max-width: 300px;
 }
 .unsupported > span {
 max-width: 480px;
 }
 .unsupported h1 {
 color: var(--black);
-margin-top: 2rem;
+margin-top: 3rem;
+line-height: 1.33;
+font-weight: 800;
 }
 .unsupported p {
 color: var(--black-50);
