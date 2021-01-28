@@ -23,7 +23,7 @@ color: var(--green);
 text-align: center;
 }
 .levelCompleted h4 {
-margin: 1rem 0;
+margin: 1rem 0 2rem 0;
 color: var(--green);
 }
 .levelCompleted p {
