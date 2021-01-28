@@ -9,14 +9,12 @@ import firebase from 'firebase';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';
-import LevelCompleted from './LevelCompleted';
 
 function Quest() {
 	const {levelId, questId} = useParams();
 	const [{user, questions}] = useStateValue();
 	const [answer, setAnswer] = useState('');
 	const [hint, setHint] = useState(false);
-	const [contestCompleted, setContestCompleted] = useState(false);
 	const [questCompleted, setQuestCompleted] = useState(false);
 	const [questIsUnlocked, setQuestIsUnlocked] = useState(false);
 	const [userAnswers, setUserAnswers] = useState(null);
@@ -59,10 +57,6 @@ function Quest() {
 			setHint(hintAvailable);
 		}
 		
-		const allCompleted = user.answers ? user.answers['l3q5'] : false;
-		if (allCompleted) {
-			setContestCompleted(true);
-		}
 	}, [user]);
 		
 
@@ -104,7 +98,6 @@ function Quest() {
 			animate={{y: 0, opacity: 1}}
 			exit={{y: "5rem", opacity: 0}}
 		>
-		{contestCompleted && <LevelCompleted contestComplete={true}/>}
 		{levelComplete && <LevelCompleted levelId={levelId} time='15mins'/>}
 		{questIsUnlocked ?
 			(<form className="quest__box" onSubmit={(e) => validate(e)}>
