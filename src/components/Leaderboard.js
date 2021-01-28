@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import {ReactComponent as TrophyIcon} from '../assets/trophy.svg';
 import {useStateValue} from '../StateProvider';
 import {auth} from '../firebase';
-import {motion} from 'framer-motion';
+import FlipMove from 'react-flip-move';
 
 function Leaderboard() {
 	const arr = Array.from(Array(20)).map((e,i)=>i+1);
@@ -20,10 +20,11 @@ function Leaderboard() {
 			<button className="header__logout" onClick={()=> auth.signOut()}>Sign Out</button>
     	</div>
     	<h3>Leaderboard</h3>
-    	<motion.ul layout className="leaderboard__teams">
+    	<ul layout className="leaderboard__teams">
+    		<FlipMove typeName={null}>
     		{
     			leaderboard?.map((team, index)=> (
-    				<li layoutId={team.id} className={team.id===user?.teamname ? 'active' : ''}>
+    				<li key={team.id} className={team.id===user?.teamname ? 'active' : ''}>
     					{index < 3 ?
     						(<TrophyIcon />) :
     						(<span className="leaderboard__rank">{index+1}</span>)
@@ -33,7 +34,8 @@ function Leaderboard() {
     				</li>
     			))
     		}
-    	</motion.ul>
+    		</FlipMove>
+    	</ul>
     </div>
   );
 }
