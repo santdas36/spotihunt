@@ -4,7 +4,8 @@ import {Switch, Route, useLocation, useParams} from "react-router-dom";
 import {motion} from "framer-motion";
 import {useStateValue} from "../StateProvider";
 import HintIcon from '../assets/hint.svg';
-import {db, auth} from '../firebase';
+import {db, auth, timestamp} from '../firebase';
+import firebase from 'firebase';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';
@@ -75,6 +76,10 @@ function Quest() {
 				} else if (parseInt(levelId) !== 3 && parseInt(questId) !== 5) {
 					toast.success("That's right! Proceed to next quest...");
 				}
+				db.collection('usernames').doc(user.teamname).set({
+					score: firebase.firestore.FieldValue.increment(1),
+					time: timestamp,
+				}, {merge: true});
 			}).catch((e) => {
 				toast.error(e.message);
 				setLoading(false);
