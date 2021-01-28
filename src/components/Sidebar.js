@@ -45,7 +45,7 @@ function Sidebar() {
 					[`l${levelId}q${questId}`]: response,
 				},
 			}, {merge: true}).then(()=> {
-				setTimeout(()=> toast.info(`Here you go! You have ${3 - user.usedHints} hints left.`), 500);
+				setTimeout(()=> toast.info(`Here you go! You have ${3 - user.usedHints} hint(s) left.`), 500);
 			});
 		});
 		}
