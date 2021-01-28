@@ -27,6 +27,12 @@ function EventPage() {
 					});
 					setInitUser(true);
 				});
+				db.collection('usernames').onSnapshot((data) => {
+					dispatch({
+						type: "SET_LEADERBOARD",
+						leaderboard: data.docs,
+					});
+				});
 				db.collection('questions').doc('quest').get().then((data)=> {
 					dispatch({
 						type: "SET_QUESTIONS",

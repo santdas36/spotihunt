@@ -1,6 +1,7 @@
 export const initialState = {
   questions: null,
-  user: null
+  user: null,
+  leaderboard: null,
 };
 
 const reducer = (state, action) => {
@@ -14,6 +15,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         questions: action.questions,
+      };
+	case "SET_LEADERBOARD":
+      return {
+        ...state,
+        leaderboard: action.leaderboard,
       };
 
     default:

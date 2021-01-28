@@ -3,10 +3,11 @@ import {useEffect, useState} from 'react';
 import {ReactComponent as TrophyIcon} from '../assets/trophy.svg';
 import {useStateValue} from '../StateProvider';
 import {auth} from '../firebase';
+import {motion} from 'framer-motion';
 
 function Leaderboard() {
 	const arr = Array.from(Array(20)).map((e,i)=>i+1);
-	const [{user}] = useStateValue();
+	const [{user, leaderboard}] = useStateValue();
 	
   return (
     <div className="leaderboard">
@@ -19,20 +20,20 @@ function Leaderboard() {
 			<button className="header__logout" onClick={()=> auth.signOut()}>Sign Out</button>
     	</div>
     	<h3>Leaderboard</h3>
-    	<ul className="leaderboard__teams">
+    	<motion.ul layout className="leaderboard__teams">
     		{
-    			arr.map((el,index)=> (
-    				<li className={index===user?.teamname ? 'active' : ''}>
+    			leaderboard?.map((team, index)=> (
+    				<li layoutId={team.id} className={team.id===user?.teamname ? 'active' : ''}>
     					{index < 3 ?
     						(<TrophyIcon />) :
     						(<span className="leaderboard__rank">{index+1}</span>)
     					}
-    					<span className="leaderboard__teamname">Team {index+1}</span>
-    					<span className="leaderboard__score">12<small>/15</small></span>
+    					<span className="leaderboard__teamname">{team.id}</span>
+    					<span className="leaderboard__score">{team.score}<small>/15</small></span>
     				</li>
     			))
     		}
-    	</ul>
+    	</motion.ul>
     </div>
   );
 }
