@@ -5,9 +5,11 @@ import Quest from './Quest';
 import {useState, useEffect} from 'react';
 import QuestNav from './QuestNav';
 import LevelCompleted from './LevelCompleted';
+import {useStateValue} from '../StateProvider';
 
 function QuestContainer() {
 	const location = useLocation();
+	const [{user}] = useStateValue();
 	const [contestCompleted, setContestCompleted] = useState(false);
 	
 	useEffect(() => {

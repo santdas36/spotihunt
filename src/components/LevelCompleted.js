@@ -8,9 +8,9 @@ function LevelCompleted({time, levelId, contestComplete}) {
   return (
     <motion.div
     	className="levelCompleted"
-    	initial={{y: 'calc(-50% + 5rem)', x: '-50%', opacity: 0}}
+    	initial={{y: 'calc(-50% + 3rem)', x: '-50%', z: 8, opacity: 0}}
     	animate={{y: '-50%', opacity: 1}}
-    	exit={{y: 'calc(-50% + 5rem)', x: '-50%', opacity: 0}}
+    	exit={{y: 'calc(-50% + 3rem)', opacity: 0}}
     	transition={{type: "spring", duration: 0.5}}
     >
     	{contestComplete ? (<>
