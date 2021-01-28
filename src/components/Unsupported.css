@@ -19,7 +19,8 @@ max-width: 480px;
 .unsupported h1 {
 color: var(--black);
 margin-top: 3rem;
-line-height: 1.33;
+line-height: 1.2;
+font-size: 1.5rem;
 font-weight: 800;
 }
 .unsupported p {
