@@ -1,0 +1,24 @@
+.unsupported {
+background: var(--white);
+width: 100vw;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 3rem;
+}
+.unsupported img {
+width: 100%;
+max-width: 360px;
+}
+.unsupported > span {
+max-width: 480px;
+}
+.unsupported h1 {
+color: var(--black);
+margin-top: 2rem;
+}
+.unsupported p {
+color: var(--black-50);
+margin-top: 1rem;
+}

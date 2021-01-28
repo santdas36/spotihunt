@@ -1,6 +1,7 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Register from './components/Register';
+import Unsupported from './components/Unsupported';
 import EventPage from './EventPage';
 import ReactPlayer from 'react-player';
 import {useEffect, useState} from 'react';
@@ -30,7 +31,7 @@ function App() {
       		}}
       	/>
       	}</>) :
-      	(<h1>Small Screen</h1>)
+      	(<Unsupported/>)
       }
       
       <ToastContainer position="bottom-right"/>
