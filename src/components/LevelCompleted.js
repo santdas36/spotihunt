@@ -15,7 +15,7 @@ function LevelCompleted({time, levelId}) {
     >
     	<h3>Level {levelId} Complete!</h3>
 		<p>You have completed Level {levelId} in {time}.<br/>Please continue to Level {levelId + 1}.</p>
-		<button onClick={()=> history.push(`/lvl/${levelId + 1}`)}>Go to Next Level</button>
+		<button onClick={()=> history.push(`/lvl/${parseInt(levelId) + 1}`)}>Go to Next Level</button>
     </motion.div>
   );
 }
