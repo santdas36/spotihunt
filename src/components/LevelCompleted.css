@@ -28,7 +28,8 @@ margin-bottom: 2rem;
 text-align: center;
 }
 .levelCompleted p.contestComplete {
-max-width: 480px;
+max-width: 360px;
+margin-bottom: 0;
 }
 .levelCompleted button {
 margin: 0 auto;
