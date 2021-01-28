@@ -36,6 +36,7 @@ margin-top: 1rem;
 width: fit-content;
 display: flex;
 align-items: center;
+user-select: none;
 }
 .quest__hint.accuracy {
 padding: 0.5rem 1rem;
@@ -52,6 +53,7 @@ transform: scaleY(0.85);
 .quest__question {
 font-weight: 600;
 font-size: 1.15rem;
+user-select: none;
 }
 .quest__answer {
 display: flex;

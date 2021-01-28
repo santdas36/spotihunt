@@ -24,12 +24,12 @@ box-sizing: border-box;
 --bronze: #a97142;
 }
 
-html {
+*, html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-html::-webkit-scrollbar {
+*::-webkit-scrollbar {
   display: none;
 }
 

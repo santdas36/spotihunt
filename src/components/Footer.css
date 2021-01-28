@@ -23,6 +23,7 @@ padding: 0.325rem 0.75rem;
 border-radius: 0.5rem;
 margin-right: 1rem;
 transition: all 0.2s;
+user-select: none;
 }
 .footer__refresh:hover {
 box-shadow: 0 0 0 2px var(--green);
