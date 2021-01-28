@@ -1,4 +1,5 @@
 import './Unsupported.css';
+import UnsupportedIcon from '../assets/unsupported.png';
 
 function Unsupported() {
 	return (
