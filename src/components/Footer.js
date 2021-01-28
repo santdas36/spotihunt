@@ -32,7 +32,7 @@ function Footer() {
 	
 	return (
 		<div className="footer">
-			<div className="footer__refresh">
+			<div className="footer__refresh" onClick={()=> window.location.reload()}>
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
