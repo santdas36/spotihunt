@@ -11,7 +11,7 @@ text-align: center;
 }
 .unsupported img {
 width: 80%;
-max-width: 300px;
+max-width: 240px;
 }
 .unsupported > span {
 max-width: 480px;
