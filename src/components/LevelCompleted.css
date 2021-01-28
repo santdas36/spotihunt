@@ -18,11 +18,16 @@ font-size: 2rem;
 margin-bottom: 0.5rem;
 font-weight: 800;
 color: var(--green);
+text-align: center;
+width: fit-content;
 }
 .levelCompleted p {
 color: var(--black);
 margin-bottom: 2rem;
 text-align: center;
+}
+.levelCompleted p.contestComplete {
+max-width: 480px;
 }
 .levelCompleted button {
 margin: 0 auto;

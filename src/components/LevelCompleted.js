@@ -15,11 +15,11 @@ function LevelCompleted({time, levelId, contestComplete}) {
     >
     	{contestComplete ? (<>
     		<h3>Congratulations!</h3>
-    		<p>You've successfully completed all the quests. We'll let you know once we have the results. Good luck.</p>
+    		<p className="contestComplete">You've successfully completed all the quests. We'll let you know once we have the results. Meanwhile you can have a look at the other teams' progress in the leaderboard. Stay tuned. Good luck!</p>
     	</>) :
     	(<>
     		<h3>Level {levelId} Complete!</h3>
-			<p>You have completed Level {levelId} in {time}.<br/>Please continue to Level {levelId + 1}.</p>
+			<p>You have completed Level {levelId} in {time}.<br/>Please continue to Level {parseInt(levelId) + 1}.</p>
 			<button onClick={()=> history.push(`/lvl/${parseInt(levelId) + 1}`)}>Go to Next Level</button>
 		</>)
 		}
