@@ -29,7 +29,7 @@ function Leaderboard() {
     						(<span className="leaderboard__rank">{index+1}</span>)
     					}
     					<span className="leaderboard__teamname">{team.id}</span>
-    					<span className="leaderboard__score">{team.score}<small>/15</small></span>
+    					<span className="leaderboard__score">{team.data().score}<small>/15</small></span>
     				</li>
     			))
     		}
