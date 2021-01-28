@@ -16,6 +16,7 @@ function Quest() {
 	const [{user, questions}] = useStateValue();
 	const [answer, setAnswer] = useState('');
 	const [hint, setHint] = useState(false);
+	const [contestCompleted, setContestCompleted] = useState(false);
 	const [questCompleted, setQuestCompleted] = useState(false);
 	const [questIsUnlocked, setQuestIsUnlocked] = useState(false);
 	const [userAnswers, setUserAnswers] = useState(null);
@@ -56,7 +57,12 @@ function Quest() {
 		const hintAvailable = user.hints ? user.hints[`l${levelId}q${questId}`] : false;
 		if (hintAvailable) {
 			setHint(hintAvailable);
-		}	
+		}
+		
+		const allCompleted = user.answers ? user.answers['l3q5'] : false;
+		if (allCompleted) {
+			setContestCompleted(true);
+		}
 	}, [user]);
 		
 
@@ -98,6 +104,7 @@ function Quest() {
 			animate={{y: 0, opacity: 1}}
 			exit={{y: "5rem", opacity: 0}}
 		>
+		{contestCompleted && <LevelCompleted contestComplete={true}/>}
 		{levelComplete && <LevelCompleted levelId={levelId} time='15mins'/>}
 		{questIsUnlocked ?
 			(<form className="quest__box" onSubmit={(e) => validate(e)}>
