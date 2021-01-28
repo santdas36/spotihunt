@@ -9,6 +9,7 @@ import firebase from 'firebase';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';
+import LevelCompleted from './LevelCompleted';
 
 function Quest() {
 	const {levelId, questId} = useParams();
