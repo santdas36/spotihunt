@@ -24,7 +24,8 @@ text-align: center;
 }
 .levelCompleted h4 {
 margin: 1rem 0 2rem 0;
-color: var(--green);
+color: var(--black);
+font-size: 1.25rem;
 }
 .levelCompleted p {
 color: var(--black);
@@ -33,6 +34,7 @@ text-align: center;
 }
 .levelCompleted p.contestComplete {
 margin-bottom: 0;
+width: 320px;
 }
 .levelCompleted button {
 margin: 0 auto;
