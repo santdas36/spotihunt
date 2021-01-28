@@ -85,7 +85,7 @@ function Quest() {
 				setLoading(false);
 			});
 		} else {
-			toast.warning(`Sorry, that's not the answer we were looking for. But you were close (${(parseFloat(accuracy)*100).toFixed(2)}%). Try again!`);
+			toast.warning(`Sorry, that's not the answer we were looking for. But you're answer is ${(parseFloat(accuracy)*100).toFixed(2)}% right. Try again!`);
 			setLoading(false);
 		}
 	}
