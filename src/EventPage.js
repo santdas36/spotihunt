@@ -27,7 +27,7 @@ function EventPage() {
 					});
 					setInitUser(true);
 				});
-				db.collection('usernames').orderBy('score', 'desc').orderBy('time', 'desc').onSnapshot((data) => {
+				db.collection('usernames').orderBy('score', 'desc').onSnapshot((data) => {
 					dispatch({
 						type: "SET_LEADERBOARD",
 						leaderboard: data.docs,
