@@ -6,7 +6,7 @@ function Timer() {
 	const startDate = new Date('Jan 30, 2021 15:00:00').getTime();
 	const [syncr, setSyncr] = useState(null);
 	useEffect(()=> {
-		fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => setSyncr(response.datetime));
+		fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => setSyncr(response.datetime));
 		if (syncr) {
 		const syncTime = new Date(syncr).getTime() - new Date().getTime();
 		console.log(syncr, syncTime);
