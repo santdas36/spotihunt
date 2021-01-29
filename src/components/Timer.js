@@ -1,20 +1,18 @@
-import {useEffect} from 'react';
+import {useEffect, useState} from 'react';
 import {useStateValue} from '../StateProvider';
 
 function Timer() {
 	const [{time}, dispatch] = useStateValue();
-	const startDate = new Date('Jan 30, 2021 14:00:00').getTime();
-	
+	const startDate = new Date('Jan 30, 2021 15:00:00').getTime();
+	const [syncr, setSyncr] = useState(null);
 	useEffect(()=> {
-		const syncTime = async() => {
-			const serverTime = await fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => response.datetime);
-			console.log('server', serverTime);
-			return (new Date(serverTime).getTime() - new Date().getTime());
-		}
-		console.log('sync', syncTime());
+		fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => setSyncr(response.datetime));
+		if (syncr) {
+		const syncTime = new Date(syncr).getTime() - new Date().getTime();
+		console.log(syncr, syncTime);
 		const timerInterval = setInterval(()=> {
 			const nowTime = new Date().getTime();
-			const difference = ~~(new Date(startDate - nowTime).getTime() / 1000);
+			const difference = ~~(new Date(startDate - nowTime + syncTime).getTime() / 1000);
 			dispatch({
 				type: 'SET_TIME',
 				time: difference,
@@ -24,7 +22,8 @@ function Timer() {
 		return () => {
 			clearInterval(timerInterval);
 		}
-	}, []);
+		}
+	}, [syncr]);
 	
 	return null;
 }
