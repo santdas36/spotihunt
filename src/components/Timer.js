@@ -3,10 +3,12 @@ import {useStateValue} from '../StateProvider';
 
 function Timer() {
 	const [{time}, dispatch] = useStateValue();
-	const startDate = +new Date('Jan 30, 2021 15:00:00');
+	const startDate = +new Date('2021-01-30T15:00:00.0+05:30');
 	const [syncr, setSyncr] = useState(null);
+	
 	useEffect(()=> {
 		fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => setSyncr(response.datetime));
+		
 		if (syncr) {
 		const syncTime = +new Date(syncr) - +new Date();
 		const timerInterval = setInterval(()=> {
