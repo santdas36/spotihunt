@@ -8,7 +8,9 @@ function Timer() {
 	
 	useEffect(()=> {
 		fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => setSyncr(response.datetime));
-		
+	}, []);
+	
+	useEffect(()=> {
 		if (syncr) {
 		const syncTime = +new Date(syncr) - +new Date();
 		const timerInterval = setInterval(()=> {
