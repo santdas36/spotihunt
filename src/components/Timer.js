@@ -15,7 +15,7 @@ function Timer() {
 		const syncTime = +new Date(syncr) - +new Date();
 		const timerInterval = setInterval(()=> {
 			const nowTime = +new Date();
-			const difference = ~~(+new Date(startDate - nowTime + syncTime) / 1000);
+			const difference = ~~(+new Date(startDate - nowTime - syncTime) / 1000);
 			console.log(startDate, nowTime, syncTime, difference);
 			dispatch({
 				type: 'SET_TIME',
