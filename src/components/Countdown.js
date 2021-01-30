@@ -16,4 +16,4 @@ function Countdown({time}) {
 	);
 }
 
-export defaulf Countdown;
+export default Countdown;
