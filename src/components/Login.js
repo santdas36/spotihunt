@@ -73,7 +73,7 @@ function Login({initUser, contestStarted}) {
 				<p style={{marginBottom: "1.5rem"}}>Contest starts in:<br/>
 				{contestStarted ?
 				<Countdown time={0}/> :
-				({!user && <Countdown time={time}/>})
+				<>{!user && <Countdown time={time}/>}</>
 				}
 				</p>
 				<p>You can login your team here. If you've already logged, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
