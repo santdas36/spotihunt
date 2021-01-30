@@ -7,7 +7,9 @@ function Timer() {
 	
 	useEffect(()=> {
 		const syncTime = async() => {
-			return fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => new Date(response.datetime).getTime() - new Date().getTime());
+			const serverTime = await fetch('http://worldtimeapi.org/api/timezone/Asia/Kolkata').then((response) => response.json()).then((response) => response.datetime);
+			console.log('server', serverTime);
+			return (new Date(serverTime).getTime() - new Date().getTime());
 		}
 		console.log('sync', syncTime());
 		const timerInterval = setInterval(()=> {
