@@ -11,7 +11,7 @@ function Timer() {
 			const difference = ~~(new Date(startDate - nowTime).getTime() / 1000);
 			console.log(difference);
 			dispatch({
-				type: SET_TIME,
+				type: 'SET_TIME',
 				time: difference,
 			});
 		}, 1000);
