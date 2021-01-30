@@ -1,5 +1,4 @@
-import './Timer.css';
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import {useStateValue} from '../StateProvider';
 
 function Timer() {
