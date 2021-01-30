@@ -50,7 +50,7 @@ bottom: var(--footer);
 border-radius: 0.5rem;
 background: var(--white-15);
 flex: 0 0 60%;
-max-width: 26rem;
+width: fit-content;
 }
 .login .login__left {
 flex: 0 0 40%;
