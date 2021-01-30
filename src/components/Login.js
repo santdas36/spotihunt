@@ -8,6 +8,7 @@ import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
 import {useStateValue} from '../StateProvider';
 import Countdown from './Countdown';
+import {motion} from 'framer-motion';
 
 function Login({initUser, contestStarted}) {
 	
@@ -84,11 +85,11 @@ function Login({initUser, contestStarted}) {
 			</span>
 		</div>
 		{(user && !contestStarted) ? 
-		(<div className="login__right">
+		(<motion.div layout className="login__right">
 			<h3>Waiting for contest to begin...</h3>
 			<Countdown time={time}/>
-		</div>) :
-		(<div className="login__right">
+		</motion.div>) :
+		(<motion.div layout className="login__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
 				<div className="form__inner">
 						<div className="input__field">
@@ -115,7 +116,7 @@ function Login({initUser, contestStarted}) {
 				(<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>)}
 				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '3rem', marginBottom: '-1.5rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
 			</form>
-		</div>)
+		</motion.div>)
 		}
 	</div>
 	</div>
