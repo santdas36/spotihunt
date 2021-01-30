@@ -9,7 +9,7 @@ display: grid;
 place-items: center;
 flex: 0.25;
 border-radius: 0.5rem 0.5rem 0 0;
-box-shadow: 0 0.5rem 1rem var(--black-50);
+box-shadow: 0 0.5rem 1rem var(--black-15);
 background: var(--white-15);
 backdrop-filter: blur(10px);
 font-size: 2rem;

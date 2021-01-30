@@ -72,7 +72,7 @@ function Login({initUser, contestStarted}) {
 				<p style={{marginBottom: "1.5rem"}}>Contest starts in:<br/>
 				{contestStarted ?
 				<Countdown time={0}/> :
-				<Countdown time={time}/>
+				({!user && <Countdown time={time}/>})
 				}
 				</p>
 				<p>You can login your team here. If you've already logged, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
@@ -86,6 +86,7 @@ function Login({initUser, contestStarted}) {
 		{(user && !contestStarted) ? 
 		(<div className="login__right">
 			<h3>Waiting for contest to begin...</h3>
+			<Countdown time={time}/>
 		</div>) :
 		(<div className="login__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
