@@ -6,7 +6,7 @@ import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material
 import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
-import {useStateValue} from 'StateProvider';
+import {useStateValue} from '../StateProvider';
 
 function Login({initUser, contestStarted}) {
 	
