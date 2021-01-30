@@ -114,7 +114,7 @@ function Login({initUser, contestStarted}) {
 				{passwordReset ?
 				(<button type="submit" disabled={loading}>{(loading) ? 'Verifying...' : 'Reset Password'}</button>) : 
 				(<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>)}
-				<p style={{fontWeight: 800, maxWidth: '20rem', textAlign: 'center', marginTop: '3rem', marginBottom: '-1.5rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
+				<p style={{fontWeight: 800, cursor: 'pointer', textAlign: 'center', marginTop: '3rem', marginBottom: '-1.5rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
 			</form>
 		</motion.div>)
 		}
