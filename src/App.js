@@ -2,6 +2,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Register from './components/Register';
 import Unsupported from './components/Unsupported';
+import Timer from './components/Timer';
 import EventPage from './EventPage';
 import ReactPlayer from 'react-player';
 import {useEffect, useState} from 'react';
@@ -14,7 +15,6 @@ function App() {
 	
   return (
     <div className="app">
-    
       {hasMinWidth ?
       	(<>{loaded ? 
       	<EventPage /> :
@@ -34,6 +34,7 @@ function App() {
       	(<Unsupported/>)
       }
       
+      <Timer />
       <ToastContainer position="bottom-right"/>
     </div>
   );

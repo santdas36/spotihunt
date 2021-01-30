@@ -13,9 +13,16 @@ import Login from './components/Login';
 import {toast} from 'react-toastify';
 
 function EventPage() {
-	const [{user}, dispatch] = useStateValue();
+	const [{user, time}, dispatch] = useStateValue();
 	const [initUser, setInitUser] = useState(false);
+	const [contestStarted, setContestStarted] = useState(false);
 	const history = useHistory();
+	
+	useEffect(() => {
+		if (time<0) {
+			setContestStarted(true);
+		}
+	}, [time])
 	
 	useEffect(()=> {
 		auth.onAuthStateChanged((user) => {
@@ -52,13 +59,13 @@ function EventPage() {
   return (
   <AnimatePresence>
     <Route exact path="/">
-    	{user ?
+    	{(user && contestStarted) ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
     		(<Redirect to="/login"/>)
 	    }
     </Route>
     <Route path="/lvl">
-    	{user ?
+    	{(user && contestStarted) ?
     	(<motion.div className="event" initial={{opacity: 0}} animate={{opacity: 1}}>
     		<Sidebar/>
     		<QuestContainer/>
@@ -69,9 +76,9 @@ function EventPage() {
     	}
     </Route>
     <Route path="/login">
-    	{user ?
+    	{(user && contestStarted) ?
 	 	   (<Redirect to="/lvl/1"/>) :
-    		(<Login initUser={initUser} />)
+    		(<Login initUser={initUser} contestStarted={contestStarted} />)
 	    }
     </Route>
     <Route path="/register">

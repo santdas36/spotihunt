@@ -6,8 +6,9 @@ import {InfoOutlined, VisibilityOffOutlined, VisibilityOutlined} from '@material
 import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
+import {useStateValue} from 'StateProvider';
 
-function Login({initUser}) {
+function Login({initUser, contestStarted}) {
 	
 	const [loading, setLoading] = useState(null);
 	const [passwordVisible, setPasswordVisible] = useState(false);
@@ -16,6 +17,7 @@ function Login({initUser}) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const emailInp = useRef(null);
+	const [{time}] = useStateValue();
 	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -66,8 +68,12 @@ function Login({initUser}) {
 				<img src={SHLogo} className="logo__sh" />
 			</span>
 			<span style={{marginBottom: "5rem"}}>
-				<p style={{marginBottom: "1.5rem"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut lbore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.</p>
-				<p>You can login your team here. If you've already logined, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
+				<p style={{marginBottom: "1.5rem"}}>Contest starts in:<br/>
+				{contestStarted ? "00:00:00" :
+				(`${~~(time / (24*60*60))}days ${~~((time % (24*60*60)) / (60*60))}hours ${~~((time % (60*60)) / 60)}minutes ${~~(time % 60)}seconds`)
+				}
+				</p>
+				<p>You can login your team here. If you've already logged, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>
 			<span style={{marginTop: 'auto'}}>
 				<h3 style={{marginBottom: "1rem"}}>Contact</h3>

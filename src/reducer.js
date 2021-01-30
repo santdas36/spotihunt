@@ -2,6 +2,7 @@ export const initialState = {
   questions: null,
   user: null,
   leaderboard: null,
+  time: 0,
 };
 
 const reducer = (state, action) => {
@@ -20,6 +21,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         leaderboard: action.leaderboard,
+      };
+	case "SET_TIME":
+      return {
+        ...state,
+        time: action.time,
       };
 
     default:

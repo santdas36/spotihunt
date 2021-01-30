@@ -22,8 +22,6 @@ function Quest() {
 	const [levelComplete, setLevelComplete] = useState(false);
 	const [loading, setLoading] = useState(false);
 	
-	setInterval(()=> console.log(timestamp.now()), 1000);
-	
 	useEffect(() => {
 		
 		const prevQuestCompleted = () => {
