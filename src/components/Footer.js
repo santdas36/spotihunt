@@ -2,6 +2,7 @@ import './Footer.css';
 import {useEffect, useState} from 'react';
 import { useHistory, useLocation } from "react-router-dom";
 import LinearProgress from '@material-ui/core/LinearProgress';
+import {useStateValue} from '../StateProvider';
 import {SkipNextRounded, SkipPreviousRounded, RefreshRounded} from '@material-ui/icons';
 
 function Footer() {
@@ -11,6 +12,7 @@ function Footer() {
 	const [currentPath, setCurrentPath] = useState([]);
 	const [nextAvailable, setNextAvailable] = useState(false);
 	const [prevAvailable, setPrevAvailable] = useState(false);
+	const [{time}] = useStateValue();
 	
 	useEffect(() => {
 		setCurrentPath(location.pathname.split('/'));
@@ -36,8 +38,8 @@ function Footer() {
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
-				<LinearProgress variant="determinate" value={parseInt((17.36/30)*100)} />
-				<span class="footer__clock">17:36<small> /30:00</small></span>
+				<LinearProgress variant="determinate" value={parseInt((-time/1800)*100)} />
+				<span class="footer__clock">{~~(-time/60)}:{-time%60}<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">
 				<button onClick={prevQuest} disabled={!prevAvailable}><SkipPreviousRounded/></button>
