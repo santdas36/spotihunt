@@ -44,7 +44,7 @@ function Footer() {
 			</div>
 			<div className="footer__timer">
 				<LinearProgress variant="determinate" value={(-time < 1800) ? parseInt(-time/18) : 100} />
-				<span class="footer__clock">{~~(-time/60)}:{-time%60}<small> /30:00</small></span>
+				<span class="footer__clock">{~~(-time/60)}:{(-time%60 < 10) && '0'}{-time%60}<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">
 				<button onClick={prevQuest} disabled={!prevAvailable}><SkipPreviousRounded/></button>
