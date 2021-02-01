@@ -27,7 +27,6 @@ width: 100%;
 height: 100vh;
 margin: 0 auto;
 display: flex;
-align-items: center;
 }
 .logo__ck {
 height: 2.25rem;
@@ -57,8 +56,7 @@ flex: 0 0 40%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-padding: 3rem;
-padding-top: 6rem;
+padding: 6rem 3rem;
 }
 .login .input__field {
 display: flex;
