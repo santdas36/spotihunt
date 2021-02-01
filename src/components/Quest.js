@@ -60,7 +60,10 @@ function Quest() {
 		}
 		
 	}, [user]);
-		
+	
+	useEffect(()=> {
+		document.title = `Level ${levelId} - Quest ${questId} | Spot-i-hint, by Christ.Keng`;
+	}, []);
 
 	const validate = async (e) => {
 		e.preventDefault();

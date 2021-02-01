@@ -21,6 +21,11 @@ function Login({initUser, contestStarted}) {
 	const emailInp = useRef(null);
 	const [{time, user}] = useStateValue();
 	
+	useEffect(()=> {
+		document.title = 'Welcome to Spot-i-Hunt, an online musical treasure hunt by Christ.Keng';
+	}, []);
+	
+	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);

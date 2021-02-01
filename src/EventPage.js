@@ -31,6 +31,7 @@ function EventPage() {
 	}, [time])
 	
 	useEffect(()=> {
+		document.title = 'Loading...';
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				db.collection('users').doc(user.uid).onSnapshot((data) => {

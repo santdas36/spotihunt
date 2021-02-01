@@ -94,6 +94,7 @@ function Register() {
 	
 	useEffect(() => {
 		setFadeIn(true);
+		document.title = 'Register for Spot-i-Hunt, an online musical treasure hunt from Christ Keng';
 		auth.onAuthStateChanged((user) => {
 			if (user) {
 				setLoggedIn(true);
