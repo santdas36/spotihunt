@@ -31,6 +31,11 @@ function EventPage() {
 	}, [time])
 	
 	useEffect(()=> {
+		if(timeup) {document.title = 'Time Up!'}
+    	if(user && !contestStarted) {document.title = 'Waiting for contest to begin...'}
+	}, [timeup, user, contestStarted]);
+	
+	useEffect(()=> {
 		document.title = 'Loading...';
 		auth.onAuthStateChanged((user) => {
 			if (user) {
@@ -67,8 +72,6 @@ function EventPage() {
   return (
   <AnimatePresence>
     {(timeup && !resultsPublished) && <Redirect to="/timeup"/>}
-    {timeup && () => document.title = 'Time Up!'}
-    {user && !contestStarted && () => document.title = 'Waiting for contest to begin...'}
     <Route exact path="/">
     	{(user && contestStarted) ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
