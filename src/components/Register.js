@@ -58,6 +58,7 @@ function Register() {
             			email: email1,
             			time: timestamp,
             			score: 0,
+            			actualScore: 0,
             		});
             		db.collection('users').doc(auth.currentUser.uid).set({
             			teamname: teamname,

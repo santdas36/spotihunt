@@ -80,6 +80,7 @@ function Quest() {
 				db.collection('usernames').doc(user.teamname).set({
 					score: firebase.firestore.FieldValue.increment(1),
 					time: timestamp,
+					actualScore: firebase.firestore.FieldValue.increment(accuracy),
 				}, {merge: true});
 			}).catch((e) => {
 				toast.error(e.message);
