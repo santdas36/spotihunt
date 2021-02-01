@@ -6,7 +6,7 @@ import {useState, useEffect} from 'react';
 import QuestNav from './QuestNav';
 import LevelCompleted from './LevelCompleted';
 import {useStateValue} from '../StateProvider';
-import vars from '../vars';
+import {vars} from '../vars';
 
 function QuestContainer() {
 	const location = useLocation();

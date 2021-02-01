@@ -1,7 +1,7 @@
 import './QuestNav.css';
 import {NavLink, useLocation} from 'react-router-dom';
 import {useState, useEffect} from 'react';
-import vars from '../vars';
+import {vars} from '../vars';
 
 function QuestNav() {
 	const location = useLocation();
@@ -20,7 +20,7 @@ function QuestNav() {
     <div className="questnav">
     	{questsArray.map((i) => (
     		<NavLink activeClassName="active" to={`${currLocation}/i`}>{i}</NavLink>
-    	)}
+    	))}
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {useStateValue} from '../StateProvider';
 import {SkipNextRounded, SkipPreviousRounded, RefreshRounded} from '@material-ui/icons';
-import vars from '../vars';
+import {vars} from '../vars';
 
 function Footer() {
 	

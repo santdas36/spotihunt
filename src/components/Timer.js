@@ -1,9 +1,10 @@
 import {useEffect, useState} from 'react';
 import {useStateValue} from '../StateProvider';
+import {vars} from '../vars';
 
 function Timer() {
 	const [{time}, dispatch] = useStateValue();
-	const startDate = +new Date('2021-02-01T19:05:00.0+05:30');
+	const startDate = +new Date(vars.startTime);
 	const [syncr, setSyncr] = useState(null);
 	
 	useEffect(()=> {

@@ -9,7 +9,7 @@ import {auth, db} from '../firebase';
 import firebase from 'firebase';
 import {useStateValue} from '../StateProvider';
 import {toast} from 'react-toastify';
-import vars from '../vars';
+import {vars} from '../vars';
 
 function Sidebar() {
 	const [{user}] = useStateValue();

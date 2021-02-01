@@ -11,7 +11,7 @@ import {auth, db} from './firebase';
 import {useStateValue} from './StateProvider';
 import Login from './components/Login';
 import {toast} from 'react-toastify';
-import vars from './vars';
+import {vars} from './vars';
 
 function EventPage() {
 	const [{user, time}, dispatch] = useStateValue();
