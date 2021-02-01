@@ -1,0 +1,35 @@
+.countdown {
+display: flex;
+gap: 1rem;
+width: 26rem;
+margin-bottom: 3rem;
+}
+.countdown span {
+display: grid;
+place-items: center;
+flex: 0.25;
+border-radius: 0.5rem 0.5rem 0 0;
+box-shadow: 0 0.5rem 1rem var(--black-50);
+background: var(--white-15);
+backdrop-filter: blur(10px);
+font-size: 2rem;
+font-weight: 800;
+padding: 1rem 0 0.5rem 0;
+position: relative;
+z-index: 1;
+}
+.countdown span::before {
+content: attr(data-text);
+position: absolute;
+padding: 0.5rem;
+background: var(--white-15);
+top: 100%;
+left: 0;
+border-radius: 0 0 0.5rem 0.5rem;
+width: 100%;
+text-align: center;
+font-size: 0.85rem;
+line-height: 1;
+z-index: -1;
+color: var(--green);
+}

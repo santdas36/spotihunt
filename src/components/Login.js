@@ -7,6 +7,7 @@ import CKLogo from '../assets/logo_ck.png';
 import SHLogo from '../assets/logo_sh.png';
 import {db, auth, timestamp} from '../firebase';
 import {useStateValue} from '../StateProvider';
+import Countdown from './Countdown';
 
 function Login({initUser, contestStarted}) {
 	
@@ -17,7 +18,7 @@ function Login({initUser, contestStarted}) {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const emailInp = useRef(null);
-	const [{time}] = useStateValue();
+	const [{time, user}] = useStateValue();
 	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -69,8 +70,9 @@ function Login({initUser, contestStarted}) {
 			</span>
 			<span style={{marginBottom: "5rem"}}>
 				<p style={{marginBottom: "1.5rem"}}>Contest starts in:<br/>
-				{contestStarted ? "00:00:00" :
-				(`${~~(time / (24*60*60))}days ${~~((time % (24*60*60)) / (60*60))}hours ${~~((time % (60*60)) / 60)}minutes ${~~(time % 60)}seconds`)
+				{contestStarted ?
+				<Countdown time={0} :
+				<Countdown time={time}/>
 				}
 				</p>
 				<p>You can login your team here. If you've already logged, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
@@ -81,7 +83,11 @@ function Login({initUser, contestStarted}) {
 				<p><a className="link" href="https://instagram.com/christ.keng">@christ.keng</a></p>
 			</span>
 		</div>
-		<div className="login__right">
+		{(user && !contestStarted) ? 
+		(<div className="login__right">
+			<h3>Waiting for contest to begin...</h3>
+		</div>) :
+		(<div className="login__right">
 			<form onSubmit={(e) => handleSubmit(e)}>
 				<div className="form__inner">
 						<div className="input__field">
@@ -108,7 +114,8 @@ function Login({initUser, contestStarted}) {
 				(<button type="submit" disabled={loading || !initUser}>{(loading || !initUser) ? 'Logging In...' : 'Login'}</button>)}
 				<p style={{fontWeight: 800, textAlign: 'center', marginTop: '3rem', marginBottom: '-1.5rem'}} onClick={()=>setPasswordReset(!passwordReset)}>{passwordReset ? 'Back to Login' : 'Forgot Password?'}</p>
 			</form>
-		</div>
+		</div>)
+		}
 	</div>
 	</div>
 	);
