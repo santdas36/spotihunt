@@ -40,6 +40,7 @@ function EventPage() {
 						user: data.data(),
 					});
 					setInitUser(true);
+					document.title = 'Welcome to Spot-i-Hunt, an online musical treasure hunt, from Christ.Keng';
 				});
 				db.collection('usernames').orderBy('actualScore', 'desc').onSnapshot((data) => {
 					dispatch({
@@ -58,7 +59,8 @@ function EventPage() {
 				dispatch({
 					type: "SET_USER",
 					user: null,
-				});	
+				});
+				document.title = 'Log into your Spot-i-Hunt profile to continue...';
 			};
 		})
 	}, []);
