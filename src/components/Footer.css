@@ -73,7 +73,7 @@ flex: auto;
 flex: auto;
 border-radius: 10px;
 height: 10px;
-border: 2px solid var(--black-15);
+border: 2px solid var(--white-15);
 background-color: var(--black-15) !important;
 }
 .footer .MuiLinearProgress-bar {
