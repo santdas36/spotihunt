@@ -40,7 +40,6 @@ function EventPage() {
 						user: data.data(),
 					});
 					setInitUser(true);
-					document.title = 'Welcome to Spot-i-Hunt, an online musical treasure hunt, from Christ.Keng';
 				});
 				db.collection('usernames').orderBy('actualScore', 'desc').onSnapshot((data) => {
 					dispatch({
@@ -68,6 +67,8 @@ function EventPage() {
   return (
   <AnimatePresence>
     {(timeup && !resultsPublished) && <Redirect to="/timeup"/>}
+    {timeup && () => document.title = 'Time Up!'}
+    {user && !contestStarted && () => document.title = 'Waiting for contest to begin...'}
     <Route exact path="/">
     	{(user && contestStarted) ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
