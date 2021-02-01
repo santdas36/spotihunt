@@ -24,6 +24,8 @@ function EventPage() {
 	useEffect(() => {
 		if (time<0) {
 			setContestStarted(true);
+		} else {
+			setContestStarted(false);
 		}
 		if (-time>vars.duration) {
 			setTimeup(true);
