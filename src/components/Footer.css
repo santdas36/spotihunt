@@ -85,16 +85,16 @@ animation-play-state: paused;
 }
 @keyframes timerHue {
 0% {
-filter: hue-rotate(0) saturate(100%);
+filter: hue-rotate(0) contrast(100%) brightness(100%);
 }
 50% {
-filter: hue-rotate(-30deg) saturate(105%);
+filter: hue-rotate(-50deg) contrast(115%) brightness(120%);
 }
 75% {
-filter: hue-rotate(-75deg) saturate(107%);
+filter: hue-rotate(-70deg) contrast(130%) brightness(115%);
 }
 100% {
-filter: hue-rotate(-125deg) saturate(110%);
+filter: hue-rotate(-125deg) contrast(100%) brightness(90%);
 }
 }
 
