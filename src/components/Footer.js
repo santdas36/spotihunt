@@ -21,11 +21,9 @@ function Footer() {
 	}, [location]);
 	
 	useEffect(() => {
-		const muiProgressRoot = document.querySelector('.MuiLinearProgress-root');
 		const muiProgressBar = document.querySelector('.MuiLinearProgress-bar');
-		
-		muiProgressBar.style.animationDelay = `${-muiProgressRoot.getAttribute('aria-valuenow')}s`;
-	}, []);
+		muiProgressBar.style.animationDelay = `${-parseInt((-time/180)*100)}s`;
+	}, [time]);
 	
 	const nextQuest = () => {
 		if (currentPath.length === 4 && nextAvailable) {

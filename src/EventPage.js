@@ -16,11 +16,15 @@ function EventPage() {
 	const [{user, time}, dispatch] = useStateValue();
 	const [initUser, setInitUser] = useState(false);
 	const [contestStarted, setContestStarted] = useState(false);
+	const [timeup, setTimeup] = useState(true);
 	const history = useHistory();
 	
 	useEffect(() => {
 		if (time<0) {
 			setContestStarted(true);
+		}
+		if (-time>1800) {
+			setTimeup(true);
 		}
 	}, [time])
 	
