@@ -3,7 +3,7 @@ import {useStateValue} from '../StateProvider';
 
 function Timer() {
 	const [{time}, dispatch] = useStateValue();
-	const startDate = +new Date('2021-02-01T13:00:00.0+05:30');
+	const startDate = +new Date('2021-02-01T19:05:00.0+05:30');
 	const [syncr, setSyncr] = useState(null);
 	
 	useEffect(()=> {

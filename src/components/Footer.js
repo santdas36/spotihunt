@@ -4,6 +4,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {useStateValue} from '../StateProvider';
 import {SkipNextRounded, SkipPreviousRounded, RefreshRounded} from '@material-ui/icons';
+import vars from '../vars';
 
 function Footer() {
 	
@@ -16,13 +17,13 @@ function Footer() {
 	
 	useEffect(() => {
 		setCurrentPath(location.pathname.split('/'));
-		setNextAvailable(location.pathname.split('/')[3] < 5);
+		setNextAvailable(location.pathname.split('/')[3] < vars.quests);
 		setPrevAvailable(location.pathname.split('/')[3] > 1);
 	}, [location]);
 	
 	useEffect(() => {
 		const muiProgressBar = document.querySelector('.MuiLinearProgress-bar');
-		muiProgressBar.style.animationDelay = `${parseInt(time/18)}s`;
+		muiProgressBar.style.animationDelay = `${parseInt((time/vars.duration)*100)}s`;
 	}, [time]);
 	
 	const nextQuest = () => {
@@ -43,7 +44,7 @@ function Footer() {
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
-				<LinearProgress variant="determinate" value={(-time < 1800) ? parseInt(-time/18) : 100} />
+				<LinearProgress variant="determinate" value={(-time < vars.duration) ? parseInt((-time/vars.duration)*100) : 100} />
 				<span class="footer__clock">{~~(-time/60)}:{(-time%60 < 10) && '0'}{-time%60}<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">

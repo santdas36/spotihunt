@@ -1,10 +1,12 @@
 import './QuestNav.css';
 import {NavLink, useLocation} from 'react-router-dom';
 import {useState, useEffect} from 'react';
+import vars from '../vars';
 
 function QuestNav() {
 	const location = useLocation();
 	const [currLocation, setCurrLocation] = useState();
+	const questsArray = Array.from(Array(vars.quests)).map((e,i)=>i+1);
 	
 	useEffect(() => {
 		let splt = location.pathname.split('/');
@@ -16,11 +18,9 @@ function QuestNav() {
 	
   return (
     <div className="questnav">
-    	<NavLink activeClassName="active" to={`${currLocation}/1`}>1</NavLink>	
-    	<NavLink activeClassName="active" to={`${currLocation}/2`}>2</NavLink>
-    	<NavLink activeClassName="active" to={`${currLocation}/3`}>3</NavLink>
-    	<NavLink activeClassName="active" to={`${currLocation}/4`}>4</NavLink>
-    	<NavLink activeClassName="active" to={`${currLocation}/5`}>5</NavLink>
+    	{questsArray.map((i) => (
+    		<NavLink activeClassName="active" to={`${currLocation}/i`}>{i}</NavLink>
+    	)}
     </div>
   );
 }

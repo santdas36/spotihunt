@@ -11,6 +11,7 @@ import {auth, db} from './firebase';
 import {useStateValue} from './StateProvider';
 import Login from './components/Login';
 import {toast} from 'react-toastify';
+import vars from './vars';
 
 function EventPage() {
 	const [{user, time}, dispatch] = useStateValue();
@@ -24,7 +25,7 @@ function EventPage() {
 		if (time<0) {
 			setContestStarted(true);
 		}
-		if (-time>1800) {
+		if (-time>vars.duration) {
 			setTimeup(true);
 		}
 	}, [time])

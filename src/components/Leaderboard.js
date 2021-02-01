@@ -6,7 +6,6 @@ import {auth} from '../firebase';
 import {motion} from 'framer-motion';
 
 function Leaderboard() {
-	const arr = Array.from(Array(20)).map((e,i)=>i+1);
 	const [{user, leaderboard}] = useStateValue();
 	
   return (

@@ -9,26 +9,25 @@ import {auth, db} from '../firebase';
 import firebase from 'firebase';
 import {useStateValue} from '../StateProvider';
 import {toast} from 'react-toastify';
+import vars from '../vars';
 
 function Sidebar() {
 	const [{user}] = useStateValue();
 	const location = useLocation();
 	const history = useHistory();
 	const [usedHints, setUsedHints] = useState(0);
-	const [twoUnlocked, setTwoUnlocked] = useState(false);
-	const [threeUnlocked, setThreeUnlocked] = useState(false);
-	const [fourUnlocked, setFourUnlocked] = useState(false);
+	const levelsArray = Array.from(Array(vars.levels)).map((e,i)=>i+1);
+	const hintsArray = Array.from(Array(vars.maxHints)).map((e,i)=>i+1);
 	
 	useEffect(() => {
-		
 		if(user) {
 			setUsedHints(user.usedHints);
-			setTwoUnlocked(user.answers[`l1q5`]);
-			setThreeUnlocked(user.answers[`l2q5`]);
-			setFourUnlocked(user.answers[`l3q5`]);
 		}
-		console.log(user);
 	}, [user]);
+	
+	const isLevelUnlocked = (lvl) => {
+		return user.answers[`l${lvl-1}q${vars.quests}`] ? true : false;
+	}
 	
 	const getHint = async () => {
 		const currPath = location.pathname.split('/');
@@ -45,7 +44,7 @@ function Sidebar() {
 					[`l${levelId}q${questId}`]: response,
 				},
 			}, {merge: true}).then(()=> {
-				setTimeout(()=> toast.info(`Here you go! You have ${3 - user.usedHints} hint(s) left.`), 1000);
+				setTimeout(()=> toast.info(`Here you go! You have ${vars.maxHints - user.usedHints} hint(s) left.`), 1000);
 			});
 		});
 		}
@@ -55,24 +54,28 @@ function Sidebar() {
     <div className="sidebar">
     	<img src={SHLogo} className="sidebar__logo" />
     	<div className="sidebar__levels">
-    		<NavLink activeClassName="active" to='/lvl/1'>{twoUnlocked ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 1</NavLink>
-    		{twoUnlocked ?
-    		(<NavLink activeClassName="active" to='/lvl/2'>{threeUnlocked ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 2</NavLink>) : 
-    		(<li className="locked"><LockOutlined /> Level 2</li>)
+    	
+    	{levelsArray.map((lvl)=> {
+    		if (lvl == 1) {
+    			return (<NavLink activeClassName="active" to='/lvl/1'>{isLevelUnlocked(lvl+1) ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 1</NavLink>);
+    		} else {
+    			return isLevelUnlocked(lvl) ? 
+    			(<NavLink activeClassName="active" to={`/lvl/${lvl}`}>{isLevelUnlocked(lvl+1) ? <CheckCircleRounded/> : <AccessTimeRounded />} Level {lvl}</NavLink>) :
+    			(<li className="locked"><LockOutlined /> Level {lvl}</li>)
     		}
-    		{threeUnlocked ?
-    		(<NavLink activeClassName="active" to='/lvl/3'>{fourUnlocked ? <CheckCircleRounded/> : <AccessTimeRounded />} Level 3</NavLink>) : 
-    		(<li className="locked"><LockOutlined /> Level 3</li>)
-    		}
+    	})};
+    	
     	</div>
     	<p className="sidebar__info">New levels unlock on completion of current level.</p>
     	<div className="sidebar__hints">
     		<h4 style={{marginBottom: '0.5rem'}}>Feeling stuck!?</h4>
     		<p>You are given a total of only three hints for the entire contest. Use wisely.</p>
     		<div className="sidebar__hintsImg">
-    			<button onClick={getHint} disabled={usedHints>0}><img src={usedHints>0 ? BulbOff : BulbOn} /></button>
-    			<button onClick={getHint} disabled={usedHints>1}><img src={usedHints>1 ? BulbOff : BulbOn} /></button>
-    			<button onClick={getHint} disabled={usedHints>2}><img src={usedHints>2 ? BulbOff : BulbOn} /></button>
+    		
+    		{hintsArray.map((h,index)=> (
+    			<button onClick={getHint} disabled={usedHints>index}><img src={usedHints>index ? BulbOff : BulbOn} /></button>
+    		))}
+    		
     		</div>
     	</div>
     </div>

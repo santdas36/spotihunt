@@ -6,6 +6,7 @@ import {useState, useEffect} from 'react';
 import QuestNav from './QuestNav';
 import LevelCompleted from './LevelCompleted';
 import {useStateValue} from '../StateProvider';
+import vars from '../vars';
 
 function QuestContainer() {
 	const location = useLocation();
@@ -13,7 +14,7 @@ function QuestContainer() {
 	const [contestCompleted, setContestCompleted] = useState(false);
 	
 	useEffect(() => {
-		const allCompleted = user.answers ? user.answers['l3q5'] : false;
+		const allCompleted = user.answers ? user.answers[`l${vars.levels}q${vars.quests}`] : false;
 		if (allCompleted) {
 			setContestCompleted(true);
 		}

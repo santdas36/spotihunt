@@ -10,6 +10,7 @@ import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';
 import LevelCompleted from './LevelCompleted';
+import vars from '../vars';
 
 function Quest() {
 	const {levelId, questId} = useParams();
@@ -35,7 +36,7 @@ function Quest() {
 					return true;
 				}
 			} else if (lvl > 1 && qst === 1) {
-				if (user.answers[`l${levelId - 1}q5`]) {
+				if (user.answers[`l${levelId - 1}q${vars.quests}`]) {
 					return true;
 				}
 			} else {
@@ -72,9 +73,9 @@ function Quest() {
 				}
 			}, {merge: true}).then(()=> {
 				setLoading(false);
-				if(parseInt(levelId) < 3 && parseInt(questId) === 5) {
+				if(parseInt(levelId) < vars.levels && parseInt(questId) === vars.quests) {
 					setLevelComplete(true);
-				} else if (parseInt(levelId) !== 3 && parseInt(questId) !== 5) {
+				} else if (parseInt(levelId) !== vars.levels && parseInt(questId) !== vars.quests) {
 					toast.success("That's right! Proceed to next quest...");
 				}
 				db.collection('usernames').doc(user.teamname).set({
