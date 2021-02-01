@@ -63,7 +63,7 @@ function Sidebar() {
     			(<NavLink activeClassName="active" to={`/lvl/${lvl}`}>{isLevelUnlocked(lvl+1) ? <CheckCircleRounded/> : <AccessTimeRounded />} Level {lvl}</NavLink>) :
     			(<li className="locked"><LockOutlined /> Level {lvl}</li>)
     		}
-    	})};
+    	})}
     	
     	</div>
     	<p className="sidebar__info">New levels unlock on completion of current level.</p>

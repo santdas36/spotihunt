@@ -19,7 +19,7 @@ function QuestNav() {
   return (
     <div className="questnav">
     	{questsArray.map((i) => (
-    		<NavLink activeClassName="active" to={`${currLocation}/i`}>{i}</NavLink>
+    		<NavLink activeClassName="active" to={`${currLocation}/${i}`}>{i}</NavLink>
     	))}
     </div>
   );
