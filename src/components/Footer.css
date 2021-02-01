@@ -78,7 +78,25 @@ background-color: var(--black-15) !important;
 .footer .MuiLinearProgress-bar {
 background-color: var(--green) !important;
 border-radius: 10px;
+animation: timerHue 100s ease forwards;
+animation-delay: 0;
+animation-play-state: paused;
 }
+@keyframes timerHue {
+0% {
+filter: hue-rotate(0) saturate(100%);
+}
+50% {
+filter: hue-rotate(-30deg) saturate(105%);
+}
+75% {
+filter: hue-rotate(-75deg) saturate(107%);
+}
+100% {
+filter: hue-rotate(-125deg) saturate(110%);
+}
+}
+
 .footer__clock {
 margin: 1rem;
 font-size: 0.85rem;

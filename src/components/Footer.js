@@ -20,6 +20,13 @@ function Footer() {
 		setPrevAvailable(location.pathname.split('/')[3] > 1);
 	}, [location]);
 	
+	useEffect(() => {
+		const muiProgressRoot = document.querySelector('.MuiLinearProgress-root');
+		const muiProgressBar = document.querySelector('.MuiLinearProgress-bar');
+		
+		muiProgressBar.style.animationDelay = `${-muiProgressRoot.getAttribute('aria-valuenow')}s`;
+	}, []);
+	
 	const nextQuest = () => {
 		if (currentPath.length === 4 && nextAvailable) {
 			history.push(`/lvl/${currentPath[2]}/${parseInt(currentPath[3])+1}`);
@@ -38,7 +45,7 @@ function Footer() {
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
-				<LinearProgress variant="determinate" value={parseInt((-time/1800)*100)} />
+				<LinearProgress variant="determinate" value={parseInt((-time/180)*100)} />
 				<span class="footer__clock">{~~(-time/60)}:{-time%60}<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">
