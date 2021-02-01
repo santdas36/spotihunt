@@ -72,7 +72,8 @@ flex: auto;
 .footer .MuiLinearProgress-root {
 flex: auto;
 border-radius: 10px;
-height: 10px;
+height: 8px;
+border: 1px solid var(--black-15);
 background-color: var(--black-15) !important;
 }
 .footer .MuiLinearProgress-bar {
