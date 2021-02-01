@@ -71,7 +71,7 @@ function Login({initUser, contestStarted}) {
 			<span style={{marginBottom: "5rem"}}>
 				<p style={{marginBottom: "1.5rem"}}>Contest starts in:<br/>
 				{contestStarted ?
-				<Countdown time={0} :
+				<Countdown time={0}/> :
 				<Countdown time={time}/>
 				}
 				</p>
