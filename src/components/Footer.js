@@ -22,7 +22,7 @@ function Footer() {
 	
 	useEffect(() => {
 		const muiProgressBar = document.querySelector('.MuiLinearProgress-bar');
-		muiProgressBar.style.animationDelay = `${-parseInt((-time/180)*100)}s`;
+		muiProgressBar.style.animationDelay = `${parseInt(time/18)}s`;
 	}, [time]);
 	
 	const nextQuest = () => {
@@ -43,7 +43,7 @@ function Footer() {
 				<RefreshRounded /> Reload
 			</div>
 			<div className="footer__timer">
-				<LinearProgress variant="determinate" value={parseInt((-time/180)*100)} />
+				<LinearProgress variant="determinate" value={(-time < 1800) ? parseInt(-time/18) : 100} />
 				<span class="footer__clock">{~~(-time/60)}:{-time%60}<small> /30:00</small></span>
 			</div>
 			<div className="footer__buttons">
