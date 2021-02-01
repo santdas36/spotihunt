@@ -3,5 +3,5 @@ export const vars = {
 	levels: 3,
 	quests: 5,
 	maxHints: 3,
-	startTime: '2021-02-01T22:00:00.0+05:30'
+	startTime: '2021-02-01T23:00:00.0+05:30'
 }
