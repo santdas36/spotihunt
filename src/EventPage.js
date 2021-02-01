@@ -16,7 +16,8 @@ function EventPage() {
 	const [{user, time}, dispatch] = useStateValue();
 	const [initUser, setInitUser] = useState(false);
 	const [contestStarted, setContestStarted] = useState(false);
-	const [timeup, setTimeup] = useState(true);
+	const [resultsPublished, setResultsPublished] = useState(false);
+	const [timeup, setTimeup] = useState(false);
 	const history = useHistory();
 	
 	useEffect(() => {
@@ -62,6 +63,7 @@ function EventPage() {
 	
   return (
   <AnimatePresence>
+    {(timeup && !resultsPublished) && <Redirect to="/timeup"/>}
     <Route exact path="/">
     	{(user && contestStarted) ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
@@ -87,6 +89,9 @@ function EventPage() {
     </Route>
     <Route path="/register">
     	<Register />
+    </Route>
+    <Route path="/timeup">
+    	<h1>Event completed.</h1>
     </Route>
   </AnimatePresence>);  
 }
