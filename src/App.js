@@ -34,7 +34,7 @@ function App() {
       	/>
       	<div className="videoButtons">
       		<span onClick={()=> setLoaded(true)}>Skip Intro</span>
-      		<span onClick={()=> setMuted(!muted)}>{muted ? <VolumeOffRounded/> : <VolumeUpRounded/>}</span>
+      		<span onClick={()=> setTimeout(()=> setMuted(!muted), 100)}>{muted ? <VolumeOffRounded/> : <VolumeUpRounded/>}</span>
       	</div>
       	</>
       	}</>) :
