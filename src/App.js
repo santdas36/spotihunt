@@ -9,7 +9,7 @@ import {useEffect, useState} from 'react';
 import {ToastContainer} from 'react-toastify';
 
 function App() {
-	const [loaded, setLoaded] = useState(true);
+	const [loaded, setLoaded] = useState(false);
 	const [fadeOut, setFadeOut] = useState(false);
 	const hasMinWidth = window.matchMedia('(min-width: 720px)').matches;
 	
@@ -17,7 +17,7 @@ function App() {
     <div className="app">
       {hasMinWidth ?
       	(<>{loaded ? 
-      	<EventPage /> :
+      	<Register /> :
       	<ReactPlayer
       		className={`intro__video ${fadeOut ? 'fadeOut' : ''}`}
       		url="https://github.com/santdas36/spot-i-hunt/raw/main/intro.mp4"
