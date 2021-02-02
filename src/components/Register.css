@@ -56,9 +56,8 @@ flex: 40%;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-align-self: flex-start;
-padding: 3rem;
-padding-top: 6rem;
+align-self: stretch;
+padding: 6rem 3rem;
 }
 .input__field {
 display: flex;
