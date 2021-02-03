@@ -85,6 +85,31 @@ opacity: 0;
 transition: opacity 1s;
 }
 
+.videoButtons {
+position: absolute;
+width: 100%;
+padding: 3rem;
+display: flex;
+align-items: center;
+justify-content: space-between;
+left: 0;
+bottom: 0;
+z-index: 3;
+}
+.videoButtons span {
+cursor: pointer;
+padding: 0.5rem;
+color: var(--white);
+transition: all 0.2s;
+line-height: 1;
+}
+.videoButtons span:hover {
+transform: scale(1.15);
+}
+.videoButtons span svg {
+font-size: 2rem;
+}
+
 .Toastify__toast-container {
 width: 400px
 }
