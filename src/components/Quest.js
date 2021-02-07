@@ -114,7 +114,7 @@ function Quest() {
 			width="100%"
 			height="100%"
 			playing
-			muted={muted}
+			muted={!questIsUnlocked && muted}
 			loop
       	/>
       	<span className="muteButton" onClick={()=> setTimeout(()=> setMuted(!muted), 100)}>{muted ? <VolumeOffRounded/> : <VolumeUpRounded/>}</span>
