@@ -117,12 +117,11 @@ function Quest() {
 			muted={!questIsUnlocked || muted}
 			loop
       	/>
-      	<span className="muteButton" onClick={()=> setTimeout(()=> setMuted(!muted), 100)}>{muted ? <VolumeOffRounded/> : <VolumeUpRounded/>}</span>
-      	
 		
 		{levelComplete && <LevelCompleted levelId={levelId} time='15mins'/>}
 		{questIsUnlocked ?
-			(<form className="quest__box" onSubmit={(e) => validate(e)}>
+			(<>
+			<form className="quest__box" onSubmit={(e) => validate(e)}>
 				<p className="quest__question">{levelId}/{questId}{ }{questions && questions[`l${levelId}`][`q${questId}`]}</p>
 				{(hint && !questCompleted) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint"><img src={HintIcon} /><span>{hint}</span></motion.p>)}
 				{(questCompleted && userAnswers) && (<motion.p initial={{scale: 0.75, opacity: 0}} animate={{scale: 1, opacity: 1}} variants={{type: "tween", duration: 0.3}} className="quest__hint accuracy"><b>Accuracy: </b>{(parseFloat(userAnswers[1])*100).toFixed(2)}%</motion.p>)}
@@ -131,7 +130,9 @@ function Quest() {
 					{!questCompleted && <motion.button animate={{scale: 1, opacity: 1}} exit={{scale: 0.5, opacity: 0}} disabled={loading}>{loading ? 'Processing...' : 'Submit Answer'}</motion.button>}
 				</span>
 				{questCompleted && <motion.img src={CompletedIcon} initial={{scale: 2}} animate={{scale: 1}} variants={{type: "spring", duration: 1}} className="completed" />}
-			</form>) :
+			</form>
+			<span className="muteButton" onClick={()=> setTimeout(()=> setMuted(!muted), 100)}>{muted ? <VolumeOffRounded/> : <VolumeUpRounded/>}</span>
+			</>) :
 			(<motion.div animate={{opacity: 1}} exit={{opacity: 0}} className="quest__locked">
 				<img src={QuestLockedIcon} />
 			</motion.div>)
