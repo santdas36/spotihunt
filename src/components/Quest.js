@@ -110,7 +110,7 @@ function Quest() {
 		
 		  <ReactPlayer
 			className="quest__video"
-			url="https://github.com/santdas36/spot-i-hunt/raw/main/intro.mp4"
+			url="https://github.com/santdas36/spot-i-hunt/raw/main/videoplayback.mp4"
 			width="100%"
 			height="100%"
 			playing
