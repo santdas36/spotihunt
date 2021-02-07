@@ -27,7 +27,7 @@ place-items: center;
 background: var(--white-15);
 box-shadow: 0 0.5rem 1rem var(--black-15);
 backdrop-filter: blur(10px);
-right: 3rem;
+right: 2rem;
 bottom: var(--footer);
 margin-bottom: 3rem;
 border-radius: 99px;
