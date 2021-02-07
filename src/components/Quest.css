@@ -3,8 +3,34 @@ width: 100%;
 height: 100%;
 position: relative;
 overflow: scroll;
-background: linear-gradient(to bottom, var(--black-50), var(--black-50)), url('https://picsum.photos/640/360');
-background-size: cover;
+background: linear-gradient(to bottom, var(-gray), var(--black));
+}
+.quest__video {
+width: 100%;
+height: 100%;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1;
+}
+.quest__video video {
+object-fit: cover;
+width: 100%;
+height: 100%;
+}
+.muteButton {
+width: 2.5rem;
+height: 2.5rem;
+display: grid;
+place-items: center;
+background: var(--white-15);
+box-shadow: 0 0.5rem 1rem var(--black-15);
+backdrop-filter: blur(10px);
+right: 3rem;
+bottom: var(--footer);
+margin-bottom: 3rem;
+border-radius: 99px;
+z-index: 2;
 }
 .quest__box {
 position: absolute;
@@ -18,6 +44,7 @@ left: 3rem;
 bottom: var(--footer);
 margin-bottom: 3rem;
 border-radius: 0.5rem;
+z-index: 2;
 }
 .quest__box img.completed {
 position: absolute;

@@ -11,6 +11,8 @@ import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';
 import LevelCompleted from './LevelCompleted';
 import {vars} from '../vars';
+import ReactPlayer from 'react-player';
+import {VolumeOffRounded, VolumeUpRounded} from '@material-ui/icons';
 
 function Quest() {
 	const {levelId, questId} = useParams();
@@ -22,6 +24,7 @@ function Quest() {
 	const [userAnswers, setUserAnswers] = useState(null);
 	const [levelComplete, setLevelComplete] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const [muted, setMuted] = useState(false);
 	
 	useEffect(() => {
 		
@@ -104,6 +107,19 @@ function Quest() {
 			animate={{y: 0, opacity: 1}}
 			exit={{y: "5rem", opacity: 0}}
 		>
+		
+		  <ReactPlayer
+			className="quest__video"
+			url="https://github.com/santdas36/spot-i-hunt/raw/main/intro.mp4"
+			width="100%"
+			height="100%"
+			playing
+			muted={muted}
+			loop
+      	/>
+      	<span className="muteButton" onClick={()=> setTimeout(()=> setMuted(!muted), 100)}>{muted ? <VolumeOffRounded/> : <VolumeUpRounded/>}</span>
+      	
+		
 		{levelComplete && <LevelCompleted levelId={levelId} time='15mins'/>}
 		{questIsUnlocked ?
 			(<form className="quest__box" onSubmit={(e) => validate(e)}>
