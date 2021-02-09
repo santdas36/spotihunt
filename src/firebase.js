@@ -13,5 +13,6 @@ const firebaseConfig = {
 const firebaseAdmin = firebase.initializeApp(firebaseConfig);
 const db = firebaseAdmin.firestore();
 const auth = firebase.auth();
+const analytics = firebase.analytics();
 const timestamp = firebase.firestore.FieldValue.serverTimestamp();
-export { auth, db, timestamp };
+export { auth, db, timestamp, analytics };
