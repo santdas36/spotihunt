@@ -70,12 +70,11 @@ function Login({initUser, contestStarted}) {
 				<img src={SHLogo} className="logo__sh" />
 			</span>
 			<span style={{marginBottom: "5rem"}}>
-				<p style={{marginBottom: "1.5rem"}}>Contest starts in:<br/>
+				<p style={{marginBottom: "1rem"}}>Contest starts in:</p>
 				{contestStarted ?
 				<Countdown time={0}/> :
 				<>{!user && <Countdown time={time}/>}</>
 				}
-				</p>
 				<p>You can login your team here. If you've already logged, go chill to your favorite playlist, while keeping an eye out on your inbox and our social media pages.</p>
 			</span>
 			<span style={{marginTop: 'auto'}}>
@@ -86,7 +85,7 @@ function Login({initUser, contestStarted}) {
 		</div>
 		{(user && !contestStarted) ? 
 		(<motion.div layout className="login__right">
-			<h3>Waiting for contest to begin...</h3>
+			<h3 style={{marginBottom: "1rem"}}>Waiting for contest to begin...</h3>
 			<Countdown time={time}/>
 		</motion.div>) :
 		(<motion.div layout className="login__right">
