@@ -1,7 +1,14 @@
 import './Unsupported.css';
 import UnsupportedIcon from '../assets/unsupported.png';
+import {analytics} from '../firebase';
+import {useEffect} from 'react';
 
 function Unsupported() {
+	
+	useEffect(()=> {
+		analytics.logEvent('screen_size_not_supported');
+	}, []);
+	
 	return (
 		<div className="unsupported">
 			<img src={UnsupportedIcon} />

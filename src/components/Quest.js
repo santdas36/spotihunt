@@ -4,7 +4,7 @@ import {Switch, Route, useLocation, useParams} from "react-router-dom";
 import {motion} from "framer-motion";
 import {useStateValue} from "../StateProvider";
 import HintIcon from '../assets/hint.svg';
-import {db, auth, timestamp} from '../firebase';
+import {db, auth, timestamp, analytics} from '../firebase';
 import firebase from 'firebase';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
@@ -84,6 +84,10 @@ function Quest() {
 				} else if (parseInt(levelId) !== vars.levels && parseInt(questId) !== vars.quests) {
 					toast.success("That's right! Proceed to next quest...");
 				}
+				analytics.logEvent("level_complete", {
+					level: levelId,
+					team: user.teamname,
+				});
 				db.collection('usernames').doc(user.teamname).set({
 					score: firebase.firestore.FieldValue.increment(1),
 					time: timestamp,
