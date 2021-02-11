@@ -2,6 +2,7 @@ import './EventPage.css';
 import Register from './components/Register';
 import Sidebar from './components/Sidebar';
 import QuestContainer from './components/QuestContainer';
+import EventCompleted from './EventCompleted';
 import Leaderboard from './components/Leaderboard';
 import Footer from './components/Footer';
 import {useEffect, useState} from 'react';
@@ -73,7 +74,7 @@ function EventPage() {
 	
   return (
   <AnimatePresence>
-    {(timeup && !resultsPublished) && <Redirect to="/timeup"/>}
+    {(timeup && !resultsPublished) && <Redirect to="/completed"/>}
     <Route exact path="/">
     	{(user && contestStarted) ?
 	 	   (<Redirect to="/lvl/1/1"/>) :
@@ -100,8 +101,8 @@ function EventPage() {
     <Route path="/register">
     	<Register />
     </Route>
-    <Route path="/timeup">
-    	<h1>Event completed.</h1>
+    <Route path="/completed">
+    	<EventCompleted/>
     </Route>
   </AnimatePresence>);  
 }
