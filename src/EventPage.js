@@ -2,7 +2,7 @@ import './EventPage.css';
 import Register from './components/Register';
 import Sidebar from './components/Sidebar';
 import QuestContainer from './components/QuestContainer';
-import EventCompleted from './EventCompleted';
+import EventCompleted from './components/EventCompleted';
 import Leaderboard from './components/Leaderboard';
 import Footer from './components/Footer';
 import {useEffect, useState} from 'react';
