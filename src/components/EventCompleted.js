@@ -27,10 +27,12 @@ function EventCompleted() {
 				team: user?.teamname || 'anonymous',
 				timestamp: timestamp,
 			}).then(()=> {
+				setTimeout(()=> {
 				setLoading(false);
 				setFbSent(true);
 				setFeedback('');
 				toast.success('Feedback sent!');
+				}, 1000);
 			}).catch((error) => {
 				toast.error(error.message || 'Some error occurred!');
 			});
