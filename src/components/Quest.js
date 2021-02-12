@@ -5,7 +5,7 @@ import {motion} from "framer-motion";
 import {useStateValue} from "../StateProvider";
 import HintIcon from '../assets/hint.svg';
 import {db, auth, timestamp, analytics} from '../firebase';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import CompletedIcon from '../assets/completed.png';
 import QuestLockedIcon from '../assets/locked.png';
 import {toast} from 'react-toastify';

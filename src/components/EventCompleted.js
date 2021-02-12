@@ -30,7 +30,9 @@ function EventCompleted() {
 				setFbSent(true);
 				setFeedback('');
 				toast.success('Feedback sent!');
-			})
+			}).catch((error) => {
+				toast.error(error.message || 'Some error occurred!');
+			});
 		}
 	}
 	

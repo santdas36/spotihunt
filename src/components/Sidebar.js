@@ -6,7 +6,7 @@ import BulbOn from '../assets/bulb_on.png';
 import BulbOff from '../assets/bulb_off.png';
 import {AccessTimeRounded, LockOutlined, CheckCircleRounded} from '@material-ui/icons';
 import {auth, db} from '../firebase';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import {useStateValue} from '../StateProvider';
 import {toast} from 'react-toastify';
 import {vars} from '../vars';
