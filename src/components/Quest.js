@@ -74,6 +74,7 @@ function Quest() {
 			if (data.status === 200){
 				return data.text();
 			} else {
+				console.log(data);
 				return -1;
 			}
 		});
