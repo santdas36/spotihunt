@@ -34,7 +34,6 @@ function EventPage() {
 	}, [time])
 	
 	useEffect(()=> {
-		if(timeup) {document.title = 'Time Up!'}
     	if(user && !contestStarted) {document.title = 'Waiting for contest to begin...'}
 	}, [timeup, user, contestStarted]);
 	
