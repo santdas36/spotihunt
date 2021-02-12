@@ -4,7 +4,7 @@ import {ReactComponent as TrophyIcon} from '../assets/trophy.svg';
 import {useStateValue} from '../StateProvider';
 import {auth} from '../firebase';
 import {motion} from 'framer-motion';
-import vars from '../vars';
+import {vars} from '../vars';
 
 function Leaderboard() {
 	const [{user, leaderboard}] = useStateValue();
