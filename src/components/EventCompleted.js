@@ -21,13 +21,14 @@ function EventCompleted() {
 		e.preventDefault();
 		if(feedback) {
 			setLoading(true);
-			db.collections('feedbacks').add({
+			db.collection('feedbacks').add({
 				feedback: feedback,
 				team: user?.teamname || 'anonymous',
 				timestamp: timestamp,
 			}).then(()=> {
 				setLoading(false);
 				setFbSent(true);
+				setFeedback('');
 				toast.success('Feedback sent!');
 			})
 		}
