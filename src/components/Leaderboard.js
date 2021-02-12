@@ -4,9 +4,15 @@ import {ReactComponent as TrophyIcon} from '../assets/trophy.svg';
 import {useStateValue} from '../StateProvider';
 import {auth} from '../firebase';
 import {motion} from 'framer-motion';
+import vars from '../vars';
 
 function Leaderboard() {
 	const [{user, leaderboard}] = useStateValue();
+	const [maxScore, setMaxScore] = useState(0);
+	
+	useEffect(()=> {
+		setMaxScore(parseInt(vars.quests)*parseInt(vars.levels));
+	}, []);
 	
   return (
     <div className="leaderboard">
@@ -28,7 +34,7 @@ function Leaderboard() {
     						(<span className="leaderboard__rank">{index+1}</span>)
     					}
     					<span className="leaderboard__teamname">{team.id}</span>
-    					<span className="leaderboard__score">{team.data().score}<small>/15</small></span>
+    					<span className="leaderboard__score">{team.data().score}<small>/{maxScore}</small></span>
     				</motion.li>
     			))
     		}
