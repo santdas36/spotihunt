@@ -37,7 +37,7 @@ function Sidebar() {
 		const alreadyAnswered = user.answers ? user.answers[`l${levelId}q${questId}`] : false;
 		if(!hintAvailable && !alreadyAnswered) {
 		toast.info('Getting your hint...', {autoClose: 1500})	
-		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId-1}&quest=${questId-1}&used=${usedHints}`).then((data) => {
+		fetch(`https://spotihunt-backend.vercel.app/api/get-hint?level=${levelId}&quest=${questId}&used=${usedHints}`).then((data) => {
 			if (data.status === 200) {
 			data.text().then((response) => {
 				db.collection('users').doc(auth.currentUser.uid).set({
@@ -50,7 +50,7 @@ function Sidebar() {
 				});
 			});
 			} else {
-				toast.error('Looks like something is wrong. Please try again.')
+				toast.error('Looks like something went wrong. Please try again. If the problem persists, contact us.')
 			}
 		})
 		}

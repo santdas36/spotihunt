@@ -70,11 +70,10 @@ function Quest() {
 	const validate = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		const accuracy = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId-1}&quest=${questId-1}`).then((data) => {
+		const accuracy = await fetch(`https://spotihunt-backend.vercel.app/api/validate-answer?answer=${encodeURI(answer.replace(/[^a-zA-Z0-9 ]/g, ""))}&level=${levelId}&quest=${questId}`).then((data) => {
 			if (data.status === 200){
 				return data.text();
 			} else {
-				console.log(data);
 				return -1;
 			}
 		});
