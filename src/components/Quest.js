@@ -34,7 +34,6 @@ function Quest() {
 			if (lvl === 1 && qst === 1) {
 				return true;
 			} else if (lvl >= 1 && qst > 1) {
-				console.log(user.answers[`l${levelId}q${questId - 1}`]);
 				if (user.answers[`l${levelId}q${questId - 1}`]) {
 					return true;
 				}
