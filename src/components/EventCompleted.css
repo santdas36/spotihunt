@@ -2,7 +2,7 @@
 height: 100vh;
 width: 100%;
 overflow: hidden;
-background: url(thanks.jpg);
+background: url(../assets/thanks.jpg);
 background-size: cover;
 animation: hue 15s infinite linear;
 position: relative;
