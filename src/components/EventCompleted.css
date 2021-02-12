@@ -95,3 +95,12 @@ margin: 1rem 0 1rem auto;
 background: white;
 color: var(--black);
 }
+.feedbackSent {
+padding: 1rem 1.5rem;
+margin: 1rem auto;
+border-radius: 0.5rem;
+box-shadow: 0 0 0 2px var(--white-50), 0 0.5rem 1rem var(--black-15);
+background: rgba(0,0,0,0.25);
+backdrop-filter: blur(5px);
+line-height: 1;
+}
