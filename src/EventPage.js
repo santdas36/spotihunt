@@ -54,7 +54,7 @@ function EventPage() {
 						leaderboard: data.docs,
 					});
 				});
-				db.collection('quests').doc('answers').get().then((data)=> {
+				db.collection('quests').doc('questions').get().then((data)=> {
 					dispatch({
 						type: "SET_QUESTIONS",
 						questions: data.data(),
