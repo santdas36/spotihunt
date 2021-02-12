@@ -103,7 +103,7 @@ function EventPage() {
     </Route>
     <Route path="/completed">
     	{timeup ?
-    	({resultsPublished ? <h1>Results</h1> : <EventCompleted/>})
+    	(<>{resultsPublished ? <h1>Results</h1> : <EventCompleted/>}</>)
     	: <Redirect to="/" />}
     </Route>
   </AnimatePresence>);  
