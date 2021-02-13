@@ -1,5 +1,5 @@
 export const vars = {
-	duration: 1800, // in seconds
+	duration: 3600, // in seconds
 	levels: 3,
 	quests: 5,
 	maxHints: 3,
