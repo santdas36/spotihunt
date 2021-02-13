@@ -81,7 +81,7 @@ function Quest() {
 		if (accuracy === -1) {
 			toast.error('Looks like something went wrong. Please try again. If the problem persists, contact us.');
 		}
-		else if (accuracy > 0.8) {
+		else if (accuracy > 0.85) {
 			db.collection('users').doc(auth.currentUser.uid).set({
 				answers: {
 					[`l${levelId}q${questId}`]: [answer, accuracy]
