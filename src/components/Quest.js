@@ -89,7 +89,7 @@ function Quest() {
 			}, {merge: true}).then(()=> {
 				setLoading(false);
 				if(parseInt(levelId) < vars.levels && parseInt(questId) === vars.quests) {
-					setCompletedTime(~~(vars.duration - (-time/60)));
+					setCompletedTime(~~(-time/60));
 					setLevelComplete(true);
 				} else if (parseInt(levelId) !== vars.levels && parseInt(questId) !== vars.quests) {
 					toast.success("That's right! Proceed to next quest...");
