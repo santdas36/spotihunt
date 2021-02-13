@@ -24,7 +24,7 @@ function Quest() {
 	const [userAnswers, setUserAnswers] = useState(null);
 	const [levelComplete, setLevelComplete] = useState(false);
 	const [loading, setLoading] = useState(false);
-	const [muted, setMuted] = useState(false);
+	const [muted, setMuted] = useState(parseInt(levelId) === 1 && parseInt(questId) === 1);
 	const [completedTime, setCompletedTime] = useState('');
 	
 	useEffect(() => {
