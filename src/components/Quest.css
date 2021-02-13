@@ -32,7 +32,6 @@ bottom: var(--footer);
 margin-bottom: 3rem;
 border-radius: 99px;
 z-index: 2;
-animation: muteBtnAnim 2s infinite ease-out;
 }
 @keyframes muteBtnAnim {
 0 {
@@ -55,6 +54,7 @@ transform: scale(1);
 .muteButton svg {
 font-size: 1.75rem;
 margin: 0;
+animation: muteBtnAnim 2s infinite ease-out;
 }
 .quest__box {
 position: absolute;

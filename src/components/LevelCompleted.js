@@ -20,7 +20,7 @@ function LevelCompleted({time, levelId, contestComplete}) {
     	</>) :
     	(<>
     		<h3>Level {levelId} Complete!</h3>
-			<p>You have completed Level {levelId} in {time}.<br/>Please continue to Level {parseInt(levelId) + 1}.</p>
+			<p>You have completed Level {levelId} in {time} minutes.<br/>Please continue to Level {parseInt(levelId) + 1}.</p>
 			<button onClick={()=> history.push(`/lvl/${parseInt(levelId) + 1}`)}>Go to Next Level</button>
 		</>)
 		}

@@ -16,7 +16,7 @@ import {VolumeOffRounded, VolumeUpRounded} from '@material-ui/icons';
 
 function Quest() {
 	const {levelId, questId} = useParams();
-	const [{user, questions}] = useStateValue();
+	const [{user, questions, time}] = useStateValue();
 	const [answer, setAnswer] = useState('');
 	const [hint, setHint] = useState(false);
 	const [questCompleted, setQuestCompleted] = useState(false);
@@ -25,6 +25,7 @@ function Quest() {
 	const [levelComplete, setLevelComplete] = useState(false);
 	const [loading, setLoading] = useState(false);
 	const [muted, setMuted] = useState(false);
+	const [completedTime, setCompletedTime] = useState('');
 	
 	useEffect(() => {
 		
@@ -88,6 +89,7 @@ function Quest() {
 			}, {merge: true}).then(()=> {
 				setLoading(false);
 				if(parseInt(levelId) < vars.levels && parseInt(questId) === vars.quests) {
+					setCompletedTime(~~(vars.duration - (-time/60)));
 					setLevelComplete(true);
 				} else if (parseInt(levelId) !== vars.levels && parseInt(questId) !== vars.quests) {
 					toast.success("That's right! Proceed to next quest...");
@@ -130,7 +132,7 @@ function Quest() {
 			loop
       	/>
 		
-		{levelComplete && <LevelCompleted levelId={levelId} time='15mins'/>}
+		{levelComplete && <LevelCompleted levelId={levelId} time={completedTime} />}
 		{questIsUnlocked ?
 			(<>
 			<form className="quest__box" onSubmit={(e) => validate(e)}>
