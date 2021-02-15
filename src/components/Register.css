@@ -1,165 +1,164 @@
 .register {
-width: 100%;
-height: 100%;
-overflow: scroll;
-z-index: 2;
-opacity: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 2;
+  opacity: 0;
 }
 .register.fadeIn {
-opacity: 1;
-transition: opacity 1s;
+  opacity: 1;
+  transition: opacity 1s;
 }
 .register__background {
-width: 100vw;
-height: 100vh;
-position: fixed;
-top: 0;
-left: 0;
-z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 .register__background video {
-object-fit: cover;
-width: 100%;
-height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .register__inner {
-max-width: 1280px;
-width: 100%;
-margin: 0 auto;
-display: flex;
-align-items: center;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 .logo__ck {
-height: 2.25rem;
-width: auto;
-margin-left: -0.15rem;
-display: block;
+  height: 2.25rem;
+  width: auto;
+  margin-left: -0.15rem;
+  display: block;
 }
 .logo__sh {
-height: 3rem;
-width: auto;
-margin-left: -0.25rem;
-display: block;
+  height: 3rem;
+  width: auto;
+  margin-left: -0.25rem;
+  display: block;
 }
 .register .register__right {
-margin: 3rem 3rem 3rem 0;
-padding: 3rem;
-box-shadow: 0 1rem 1rem var(--black-15);
-backdrop-filter: blur(10px);
-bottom: var(--footer);
-border-radius: 0.5rem;
-background: var(--white-15);
-flex: 0 0 60%;
+  margin: 3rem 3rem 3rem 0;
+  padding: 3rem;
+  box-shadow: 0 1rem 1rem var(--black-15);
+  backdrop-filter: blur(10px);
+  bottom: var(--footer);
+  border-radius: 0.5rem;
+  background: var(--white-15);
+  flex: 0 0 60%;
 }
 .register .register__left {
-flex: 40%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-self: stretch;
-padding: 6rem 3rem;
+  flex: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: stretch;
+  padding: 6rem 3rem;
 }
 .input__field {
-display: flex;
-flex-direction: column;
-margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
 }
 .input__field.password {
-position: relative;
+  position: relative;
 }
 .input__field.password input {
-padding-right: 3rem;
+  padding-right: 3rem;
 }
 .input__field .input__icon {
-position: absolute;
-bottom: 0.625rem;
-right: 1rem;
+  position: absolute;
+  bottom: 0.625rem;
+  right: 1rem;
 }
 .input__field label {
-margin-bottom: 0.5rem;
-font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 .input__field .info {
-display: block;
-font-size: 1rem;
-opacity: 0.75;
-margin-bottom: 0.75rem;
+  display: block;
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-bottom: 0.75rem;
 }
 .input__field .info.bottom {
-margin-top: 0.75rem;
-margin-bottom: 0;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
 }
 .register form h2 {
-margin-bottom: 2rem;
-color: var(--green);
+  margin-bottom: 2rem;
+  color: var(--green);
 }
 
 .register .form__inner {
-display: flex;
-gap: 3rem;
+  display: flex;
+  gap: 3rem;
 }
 .register button {
-padding: 0.75rem 2rem;
-margin-top: 3rem;
-margin-left: 25%;
-width: 50%;
+  padding: 0.75rem 2rem;
+  margin-top: 3rem;
+  margin-left: 25%;
+  width: 50%;
 }
-
 
 .member {
-padding: 1.5rem 1.5rem 0 1.5rem;
-border-radius: 0.5rem;
-border: 2px dashed var(--white-15);
-margin-bottom: 1.5rem;
-position: relative;
-overflow: hidden;
-max-height: 6rem;
-height: auto;
-transition: all 0.2s;
-max-width: 23rem;
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  border-radius: 0.5rem;
+  border: 2px dashed var(--white-15);
+  margin-bottom: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  max-height: 6rem;
+  height: auto;
+  transition: all 0.2s;
+  max-width: 23rem;
 }
 .member.active {
-max-height: 20rem;
+  max-height: 20rem;
 }
 .member * {
-opacity: 0;
-transition: all 0.2s;
-pointer-events: none;
+  opacity: 0;
+  transition: all 0.2s;
+  pointer-events: none;
 }
 .member::before {
-position: absolute;
-width: 100%;
-height: 100%;
-content: attr(data-text);
-background: var(--black-15);
-left: 0;
-top: 0;
-display: grid;
-place-items: center;
-transition: all 0.2s;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: attr(data-text);
+  background: var(--black-15);
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
 }
 .member.active * {
-opacity: 1;
-pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
 }
 .member.active::before {
-opacity: 0;
-pointer-events: none;
+  opacity: 0;
+  pointer-events: none;
 }
 .member h3 {
-margin-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .register__participants {
-display: flex;
-margin-bottom: 3rem;
+  display: flex;
+  margin-bottom: 3rem;
 }
 .team__logo {
-width: 5rem;
-height: 5rem;
-padding: 1rem;
-border-radius: 999px;
-background: var(--white-15);
-box-shadow: 0 0.5rem 1rem var(--black-15);
-margin-right: 1.5rem;
+  width: 5rem;
+  height: 5rem;
+  padding: 1rem;
+  border-radius: 999px;
+  background: var(--white-15);
+  box-shadow: 0 0.5rem 1rem var(--black-15);
+  margin-right: 1.5rem;
 }

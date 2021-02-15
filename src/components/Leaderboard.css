@@ -1,155 +1,156 @@
 .leaderboard {
-margin-left: auto;
-width: 25%;
-max-width: 280px;
-background: var(--black);
-padding: 2rem 1.5rem;
-box-shadow: 0 0 3rem var(--black-50);
-z-index: 2;
-padding-bottom: var(--footer);
-display: flex;
-flex-direction: column;
+  margin-left: auto;
+  width: 25%;
+  max-width: 280px;
+  background: var(--black);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 0 3rem var(--black-50);
+  z-index: 2;
+  padding-bottom: var(--footer);
+  display: flex;
+  flex-direction: column;
 }
 
 .leaderboard__header {
-display: flex;
-border-radius: 0.5rem;
-padding: 1rem;
-background: var(--white-05);
-align-items: center;
-justify-content: space-between;
-margin-bottom: 3rem;
-box-shadow: 0 0.25rem 0.25rem var(--black-15);
-position: relative;
+  display: flex;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  background: var(--white-05);
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  box-shadow: 0 0.25rem 0.25rem var(--black-15);
+  position: relative;
 }
 .header__logout {
-position: absolute;
-bottom: -2rem;
-right: 0.5rem;
-background: #e74c3c;
-transform: scale(0.95);
-box-shadow: 0 0.25rem 0.5rem var(--black-50);
-transition: all 0.2s;
-transform: translateY(-1rem);
-opacity: 0;
-pointer-events: none;
+  position: absolute;
+  bottom: -2rem;
+  right: 0.5rem;
+  background: #e74c3c;
+  transform: scale(0.95);
+  box-shadow: 0 0.25rem 0.5rem var(--black-50);
+  transition: all 0.2s;
+  transform: translateY(-1rem);
+  opacity: 0;
+  pointer-events: none;
 }
 .header__logout::before {
-position: absolute;
-content: '';
-border-bottom: #e74c3c 6px solid;
-border-left: transparent 6px solid;
-border-right: transparent 6px solid;
-top: -6px;
-right: 20px;
+  position: absolute;
+  content: "";
+  border-bottom: #e74c3c 6px solid;
+  border-left: transparent 6px solid;
+  border-right: transparent 6px solid;
+  top: -6px;
+  right: 20px;
 }
 .leaderboard__header:hover .header__logout {
-transform: translateY(0);
-opacity: 1;
-pointer-events: auto;
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
 }
 .header__name {
-line-height: 1;
-margin-right: 0.85rem;
-color: var(--white);
-text-transform: capitalize;
+  line-height: 1;
+  margin-right: 0.85rem;
+  color: var(--white);
+  text-transform: capitalize;
 }
 .header__name small {
-display: block;
-padding-bottom: 0.33rem;
-opacity: 0.5;
-font-weight: 700;
+  display: block;
+  padding-bottom: 0.33rem;
+  opacity: 0.5;
+  font-weight: 700;
 }
 .header__icon {
-width: 3rem;
-height: 3rem;
-padding: 0.5rem;
-border-radius: 99px;
-box-shadow: 0 0.25rem 0.25rem var(--black-15);
-background: var(--white-05);
-margin-left: auto;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.5rem;
+  border-radius: 99px;
+  box-shadow: 0 0.25rem 0.25rem var(--black-15);
+  background: var(--white-05);
+  margin-left: auto;
 }
 
 .leaderboard__teams {
-margin: 1rem 0 2rem 0;
-padding: 0.5rem 0;
-border-radius: 0.5rem;
-background: var(--white-05);
-box-shadow: 0 0.25rem 0.25rem var(--black-15);
-overflow: scroll;
-user-select: none;
+  margin: 1rem 0 2rem 0;
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  background: var(--white-05);
+  box-shadow: 0 0.25rem 0.25rem var(--black-15);
+  overflow: scroll;
+  user-select: none;
 }
 .leaderboard__teams li {
-display: flex;
-padding: 0.75rem 1rem;
-padding-left: 3.5rem;
-align-items: center;
-position: relative;
-overflow: hidden;
-transition: all 0.2s;
-opacity: 0.5;
-user-select: none;
+  display: flex;
+  padding: 0.75rem 1rem;
+  padding-left: 3.5rem;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+  opacity: 0.5;
+  user-select: none;
 }
 .leaderboard__teams li:nth-of-type(1),
 .leaderboard__teams li:nth-of-type(2),
 .leaderboard__teams li:nth-of-type(3) {
-opacity: 1;
+  opacity: 1;
 }
 .leaderboard__teams li * {
-transition: all 0.2s;
+  transition: all 0.2s;
 }
 .leaderboard__teams li.active {
-opacity: 1 !important;
-background: var(--white-05);
-color: var(--green);
-font-weight: 700;
+  opacity: 1 !important;
+  background: var(--white-05);
+  color: var(--green);
+  font-weight: 700;
 }
 li.active .leaderboard__rank {
-color: var(--green);
-background: var(--white-05);
+  color: var(--green);
+  background: var(--white-05);
 }
-.leaderboard__teamname, .header__name p {
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-padding-right: 1rem;
+.leaderboard__teamname,
+.header__name p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 1rem;
 }
 .leaderboard__rank {
-position: absolute;
-display: block;
-left: 0.75rem;
-font-weight: 800;
-color: var(--white-50);
-width: 2rem;
-height: 2rem;
-line-height: 1;
-display: grid;
-place-items: center;
-background: var(--gray);
-border-radius: 99px;
+  position: absolute;
+  display: block;
+  left: 0.75rem;
+  font-weight: 800;
+  color: var(--white-50);
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  background: var(--gray);
+  border-radius: 99px;
 }
 .leaderboard__score {
-margin-left: auto;
-color: var(--green);
-font-weight: 700;
+  margin-left: auto;
+  color: var(--green);
+  font-weight: 700;
 }
 .leaderboard__score small {
-font-size: 0.75rem;
-color: var(--white-50);
+  font-size: 0.75rem;
+  color: var(--white-50);
 }
 .leaderboard__teams li svg {
-width: 1.75rem;
-height: 1.75rem;
-margin-right: 1rem;
-position: absolute;
-left: 0.875rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-right: 1rem;
+  position: absolute;
+  left: 0.875rem;
 }
 .leaderboard__teams li:nth-of-type(1) svg {
-fill: var(--gold);
+  fill: var(--gold);
 }
 .leaderboard__teams li:nth-of-type(2) svg {
-fill: var(--silver);
+  fill: var(--silver);
 }
 .leaderboard__teams li:nth-of-type(3) svg {
-fill: var(--bronze);
+  fill: var(--bronze);
 }

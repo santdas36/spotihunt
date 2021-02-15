@@ -10,7 +10,7 @@ const firebaseConfig = {
   storageBucket: "spot-i-hunt.appspot.com",
   messagingSenderId: "555769904290",
   appId: "1:555769904290:web:0157604e6136295d89ebfb",
-  measurementId: "G-CTR51E85X7"
+  measurementId: "G-CTR51E85X7",
 };
 
 const firebaseAdmin = firebase.initializeApp(firebaseConfig);

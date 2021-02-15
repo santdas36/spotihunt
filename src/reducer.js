@@ -17,12 +17,12 @@ const reducer = (state, action) => {
         ...state,
         questions: action.questions,
       };
-	case "SET_LEADERBOARD":
+    case "SET_LEADERBOARD":
       return {
         ...state,
         leaderboard: action.leaderboard,
       };
-	case "SET_TIME":
+    case "SET_TIME":
       return {
         ...state,
         time: action.time,

@@ -1,130 +1,132 @@
 .app {
-display: flex;
-width: 100%;
-height: 100vh;
-background: #000;
-color: var(--white);
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  color: var(--white);
 }
 
 a {
-color: var(--white);
-text-decoration: none;
-transition: all 0.2s;
-user-select: none;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.2s;
+  user-select: none;
 }
-a.link:hover, a.link:focus {
-color: var(--green);
-text-decoration: underline;
+a.link:hover,
+a.link:focus {
+  color: var(--green);
+  text-decoration: underline;
 }
-input,  button {
-background: none;
-border: none;
-color: var(--white);
-font-family: "Nunito Sans", sans-serif;
+input,
+button {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-family: "Nunito Sans", sans-serif;
 }
- input {
-padding: 0.5rem 1rem;
-font-size: 1.15rem;
-background: var(--black-15);
-max-width: 20rem;
-font-weight: 600;
-border-radius: 0.5rem;
-box-shadow: 0 0.5rem 0.5rem var(--black-05), 0 0 0 2px var(--white-15);
-transition: all 0.2s;
+input {
+  padding: 0.5rem 1rem;
+  font-size: 1.15rem;
+  background: var(--black-15);
+  max-width: 20rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 0.5rem var(--black-05), 0 0 0 2px var(--white-15);
+  transition: all 0.2s;
 }
 input:hover {
-box-shadow: 0 0.5rem 0.5rem var(--black-15), 0 0 0 2px var(--white-50);
+  box-shadow: 0 0.5rem 0.5rem var(--black-15), 0 0 0 2px var(--white-50);
 }
- input:focus {
-box-shadow: inset 0 0 0.5rem var(--black-15), 0 0 0 2px var(--green);
-outline: none;
+input:focus {
+  box-shadow: inset 0 0 0.5rem var(--black-15), 0 0 0 2px var(--green);
+  outline: none;
 }
- input::placeholder {
-color: var(--white-50);
-font-weight: 600;
+input::placeholder {
+  color: var(--white-50);
+  font-weight: 600;
 }
- button {
-background-color: var(--green);
-margin-left: auto;
-padding: 0.625rem 1.25rem;
-border-radius: 0.5rem;
-text-transform: uppercase;
-transition: all 0.2s;
-font-weight: 700;
-white-space: nowrap;
-user-select: none;
+button {
+  background-color: var(--green);
+  margin-left: auto;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  font-weight: 700;
+  white-space: nowrap;
+  user-select: none;
 }
 button:hover {
-box-shadow: 0 0.5rem 1.25rem -0.25rem var(--black-50);
-filter: brightness(90%);
+  box-shadow: 0 0.5rem 1.25rem -0.25rem var(--black-50);
+  filter: brightness(90%);
 }
 button:focus {
-outline: none;
+  outline: none;
 }
 button:disabled {
-opacity: 0.75;
-filter: brightness(75%);
+  opacity: 0.75;
+  filter: brightness(75%);
 }
 
 .intro__video {
-opacity: 1;
-width: 100vw;
-height: 100vh;
-position: absolute;
-top: 0;
-left: 0;
-z-index: 2;
+  opacity: 1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
 }
 .intro__video video {
-object-fit: cover;
-width: 100%;
-height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .intro__video.fadeOut {
-opacity: 0;
-transition: opacity 1s;
+  opacity: 0;
+  transition: opacity 1s;
 }
 
 .videoButtons {
-position: absolute;
-width: 100%;
-padding: 3rem;
-display: flex;
-align-items: center;
-justify-content: space-between;
-left: 0;
-bottom: 0;
-z-index: 3;
+  position: absolute;
+  width: 100%;
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
 }
 .videoButtons span {
-cursor: pointer;
-padding: 0.5rem;
-color: var(--white);
-transition: all 0.2s;
-line-height: 1;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--white);
+  transition: all 0.2s;
+  line-height: 1;
 }
 .videoButtons span:hover {
-transform: scale(1.15);
+  transform: scale(1.15);
 }
 .videoButtons span svg {
-font-size: 2rem;
+  font-size: 2rem;
 }
 
 .Toastify__toast-container {
-width: 400px
+  width: 400px;
 }
 .Toastify__toast {
-border-radius: 0.5rem;
-padding: 0.75rem;
-box-shadow: 0 0.5rem 1rem -0.5rem var(--black-50);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 0.5rem 1rem -0.5rem var(--black-50);
 }
 .Toastify__toast--success {
-background: var(--green);
+  background: var(--green);
 }
 .Toastify__toast--warning {
-background: var(--gold);
+  background: var(--gold);
 }
 .Toastify__progress-bar {
-opacity: 0.25;
-height: 2px;
+  opacity: 0.25;
+  height: 2px;
 }

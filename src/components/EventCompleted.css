@@ -1,109 +1,113 @@
 .eventCompleted {
-height: 100vh;
-width: 100%;
-overflow: hidden;
-background: url(../assets/thanks.jpg);
-background-size: cover;
-animation: hue 15s infinite linear;
-position: relative;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-text-align: center;
-padding: 3rem;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: url(../assets/thanks.jpg);
+  background-size: cover;
+  animation: hue 15s infinite linear;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem;
 }
 .eventCompleted a {
-text-decoration: underline;
+  text-decoration: underline;
 }
 .eventCompleted h1 {
-font-weight: 900;
-font-size: 4rem;
-text-shadow: 0 0.5rem 1rem var(--black-15);
-line-height: 1.1;
-margin-bottom: 1rem;
-margin-top: auto;
+  font-weight: 900;
+  font-size: 4rem;
+  text-shadow: 0 0.5rem 1rem var(--black-15);
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  margin-top: auto;
 }
 .eventCompleted h2 {
-font-weight: 800;
-font-size: 1.5rem;
-text-shadow: 0 0.5rem 1rem var(--black-15);
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-shadow: 0 0.5rem 1rem var(--black-15);
 }
 .eventCompleted p {
-margin-top: auto;
-font-weight: 700;
+  margin-top: auto;
+  font-weight: 700;
 }
 .eventCompleted::before {
-position: absolute;
-z-index: 1;
-content: '';
-width: 100%;
-height: 100%;
-background: rgba(0,0,0,0.75);
-mix-blend-mode: overlay;
-pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  mix-blend-mode: overlay;
+  pointer-events: none;
 }
 @keyframes hue {
-from {filter: hue-rotate(-180deg)}
-to {filter: hue-rotate(180deg)}
+  from {
+    filter: hue-rotate(-180deg);
+  }
+  to {
+    filter: hue-rotate(180deg);
+  }
 }
 
 .eventCompleted form {
-display: flex;
-max-width: 30rem;
-width: 50%;
-flex-direction: column;
-margin: 2rem auto 1rem auto;
+  display: flex;
+  max-width: 30rem;
+  width: 50%;
+  flex-direction: column;
+  margin: 2rem auto 1rem auto;
 }
 .eventCompleted label {
-text-align: left;
-padding: 0.5rem;
-font-weight: 600;
+  text-align: left;
+  padding: 0.5rem;
+  font-weight: 600;
 }
 .eventCompleted textarea {
-border: 1rem solid transparent;
-box-shadow: 0 0 0 2px var(--white-50), 0 0.5rem 1rem var(--black-15);
-background: rgba(0,0,0,0.25);
-backdrop-filter: blur(5px);
-border-radius: 0.5rem;
-line-height: 1.5;
-font-weight: 600;
-color: white;
-resize: none;
-font-family: 'Nunito Sans';
-font-size: 1.05rem;
-transition: all 0.2s;
+  border: 1rem solid transparent;
+  box-shadow: 0 0 0 2px var(--white-50), 0 0.5rem 1rem var(--black-15);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  border-radius: 0.5rem;
+  line-height: 1.5;
+  font-weight: 600;
+  color: white;
+  resize: none;
+  font-family: "Nunito Sans";
+  font-size: 1.05rem;
+  transition: all 0.2s;
 }
 .eventCompleted textarea:hover {
-box-shadow: 0 0 0 2px rgba(255,255,255,0.7), 0 0.5rem 1rem var(--black-15);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.7), 0 0.5rem 1rem var(--black-15);
 }
 .eventCompleted textarea:focus {
-outline: none;
-box-shadow: 0 0 0 2px white, 0 2rem 3rem -1rem var(--black-50);
-background: rgba(0,0,0,0.45);
+  outline: none;
+  box-shadow: 0 0 0 2px white, 0 2rem 3rem -1rem var(--black-50);
+  background: rgba(0, 0, 0, 0.45);
 }
 .eventCompleted textarea::placeholder {
-color: white;
-opacity: 0.8;
-font-weight: 600;
-font-family: 'Nunito Sans';
+  color: white;
+  opacity: 0.8;
+  font-weight: 600;
+  font-family: "Nunito Sans";
 }
 .eventCompleted form button {
-background: rgba(255,255,255,0.5);
-font-weight: 600;
-backdrop-filter: blur(5px);
-margin: 1rem 0 1rem auto;
+  background: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  backdrop-filter: blur(5px);
+  margin: 1rem 0 1rem auto;
 }
 .eventCompleted form button:hover {
-background: white;
-color: var(--black);
+  background: white;
+  color: var(--black);
 }
 .feedbackSent {
-padding: 1rem 1.5rem;
-margin: 1rem auto;
-border-radius: 0.5rem;
-box-shadow: 0 0 0 2px var(--white-50), 0 0.5rem 1rem var(--black-15);
-background: rgba(0,0,0,0.25);
-backdrop-filter: blur(5px);
-line-height: 1;
+  padding: 1rem 1.5rem;
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0 2px var(--white-50), 0 0.5rem 1rem var(--black-15);
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(5px);
+  line-height: 1;
 }

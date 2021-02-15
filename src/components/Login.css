@@ -1,110 +1,110 @@
 .login {
-width: 100%;
-height: 100%;
-overflow: scroll;
-z-index: 2;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 2;
 }
 .login form h2 {
-margin-bottom: 2rem;
-color: var(--green);
+  margin-bottom: 2rem;
+  color: var(--green);
 }
 .login__background {
-width: 100vw;
-height: 100vh;
-position: fixed;
-top: 0;
-left: 0;
-z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 .login__background video {
-object-fit: cover;
-width: 100%;
-height: 100%;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 .login__inner {
-max-width: 1280px;
-width: 100%;
-height: 100vh;
-margin: 0 auto;
-display: flex;
+  max-width: 1280px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
 }
 .logo__ck {
-height: 2.25rem;
-width: auto;
-margin-left: -0.15rem;
-display: block;
+  height: 2.25rem;
+  width: auto;
+  margin-left: -0.15rem;
+  display: block;
 }
 .logo__sh {
-height: 3rem;
-width: auto;
-margin-left: -0.25rem;
-display: block;
+  height: 3rem;
+  width: auto;
+  margin-left: -0.25rem;
+  display: block;
 }
 .login .login__right {
-margin: auto;
-padding: 3rem;
-box-shadow: 0 1rem 1rem var(--black-15);
-backdrop-filter: blur(10px);
-bottom: var(--footer);
-border-radius: 0.5rem;
-background: var(--white-15);
-flex: 0 0 auto;
-width: fit-content;
+  margin: auto;
+  padding: 3rem;
+  box-shadow: 0 1rem 1rem var(--black-15);
+  backdrop-filter: blur(10px);
+  bottom: var(--footer);
+  border-radius: 0.5rem;
+  background: var(--white-15);
+  flex: 0 0 auto;
+  width: fit-content;
 }
 .login .login__left {
-flex: 0 0 40%;
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-padding: 6rem 3rem;
+  flex: 0 0 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 6rem 3rem;
 }
 .login .input__field {
-display: flex;
-flex-direction: column;
-margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 .input__separator {
-text-align: center;
-margin-bottom: 1rem;
+  text-align: center;
+  margin-bottom: 1rem;
 }
 .login form * {
-max-width: 20rem;
+  max-width: 20rem;
 }
 .input__field.password {
-position: relative;
+  position: relative;
 }
 .input__field.password input {
-padding-right: 3rem;
+  padding-right: 3rem;
 }
 .input__field .input__icon {
-position: absolute;
-bottom: 0.625rem;
-right: 1rem;
+  position: absolute;
+  bottom: 0.625rem;
+  right: 1rem;
 }
 .input__field label {
-margin-bottom: 0.5rem;
-font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 .input__field .info {
-display: block;
-font-size: 1rem;
-opacity: 0.75;
-margin-bottom: 0.75rem;
+  display: block;
+  font-size: 1rem;
+  opacity: 0.75;
+  margin-bottom: 0.75rem;
 }
 .input__field .info.bottom {
-margin-top: 0.75rem;
-margin-bottom: 0;
+  margin-top: 0.75rem;
+  margin-bottom: 0;
 }
 .login form h2 {
-margin-bottom: 2rem;
-color: var(--green);
+  margin-bottom: 2rem;
+  color: var(--green);
 }
 .login input:disabled {
-opacity: 0.5;
+  opacity: 0.5;
 }
 .login button {
-padding: 0.75rem 2rem;
-margin-top: 1rem;
-width: 100%;
-max-width: 20rem;
+  padding: 0.75rem 2rem;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 20rem;
 }

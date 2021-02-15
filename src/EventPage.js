@@ -1,111 +1,130 @@
-import './EventPage.css';
-import Register from './components/Register';
-import Sidebar from './components/Sidebar';
-import QuestContainer from './components/QuestContainer';
-import EventCompleted from './components/EventCompleted';
-import Leaderboard from './components/Leaderboard';
-import Footer from './components/Footer';
-import {useEffect, useState} from 'react';
+import "./EventPage.css";
+import Register from "./components/Register";
+import Sidebar from "./components/Sidebar";
+import QuestContainer from "./components/QuestContainer";
+import EventCompleted from "./components/EventCompleted";
+import Leaderboard from "./components/Leaderboard";
+import Footer from "./components/Footer";
+import { useEffect, useState } from "react";
 import { Route, Redirect, useHistory } from "react-router-dom";
-import {AnimatePresence,motion} from 'framer-motion';
-import {auth, db} from './firebase';
-import {useStateValue} from './StateProvider';
-import Login from './components/Login';
-import {toast} from 'react-toastify';
-import {vars} from './vars';
+import { AnimatePresence, motion } from "framer-motion";
+import { auth, db } from "./firebase";
+import { useStateValue } from "./StateProvider";
+import Login from "./components/Login";
+import { toast } from "react-toastify";
+import { vars } from "./vars";
 
 function EventPage() {
-	const [{user, time}, dispatch] = useStateValue();
-	const [initUser, setInitUser] = useState(false);
-	const [contestStarted, setContestStarted] = useState(false);
-	const [resultsPublished, setResultsPublished] = useState(false);
-	const [timeup, setTimeup] = useState(false);
-	const history = useHistory();
-	
-	useEffect(() => {
-		if (time<0) {
-			setContestStarted(true);
-		} else {
-			setContestStarted(false);
-		}
-		if (-time>vars.duration) {
-			setTimeup(true);
-		}
-	}, [time])
-	
-	useEffect(()=> {
-    	if(user && !contestStarted) {document.title = 'Waiting for contest to begin...'}
-	}, [timeup, user, contestStarted]);
-	
-	useEffect(()=> {
-		document.title = 'Loading...';
-		auth.onAuthStateChanged((user) => {
-			if (user) {
-				db.collection('users').doc(user.uid).onSnapshot((data) => {
-					dispatch({
-						type: "SET_USER",
-						user: data.data(),
-					});
-					setInitUser(true);
-				});
-				db.collection('usernames').orderBy('actualScore', 'desc').onSnapshot((data) => {
-					dispatch({
-						type: "SET_LEADERBOARD",
-						leaderboard: data.docs,
-					});
-				});
-				db.collection('quests').doc('questions').get().then((data)=> {
-					dispatch({
-						type: "SET_QUESTIONS",
-						questions: data.data(),
-					});
-				});
-			} else {
-				setInitUser(true);
-				dispatch({
-					type: "SET_USER",
-					user: null,
-				});
-				document.title = 'Log into your Spot-i-Hunt profile to continue...';
-			};
-		})
-	}, []);
-	
+  const [{ user, time }, dispatch] = useStateValue();
+  const [initUser, setInitUser] = useState(false);
+  const [contestStarted, setContestStarted] = useState(false);
+  const [resultsPublished, setResultsPublished] = useState(false);
+  const [timeup, setTimeup] = useState(false);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (time < 0) {
+      setContestStarted(true);
+    } else {
+      setContestStarted(false);
+    }
+    if (-time > vars.duration) {
+      setTimeup(true);
+    }
+  }, [time]);
+
+  useEffect(() => {
+    if (user && !contestStarted) {
+      document.title = "Waiting for contest to begin...";
+    }
+  }, [timeup, user, contestStarted]);
+
+  useEffect(() => {
+    document.title = "Loading...";
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        db.collection("users")
+          .doc(user.uid)
+          .onSnapshot((data) => {
+            dispatch({
+              type: "SET_USER",
+              user: data.data(),
+            });
+            setInitUser(true);
+          });
+        db.collection("usernames")
+          .orderBy("actualScore", "desc")
+          .onSnapshot((data) => {
+            dispatch({
+              type: "SET_LEADERBOARD",
+              leaderboard: data.docs,
+            });
+          });
+        db.collection("quests")
+          .doc("questions")
+          .get()
+          .then((data) => {
+            dispatch({
+              type: "SET_QUESTIONS",
+              questions: data.data(),
+            });
+          });
+      } else {
+        setInitUser(true);
+        dispatch({
+          type: "SET_USER",
+          user: null,
+        });
+        document.title = "Log into your Spot-i-Hunt profile to continue...";
+      }
+    });
+  }, []);
+
   return (
-  <AnimatePresence>
-    {(timeup && !resultsPublished) && <Redirect to="/completed"/>}
-    <Route exact path="/">
-    	{(user && contestStarted) ?
-	 	   (<Redirect to="/lvl/1/1"/>) :
-    		(<Redirect to="/login"/>)
-	    }
-    </Route>
-    <Route path="/lvl">
-    	{(user && contestStarted) ?
-    	(<motion.div className="event" initial={{opacity: 0}} animate={{opacity: 1}}>
-    		<Sidebar/>
-    		<QuestContainer/>
-    		<Leaderboard/>
-	    	<Footer/>
-    	</motion.div>) :
-    	(<Redirect to="/login"/>)
-    	}
-    </Route>
-    <Route path="/login">
-    	{(user && contestStarted) ?
-	 	   (<Redirect to="/lvl/1"/>) :
-    		(<Login initUser={initUser} contestStarted={contestStarted} />)
-	    }
-    </Route>
-    <Route path="/register">
-    	<Register />
-    </Route>
-    <Route path="/completed">
-    	{timeup ?
-    	(<>{resultsPublished ? <h1>Results</h1> : <EventCompleted/>}</>)
-    	: <Redirect to="/" />}
-    </Route>
-  </AnimatePresence>);  
+    <AnimatePresence>
+      {timeup && !resultsPublished && <Redirect to="/completed" />}
+      <Route exact path="/">
+        {user && contestStarted ? (
+          <Redirect to="/lvl/1/1" />
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </Route>
+      <Route path="/lvl">
+        {user && contestStarted ? (
+          <motion.div
+            className="event"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <Sidebar />
+            <QuestContainer />
+            <Leaderboard />
+            <Footer />
+          </motion.div>
+        ) : (
+          <Redirect to="/login" />
+        )}
+      </Route>
+      <Route path="/login">
+        {user && contestStarted ? (
+          <Redirect to="/lvl/1" />
+        ) : (
+          <Login initUser={initUser} contestStarted={contestStarted} />
+        )}
+      </Route>
+      <Route path="/register">
+        <Register />
+      </Route>
+      <Route path="/completed">
+        {timeup ? (
+          <>{resultsPublished ? <h1>Results</h1> : <EventCompleted />}</>
+        ) : (
+          <Redirect to="/" />
+        )}
+      </Route>
+    </AnimatePresence>
+  );
 }
 
 export default EventPage;
