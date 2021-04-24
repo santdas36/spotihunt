@@ -1,7 +1,7 @@
-export const vars = {
-  duration: 3600, // in seconds
-  levels: 3,
-  quests: 5,
-  maxHints: 3,
-  startTime: "2021-03-01T00:00:00.0+05:30",
-};
+import {db} from "./firebase";
+
+const vars = async () => {
+  return await db.collection('config').get().then((res) => res.docs[0].data())
+}
+
+export vars;
